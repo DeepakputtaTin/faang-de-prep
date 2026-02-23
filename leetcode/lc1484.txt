@@ -1,0 +1,4 @@
+select sell_date, count(distinct product) as num_sold,
+ String_AGG(distinct product, ',' ORDER BY product) AS products
+ from Activities
+ group by sell_date 
