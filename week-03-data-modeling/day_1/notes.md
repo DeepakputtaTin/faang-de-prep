@@ -165,3 +165,12 @@ Redesign into Star Schema:
 - SCD Type 2 — History Tracking (most important)
 - SCD Type 3 — Previous Value Column
 - Lab: Implement SCD Type 2 MERGE logic in PostgreSQL
+
+
+## Bridge Tables
+- Solves Many-to-Many relationships in dimensional modeling
+- Sits between fact and dimension tables
+- 3 signs you need one:
+  1. One fact row → multiple dimension values
+  2. FK constraint won't allow multiple values in one column
+  3. You're tempted to use comma-separated values in a column 🚩
