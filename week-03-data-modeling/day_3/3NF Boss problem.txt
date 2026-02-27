@@ -1,0 +1,18 @@
+What are ALL the 3NF violations in this table?
+What does your normalized schema look like? (table names + columns)
+What anomaly would occur if a driver changes their phone number?
+What anomaly would occur if you delete the last trip in a city?
+
+trip_id | driver_name | driver_phone | car_model | car_year | 
+passenger_name | passenger_email | city_name | city_country | 
+surge_multiplier | fare | trip_date
+
+1) driver_name depends on driver_phone and it depends on trip_id,  car_year depends on car_model and it depends on trip_id to check what car was used, passenger_name depends on paasenger_email and depends in trip_id, city_name depends on  city_country and it depends on trip_id.
+
+2)trip_details --> trip_id, driver_id, car_id, passenger_email,  city_id, surge_multiplier, fare, trip_date
+	driver --> driver_id, driver_email, driver_name, driver_phone
+	car --> car_id, car_model, car_year
+	passenger_id --> passenger_id, passenger_email, passenger_email
+	city --> city_id, city_name, city_country
+3) if a driver changes a phone number, we have to perform all the updation process throught the 500M dataset which will be effecting cost
+4) on what basis should we delete the last trip, what if 2 timestamps colliding
