@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAANG DE Forge — 13-Week Data Engineering Prep</title>
+    <meta name="description"
+        content="A structured 13-week FAANG Data Engineering interview preparation curriculum with expert-level content covering SQL, Spark, Kafka, Airflow, System Design, and Behavioral rounds.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css?v=12">
+    <link rel="stylesheet" href="chatbot.css?v=14">
+</head>
+
+<body>
+    <!-- Animated background orbs -->
+    <div class="bg-orbs" aria-hidden="true">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <div class="app-shell">
+        <!-- ── Sidebar ─────────────────────────────── -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-inner">
+                <!-- Logo -->
+                <div class="sidebar-logo">
+                    <div class="logo-mark">
+                        <i class="fa-solid fa-database"></i>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-title">DE Forge</span>
+                        <span class="logo-sub">FAANG Prep</span>
+                    </div>
+                </div>
+
+                <!-- Progress Ring -->
+                <div class="progress-pod">
+                    <div class="ring-wrap">
+                        <svg class="ring-svg" viewBox="0 0 80 80" aria-hidden="true">
+                            <circle class="ring-track" cx="40" cy="40" r="32" />
+                            <circle class="ring-fill" id="ring-fill" cx="40" cy="40" r="32" />
+                        </svg>
+                        <div class="ring-center">
+                            <span class="ring-pct" id="ring-pct">0%</span>
+                            <span class="ring-label">done</span>
+                        </div>
+                    </div>
+                    <div class="progress-stats">
+                        <div class="stat">
+                            <span class="stat-val" id="completed-count">0</span>
+                            <span class="stat-lbl">Completed</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat">
+                            <span class="stat-val">91</span>
+                            <span class="stat-lbl">Total Days</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Week Navigation -->
+                <div class="nav-label">CURRICULUM</div>
+                <nav class="week-nav" id="week-nav" aria-label="Week navigation">
+                    <!-- Dynamically populated -->
+                </nav>
+            </div>
+        </aside>
+
+        <!-- ── Main ───────────────────────────────── -->
+        <main class="main" id="main">
+            <!-- Top bar -->
+            <header class="topbar" id="topbar">
+                <div class="topbar-left">
+                    <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <div class="breadcrumb">
+                        <span id="crumb-week">FAANG DE Forge</span>
+                        <i class="fa-solid fa-chevron-right crumb-sep" id="crumb-sep" style="display:none"></i>
+                        <span id="crumb-day" style="display:none"></span>
+                    </div>
+                </div>
+                <div class="topbar-right">
+                    <div class="streak-pill" id="streak-pill">
+                        <i class="fa-solid fa-fire"></i>
+                        <span id="streak-count">0</span> day streak
+                    </div>
+                    <button class="theme-btn" id="theme-toggle" aria-label="Toggle theme">
+                        <i class="fa-solid fa-moon"></i>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Scroll area -->
+            <div class="content-scroll" id="content-scroll">
+                <!-- Empty / Welcome state -->
+                <div id="welcome-state" class="welcome-state">
+                    <div class="welcome-hero">
+                        <div class="hero-badge">🚀 13-Week Program</div>
+                        <h1 class="hero-title">FAANG Data Engineering<br><span class="grad-text">Prep Platform</span>
+                        </h1>
+                        <p class="hero-desc">91 days of expert-level study plans across SQL, Python, Spark, Kafka,
+                            Airflow, System Design, and Behavioral rounds. Built for senior DE roles at Meta, Amazon,
+                            Google, and more.</p>
+                        <div class="hero-chips">
+                            <span class="chip"><i class="fa-solid fa-database"></i> SQL Mastery</span>
+                            <span class="chip"><i class="fa-brands fa-python"></i> Python Systems</span>
+                            <span class="chip"><i class="fa-solid fa-bolt"></i> Spark Internals</span>
+                            <span class="chip"><i class="fa-solid fa-layer-group"></i> System Design</span>
+                            <span class="chip"><i class="fa-solid fa-star"></i> Behavioral</span>
+                        </div>
+                        <div class="hero-cta">
+                            <button class="btn-primary" id="start-btn">
+                                Start Week 1 <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="week-grid" id="week-overview-grid">
+                        <!-- Dynamically populated week overview cards -->
+                    </div>
+                </div>
+
+                <!-- Day content area -->
+                <div id="days-container" class="days-container" style="display:none">
+                    <!-- Injected by renderDay() -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="data.js?v=11"></script>
+    <script src="app.js?v=12"></script>
+    <script src="chatbot.js?v=14"></script>
+</body>
+
+</html>

@@ -1,0 +1,1166 @@
+{
+    "Full 13-Week Plan": [
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": "Week",
+            "Unnamed: 1": "Day",
+            "Unnamed: 2": "Phase",
+            "Unnamed: 3": "Theme",
+            "Unnamed: 4": "Specific Topic",
+            "Unnamed: 5": "Action Item / Deliverable",
+            "Unnamed: 6": "LeetCode Problem",
+            "Unnamed: 7": "Status",
+            "Unnamed: 8": "Notes"
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 1,
+            "Unnamed: 1": "Monday",
+            "Unnamed: 2": "1. Filter (Coding)",
+            "Unnamed: 3": "SQL Analytics",
+            "Unnamed: 4": "Window Function Basics",
+            "Unnamed: 5": "Solve LeetCode 178 (Rank Scores) using DENSE_RANK",
+            "Unnamed: 6": "LC 178 \u2013 Rank Scores",
+            "Unnamed: 7": "Done",
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 1,
+            "Unnamed: 1": "Tuesday",
+            "Unnamed: 2": "1. Filter (Coding)",
+            "Unnamed: 3": "SQL Analytics",
+            "Unnamed: 4": "Rolling Windows",
+            "Unnamed: 5": "Solve LeetCode 1321 (Restaurant Growth) using ROWS BETWEEN",
+            "Unnamed: 6": "LC 1321 \u2013 Restaurant Growth",
+            "Unnamed: 7": "Done",
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 1,
+            "Unnamed: 1": "Wednesday",
+            "Unnamed: 2": "1. Filter (Coding)",
+            "Unnamed: 3": "SQL Analytics",
+            "Unnamed: 4": "Lead/Lag Pattern",
+            "Unnamed: 5": "Solve LeetCode 180 (Consecutive Numbers)",
+            "Unnamed: 6": "LC 180 \u2013 Consecutive Numbers",
+            "Unnamed: 7": "Done",
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 1,
+            "Unnamed: 1": "Thursday",
+            "Unnamed: 2": "1. Filter (Coding)",
+            "Unnamed: 3": "SQL Analytics",
+            "Unnamed: 4": "Gaps & Islands (Logic)",
+            "Unnamed: 5": "Write query to find users with 3+ consecutive login days",
+            "Unnamed: 6": "LC 601 \u2013 Human Traffic (preview)",
+            "Unnamed: 7": "Done",
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 1,
+            "Unnamed: 1": "Friday",
+            "Unnamed: 2": "1. Filter (Coding)",
+            "Unnamed: 3": "SQL Analytics",
+            "Unnamed: 4": "Gaps & Islands (Complex)",
+            "Unnamed: 5": "Solve LeetCode 601 (Human Traffic of Stadium)",
+            "Unnamed: 6": "LC 601 \u2013 Human Traffic of Stadium",
+            "Unnamed: 7": "Done",
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 1,
+            "Unnamed: 1": "Saturday",
+            "Unnamed: 2": "1. Filter (Coding)",
+            "Unnamed: 3": "SQL Analytics",
+            "Unnamed: 4": "Mock Assessment",
+            "Unnamed: 5": "Pick 3 Medium SQL problems (45 mins timer)",
+            "Unnamed: 6": "LC 1174 \u2013 Immediate Food Delivery II",
+            "Unnamed: 7": "Done",
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 1,
+            "Unnamed: 1": "Sunday",
+            "Unnamed: 2": "1. Filter (Coding)",
+            "Unnamed: 3": "Rest",
+            "Unnamed: 4": "Rest & Review",
+            "Unnamed: 5": "Review notes on Window Functions",
+            "Unnamed: 6": "\u2014",
+            "Unnamed: 7": "Done",
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 2,
+            "Unnamed: 1": "Monday",
+            "Unnamed: 2": "1. Filter (Coding)",
+            "Unnamed: 3": "SQL Optimization",
+            "Unnamed: 4": "Recursive CTEs",
+            "Unnamed: 5": "Solve LeetCode 1270 (All People Report to Manager)",
+            "Unnamed: 6": "LC 1270 \u2013 All People Report to Manager",
+            "Unnamed: 7": "Done",
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 2,
+            "Unnamed: 1": "Tuesday",
+            "Unnamed: 2": "1. Filter (Coding)",
+            "Unnamed: 3": "SQL Optimization",
+            "Unnamed: 4": "Execution Plans",
+            "Unnamed: 5": "Watch Postgres Explain Visualized & read EXPLAIN output",
+            "Unnamed: 6": "LC 570 \u2013 Managers with 5 Direct Reports",
+            "Unnamed: 7": "Done",
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 2,
+            "Unnamed: 1": "Wednesday",
+            "Unnamed: 2": "1. Filter (Coding)",
+            "Unnamed: 3": "SQL Optimization",
+            "Unnamed: 4": "Indexing Strategies",
+            "Unnamed: 5": "Explain B-Tree vs Hash Index on paper",
+            "Unnamed: 6": "LC 184 \u2013 Dept Highest Salary",
+            "Unnamed: 7": "Done",
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 2,
+            "Unnamed: 1": "Thursday",
+            "Unnamed: 2": "1. Filter (Coding)",
+            "Unnamed: 3": "SQL Optimization",
+            "Unnamed: 4": "Joins Deep Dive",
+            "Unnamed: 5": "Draw diagram of Broadcast vs Shuffle Hash Join",
+            "Unnamed: 6": "LC 185 \u2013 Dept Top 3 Salaries",
+            "Unnamed: 7": "Done",
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 2,
+            "Unnamed: 1": "Friday",
+            "Unnamed: 2": "1. Filter (Coding)",
+            "Unnamed: 3": "SQL Optimization",
+            "Unnamed: 4": "NULL Handling",
+            "Unnamed: 5": "Fix a query where NULL=NULL causes errors (IS DISTINCT FROM)",
+            "Unnamed: 6": "LC 183 \u2013 Customers Who Never Order",
+            "Unnamed: 7": "Done",
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 2,
+            "Unnamed: 1": "Saturday",
+            "Unnamed: 2": "1. Filter (Coding)",
+            "Unnamed: 3": "SQL Optimization",
+            "Unnamed: 4": "Mock Assessment",
+            "Unnamed: 5": "2 Hard SQL Problems (60 mins timer)",
+            "Unnamed: 6": "LC 262 \u2013 Trips and Users",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 2,
+            "Unnamed: 1": "Sunday",
+            "Unnamed: 2": "1. Filter (Coding)",
+            "Unnamed: 3": "Rest",
+            "Unnamed: 4": "Rest & Review",
+            "Unnamed: 5": "Review Recursive CTE syntax",
+            "Unnamed: 6": "\u2014",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 3,
+            "Unnamed: 1": "Monday",
+            "Unnamed: 2": "2. Build (Architecture)",
+            "Unnamed: 3": "Data Modeling",
+            "Unnamed: 4": "Dimensional Modeling Basics",
+            "Unnamed: 5": "Draw Star Schema vs Snowflake Schema for Retail",
+            "Unnamed: 6": "LC 1484 \u2013 Group Sold Products by Date",
+            "Unnamed: 7": "Done",
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 3,
+            "Unnamed: 1": "Tuesday",
+            "Unnamed: 2": "2. Build (Architecture)",
+            "Unnamed: 3": "Data Modeling",
+            "Unnamed: 4": "SCD Types (1, 2, 3)",
+            "Unnamed: 5": "Implement SCD Type 2 Merge logic in SQL",
+            "Unnamed: 6": "LC 1193 - Monthly Transactions 1",
+            "Unnamed: 7": "Done",
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 3,
+            "Unnamed: 1": "Wednesday",
+            "Unnamed: 2": "2. Build (Architecture)",
+            "Unnamed: 3": "Data Modeling",
+            "Unnamed: 4": "Normalization",
+            "Unnamed: 5": "Normalize a messy Excel sheet to 3NF",
+            "Unnamed: 6": "LC 242 \u2013 Valid Anagram",
+            "Unnamed: 7": "done",
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 3,
+            "Unnamed: 1": "Thursday",
+            "Unnamed: 2": "2. Build (Architecture)",
+            "Unnamed: 3": "Data Modeling",
+            "Unnamed: 4": "NoSQL Modeling",
+            "Unnamed: 5": "Compare Wide-Column (Cassandra) vs Relational",
+            "Unnamed: 6": "LC 49 \u2013 Group Anagrams",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 3,
+            "Unnamed: 1": "Friday",
+            "Unnamed: 2": "2. Build (Architecture)",
+            "Unnamed: 3": "Data Modeling",
+            "Unnamed: 4": "Case Study: Social Media",
+            "Unnamed: 5": "Design Schema for Instagram Likes & Comments",
+            "Unnamed: 6": "LC 128 \u2013 Longest Consecutive Sequence",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 3,
+            "Unnamed: 1": "Saturday",
+            "Unnamed: 2": "2. Build (Architecture)",
+            "Unnamed: 3": "Data Modeling",
+            "Unnamed: 4": "Mock Design Round",
+            "Unnamed: 5": "Whiteboard Session: Design Uber Eats Schema",
+            "Unnamed: 6": "LC 347 \u2013 Top K Frequent Elements",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 3,
+            "Unnamed: 1": "Sunday",
+            "Unnamed: 2": "2. Build (Architecture)",
+            "Unnamed: 3": "Rest",
+            "Unnamed: 4": "Rest & Review",
+            "Unnamed: 5": "Review Data Modeling concepts + push labs to GitHub",
+            "Unnamed: 6": "\u2014",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 4,
+            "Unnamed: 1": "Monday",
+            "Unnamed: 2": "1. Filter (Coding)",
+            "Unnamed: 3": "Python Logic",
+            "Unnamed: 4": "Hash Maps (Dicts)",
+            "Unnamed: 5": "Solve LeetCode 1 (Two Sum) in O(N) time",
+            "Unnamed: 6": "LC 1 \u2013 Two Sum",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 4,
+            "Unnamed: 1": "Tuesday",
+            "Unnamed: 2": "1. Filter (Coding)",
+            "Unnamed: 3": "Python Logic",
+            "Unnamed: 4": "Sets & Deduplication",
+            "Unnamed: 5": "Solve LeetCode 217 (Contains Duplicate)",
+            "Unnamed: 6": "LC 349 \u2013 Intersection of Two Arrays",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 4,
+            "Unnamed: 1": "Wednesday",
+            "Unnamed: 2": "1. Filter (Coding)",
+            "Unnamed: 3": "Python Logic",
+            "Unnamed: 4": "Sliding Window",
+            "Unnamed: 5": "Solve LeetCode 121 (Best Time to Buy Stock)",
+            "Unnamed: 6": "LC 3 \u2013 Longest Substring Without Repeat",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 4,
+            "Unnamed: 1": "Thursday",
+            "Unnamed: 2": "1. Filter (Coding)",
+            "Unnamed: 3": "Python Logic",
+            "Unnamed: 4": "Heaps / Priority Queues",
+            "Unnamed: 5": "Solve LeetCode 347 (Top K Frequent Elements)",
+            "Unnamed: 6": "LC 215 \u2013 Kth Largest Element",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 4,
+            "Unnamed: 1": "Friday",
+            "Unnamed: 2": "1. Filter (Coding)",
+            "Unnamed: 3": "Python Logic",
+            "Unnamed: 4": "String Manipulation",
+            "Unnamed: 5": "Solve LeetCode 49 (Group Anagrams) without Regex",
+            "Unnamed: 6": "LC 438 \u2013 Find All Anagrams in String",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 4,
+            "Unnamed: 1": "Saturday",
+            "Unnamed: 2": "1. Filter (Coding)",
+            "Unnamed: 3": "Python Logic",
+            "Unnamed: 4": "Mock Assessment",
+            "Unnamed: 5": "3 Python Mediums (45 mins timer)",
+            "Unnamed: 6": "LC 560 \u2013 Subarray Sum Equals K",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 4,
+            "Unnamed: 1": "Sunday",
+            "Unnamed: 2": "1. Filter (Coding)",
+            "Unnamed: 3": "Rest",
+            "Unnamed: 4": "Rest & Review",
+            "Unnamed: 5": "Review Big-O Notation for Dicts vs Lists",
+            "Unnamed: 6": "\u2014",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 5,
+            "Unnamed: 1": "Monday",
+            "Unnamed: 2": "1. Filter (Coding)",
+            "Unnamed: 3": "Python Systems",
+            "Unnamed: 4": "Generators",
+            "Unnamed: 5": "Write read_massive_file(filename) using yield",
+            "Unnamed: 6": "LC 200 \u2013 Number of Islands",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 5,
+            "Unnamed: 1": "Tuesday",
+            "Unnamed: 2": "1. Filter (Coding)",
+            "Unnamed: 3": "Python Systems",
+            "Unnamed: 4": "Recursive Parsing",
+            "Unnamed: 5": "Write script to flatten 5-level deep JSON object",
+            "Unnamed: 6": "LC 236 \u2013 LCA of Binary Tree",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 5,
+            "Unnamed: 1": "Wednesday",
+            "Unnamed: 2": "1. Filter (Coding)",
+            "Unnamed: 3": "Python Systems",
+            "Unnamed: 4": "File I/O",
+            "Unnamed: 5": "Convert 100k row CSV to JSON Lines without Pandas",
+            "Unnamed: 6": "LC 206 \u2013 Reverse Linked List",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 5,
+            "Unnamed: 1": "Thursday",
+            "Unnamed: 2": "1. Filter (Coding)",
+            "Unnamed: 3": "Python Systems",
+            "Unnamed: 4": "Memory Management",
+            "Unnamed: 5": "Use sys.getsizeof() to compare List vs Generator",
+            "Unnamed: 6": "LC 141 \u2013 Linked List Cycle",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 5,
+            "Unnamed: 1": "Friday",
+            "Unnamed: 2": "1. Filter (Coding)",
+            "Unnamed: 3": "Python Systems",
+            "Unnamed: 4": "Decorators",
+            "Unnamed: 5": "Write a @retry decorator for flaky API calls",
+            "Unnamed: 6": "LC 53 \u2013 Maximum Subarray",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 5,
+            "Unnamed: 1": "Saturday",
+            "Unnamed: 2": "1. Filter (Coding)",
+            "Unnamed: 3": "Python Systems",
+            "Unnamed: 4": "Mock Assessment + Mock #1",
+            "Unnamed: 5": "1 System Scripting Task + Full Mock Interview Loop #1",
+            "Unnamed: 6": "LC 56 \u2013 Merge Intervals",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": "NEW: Mock Interview #1 added"
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 5,
+            "Unnamed: 1": "Sunday",
+            "Unnamed: 2": "1. Filter (Coding)",
+            "Unnamed: 3": "Rest",
+            "Unnamed: 4": "Rest & Review",
+            "Unnamed: 5": "Review Python memory management",
+            "Unnamed: 6": "\u2014",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 6,
+            "Unnamed: 1": "Monday",
+            "Unnamed: 2": "2. Platform (Internals)",
+            "Unnamed: 3": "Storage Internals",
+            "Unnamed: 4": "Row vs Columnar",
+            "Unnamed: 5": "Draw layout of Parquet (Header-RowGroups-Footer)",
+            "Unnamed: 6": "LC 238 \u2013 Product of Array Except Self",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 6,
+            "Unnamed: 1": "Tuesday",
+            "Unnamed: 2": "2. Platform (Internals)",
+            "Unnamed: 3": "Storage Internals",
+            "Unnamed: 4": "Compression",
+            "Unnamed: 5": "Research Splittability of GZIP vs Snappy",
+            "Unnamed: 6": "LC 271 \u2013 Encode & Decode Strings",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 6,
+            "Unnamed: 1": "Wednesday",
+            "Unnamed: 2": "2. Platform (Internals)",
+            "Unnamed: 3": "Storage Internals",
+            "Unnamed: 4": "S3 Partitioning",
+            "Unnamed: 5": "Calculate file count for 10 years of hourly data",
+            "Unnamed: 6": "LC 146 \u2013 LRU Cache",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 6,
+            "Unnamed: 1": "Thursday",
+            "Unnamed: 2": "2. Platform (Internals)",
+            "Unnamed: 3": "Storage Internals",
+            "Unnamed: 4": "Small File Problem",
+            "Unnamed: 5": "Write logic to compact small files in Spark",
+            "Unnamed: 6": "LC 295 \u2013 Find Median from Data Stream",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 6,
+            "Unnamed: 1": "Friday",
+            "Unnamed: 2": "2. Platform (Internals)",
+            "Unnamed: 3": "Storage Internals",
+            "Unnamed: 4": "Data Formats",
+            "Unnamed: 5": "Explain Avro (Kafka) vs Parquet (Lake) use cases",
+            "Unnamed: 6": "LC 981 \u2013 Time Based Key-Value Store",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 6,
+            "Unnamed: 1": "Saturday",
+            "Unnamed: 2": "2. Platform (Internals)",
+            "Unnamed: 3": "Storage Internals",
+            "Unnamed: 4": "Delta Lake / Iceberg",
+            "Unnamed: 5": "Read Delta Lake vs Iceberg internals; draw architecture",
+            "Unnamed: 6": "LC 380 \u2013 Insert Delete GetRandom O(1)",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": "NEW: Replaces Netflix talk -- OSS table formats"
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 6,
+            "Unnamed: 1": "Sunday",
+            "Unnamed: 2": "2. Platform (Internals)",
+            "Unnamed: 3": "Rest",
+            "Unnamed: 4": "Rest & Review",
+            "Unnamed: 5": "Review Storage Classes in S3",
+            "Unnamed: 6": "\u2014",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 7,
+            "Unnamed: 1": "Monday",
+            "Unnamed: 2": "2. Platform (Internals)",
+            "Unnamed: 3": "Spark Internals",
+            "Unnamed: 4": "Logical Plan",
+            "Unnamed: 5": "Explain Predicate Pushdown with example",
+            "Unnamed: 6": "LC 322 \u2013 Coin Change",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 7,
+            "Unnamed: 1": "Tuesday",
+            "Unnamed: 2": "2. Platform (Internals)",
+            "Unnamed: 3": "Spark Internals",
+            "Unnamed: 4": "The Shuffle",
+            "Unnamed: 5": "Draw what happens during groupByKey",
+            "Unnamed: 6": "LC 139 \u2013 Word Break",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 7,
+            "Unnamed: 1": "Wednesday",
+            "Unnamed: 2": "2. Platform (Internals)",
+            "Unnamed: 3": "Spark Internals",
+            "Unnamed: 4": "Partitions vs Tasks",
+            "Unnamed: 5": "Debug Why 200 partitions for 10MB data?",
+            "Unnamed: 6": "LC 300 \u2013 Longest Increasing Subsequence",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 7,
+            "Unnamed: 1": "Thursday",
+            "Unnamed: 2": "2. Platform (Internals)",
+            "Unnamed: 3": "Spark Internals",
+            "Unnamed: 4": "Broadcasting",
+            "Unnamed: 5": "Explain Broadcast Hash Join & when it fails",
+            "Unnamed: 6": "LC 416 \u2013 Partition Equal Subset Sum",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 7,
+            "Unnamed: 1": "Friday",
+            "Unnamed: 2": "2. Platform (Internals)",
+            "Unnamed: 3": "Spark Internals",
+            "Unnamed: 4": "Memory Management",
+            "Unnamed: 5": "Explain OOM: Java Heap Space vs Overhead",
+            "Unnamed: 6": "LC 91 \u2013 Decode Ways",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 7,
+            "Unnamed: 1": "Saturday",
+            "Unnamed: 2": "2. Platform (Internals)",
+            "Unnamed: 3": "Spark Internals",
+            "Unnamed: 4": "Lab Day",
+            "Unnamed: 5": "Crash a Databricks notebook on purpose to see logs",
+            "Unnamed: 6": "LC 79 \u2013 Word Search",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 7,
+            "Unnamed: 1": "Sunday",
+            "Unnamed: 2": "2. Platform (Internals)",
+            "Unnamed: 3": "Rest",
+            "Unnamed: 4": "Rest & Review",
+            "Unnamed: 5": "Review Spark UI tabs (Stages/Tasks)",
+            "Unnamed: 6": "\u2014",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 8,
+            "Unnamed: 1": "Monday",
+            "Unnamed: 2": "2. Platform (Internals)",
+            "Unnamed: 3": "Data Modeling",
+            "Unnamed: 4": "SCD Type 2",
+            "Unnamed: 5": "Write MERGE logic for History Tracking on whiteboard",
+            "Unnamed: 6": "LC 731 \u2013 My Calendar II",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 8,
+            "Unnamed: 1": "Tuesday",
+            "Unnamed: 2": "2. Platform (Internals)",
+            "Unnamed: 3": "Data Modeling",
+            "Unnamed: 4": "Fact Tables",
+            "Unnamed: 5": "Design Fact table for User Clicks (Granularity check)",
+            "Unnamed: 6": "LC 1094 \u2013 Car Pooling",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 8,
+            "Unnamed: 1": "Wednesday",
+            "Unnamed: 2": "2. Platform (Internals)",
+            "Unnamed: 3": "Data Modeling",
+            "Unnamed: 4": "Dimension Tables",
+            "Unnamed: 5": "Normalize table to 3NF then Denormalize to Star",
+            "Unnamed: 6": "LC 252 \u2013 Meeting Rooms",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 8,
+            "Unnamed: 1": "Thursday",
+            "Unnamed: 2": "2. Platform (Internals)",
+            "Unnamed: 3": "Data Modeling",
+            "Unnamed: 4": "Handling Skew",
+            "Unnamed: 5": "Explain Salting technique for hot keys",
+            "Unnamed: 6": "LC 253 \u2013 Meeting Rooms II",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 8,
+            "Unnamed: 1": "Friday",
+            "Unnamed: 2": "2. Platform (Internals)",
+            "Unnamed: 3": "Data Modeling",
+            "Unnamed: 4": "Surrogate Keys",
+            "Unnamed: 5": "List Pros/Cons of UUID vs Integer Sequence",
+            "Unnamed: 6": "LC 57 \u2013 Insert Interval",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 8,
+            "Unnamed: 1": "Saturday",
+            "Unnamed: 2": "2. Platform (Internals)",
+            "Unnamed: 3": "Data Modeling + Cloud",
+            "Unnamed: 4": "Mock Design + Cloud DE",
+            "Unnamed: 5": "Design Amazon Order History Schema + study AWS Glue/EMR & GCP Dataflow",
+            "Unnamed: 6": "LC 435 \u2013 Non-overlapping Intervals",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": "NEW: Cloud DE services added"
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 8,
+            "Unnamed: 1": "Sunday",
+            "Unnamed: 2": "2. Platform (Internals)",
+            "Unnamed: 3": "Rest",
+            "Unnamed: 4": "Rest & Review",
+            "Unnamed: 5": "Review Kimball Dimensional Modeling",
+            "Unnamed: 6": "\u2014",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 9,
+            "Unnamed: 1": "Monday",
+            "Unnamed: 2": "2. Platform (Internals)",
+            "Unnamed: 3": "Quality & Contracts",
+            "Unnamed: 4": "Data Quality",
+            "Unnamed: 5": "Write 3 SQL tests (Nulls/Volume/Distribution)",
+            "Unnamed: 6": "LC 1667 \u2013 Fix Names in a Table",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 9,
+            "Unnamed: 1": "Tuesday",
+            "Unnamed: 2": "2. Platform (Internals)",
+            "Unnamed: 3": "Quality & Contracts",
+            "Unnamed: 4": "Idempotency",
+            "Unnamed: 5": "Explain how to make a pipeline safe to re-run",
+            "Unnamed: 6": "LC 1527 \u2013 Patients With Condition",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 9,
+            "Unnamed: 1": "Wednesday",
+            "Unnamed: 2": "2. Platform (Internals)",
+            "Unnamed: 3": "Quality & Contracts",
+            "Unnamed: 4": "Schema Evolution",
+            "Unnamed: 5": "Explain Backward Compatibility in Avro",
+            "Unnamed: 6": "LC 1484 \u2013 Group Sold Products by Date",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 9,
+            "Unnamed: 1": "Thursday",
+            "Unnamed: 2": "2. Platform (Internals)",
+            "Unnamed: 3": "Quality & Contracts",
+            "Unnamed: 4": "Unit Testing",
+            "Unnamed: 5": "Write a pytest unit test for PySpark function",
+            "Unnamed: 6": "LC 1693 \u2013 Daily Leads and Partners",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 9,
+            "Unnamed: 1": "Friday",
+            "Unnamed: 2": "2. Platform (Internals)",
+            "Unnamed: 3": "Quality & Contracts",
+            "Unnamed: 4": "Governance",
+            "Unnamed: 5": "Design strategy to hash/mask PII (Email/SSN)",
+            "Unnamed: 6": "LC 1303 \u2013 Find the Team Size",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 9,
+            "Unnamed: 1": "Saturday",
+            "Unnamed: 2": "2. Platform (Internals)",
+            "Unnamed: 3": "Quality & Contracts + dbt",
+            "Unnamed: 4": "dbt Intro + Mock #2",
+            "Unnamed: 5": "Install dbt-core, run first model + Full Mock Interview Loop #2",
+            "Unnamed: 6": "LC 1045 \u2013 Customers Who Bought All Products",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": "NEW: dbt intro + Mock #2 added"
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 9,
+            "Unnamed: 1": "Sunday",
+            "Unnamed: 2": "2. Platform (Internals)",
+            "Unnamed: 3": "Rest",
+            "Unnamed: 4": "Rest & Review",
+            "Unnamed: 5": "Re-read notes from Weeks 5-7",
+            "Unnamed: 6": "\u2014",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 10,
+            "Unnamed: 1": "Monday",
+            "Unnamed: 2": "3. Architect (System)",
+            "Unnamed: 3": "Orchestration",
+            "Unnamed: 4": "DAG Architecture",
+            "Unnamed: 5": "Explain Scheduler vs Executor vs Webserver",
+            "Unnamed: 6": "LC 207 \u2013 Course Schedule",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 10,
+            "Unnamed: 1": "Tuesday",
+            "Unnamed: 2": "3. Architect (System)",
+            "Unnamed: 3": "Orchestration",
+            "Unnamed: 4": "Operators & Sensors",
+            "Unnamed: 5": "Explain use case for S3Sensor",
+            "Unnamed: 6": "LC 210 \u2013 Course Schedule II",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 10,
+            "Unnamed: 1": "Wednesday",
+            "Unnamed: 2": "3. Architect (System)",
+            "Unnamed: 3": "Orchestration",
+            "Unnamed: 4": "XComs",
+            "Unnamed: 5": "Explain limits of XComs (Data Size)",
+            "Unnamed: 6": "LC 269 \u2013 Alien Dictionary",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 10,
+            "Unnamed: 1": "Thursday",
+            "Unnamed: 2": "3. Architect (System)",
+            "Unnamed: 3": "Orchestration",
+            "Unnamed: 4": "Backfilling",
+            "Unnamed: 5": "Explain execution_date vs current_date",
+            "Unnamed: 6": "LC 310 \u2013 Minimum Height Trees",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 10,
+            "Unnamed: 1": "Friday",
+            "Unnamed: 2": "3. Architect (System)",
+            "Unnamed: 3": "Orchestration",
+            "Unnamed: 4": "Dynamic DAGs",
+            "Unnamed: 5": "Generate DAG structure from a Config file",
+            "Unnamed: 6": "LC 329 \u2013 Longest Increasing Path Matrix",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 10,
+            "Unnamed: 1": "Saturday",
+            "Unnamed: 2": "3. Architect (System)",
+            "Unnamed: 3": "Orchestration + Resume",
+            "Unnamed: 4": "Lab + Resume Polish",
+            "Unnamed: 5": "Install Airflow (Docker), run Hello World + Polish Resume & LinkedIn",
+            "Unnamed: 6": "LC 332 \u2013 Reconstruct Itinerary",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": "NEW: Resume polish moved to W10"
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 10,
+            "Unnamed: 1": "Sunday",
+            "Unnamed: 2": "3. Architect (System)",
+            "Unnamed: 3": "Rest",
+            "Unnamed: 4": "Rest & Review",
+            "Unnamed: 5": "Review Airflow Best Practices",
+            "Unnamed: 6": "\u2014",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 11,
+            "Unnamed: 1": "Monday",
+            "Unnamed: 2": "3. Architect (System)",
+            "Unnamed: 3": "Streaming",
+            "Unnamed: 4": "Pub/Sub Model",
+            "Unnamed: 5": "Explain Topics/Producers/Consumers",
+            "Unnamed: 6": "LC 703 \u2013 Kth Largest in Stream",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 11,
+            "Unnamed: 1": "Tuesday",
+            "Unnamed: 2": "3. Architect (System)",
+            "Unnamed: 3": "Streaming",
+            "Unnamed: 4": "Kafka Internals",
+            "Unnamed: 5": "Explain Offsets and Commit Log",
+            "Unnamed: 6": "LC 239 \u2013 Sliding Window Maximum",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 11,
+            "Unnamed: 1": "Wednesday",
+            "Unnamed: 2": "3. Architect (System)",
+            "Unnamed: 3": "Streaming",
+            "Unnamed: 4": "Consumer Groups",
+            "Unnamed: 5": "Explain how Consumer Groups scale reads",
+            "Unnamed: 6": "LC 480 \u2013 Sliding Window Median",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 11,
+            "Unnamed: 1": "Thursday",
+            "Unnamed: 2": "3. Architect (System)",
+            "Unnamed: 3": "Streaming",
+            "Unnamed: 4": "Semantics",
+            "Unnamed: 5": "Explain At-least-once vs Exactly-once",
+            "Unnamed: 6": "LC 23 \u2013 Merge K Sorted Lists",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 11,
+            "Unnamed: 1": "Friday",
+            "Unnamed: 2": "3. Architect (System)",
+            "Unnamed: 3": "Streaming",
+            "Unnamed: 4": "Windowing",
+            "Unnamed: 5": "Draw Tumbling vs Sliding Window",
+            "Unnamed: 6": "LC 621 \u2013 Task Scheduler",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 11,
+            "Unnamed: 1": "Saturday",
+            "Unnamed: 2": "3. Architect (System)",
+            "Unnamed: 3": "Streaming",
+            "Unnamed: 4": "Deep Dive",
+            "Unnamed: 5": "Watch Kafka at LinkedIn Tech Talk",
+            "Unnamed: 6": "LC 895 \u2013 Maximum Frequency Stack",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 11,
+            "Unnamed: 1": "Sunday",
+            "Unnamed: 2": "3. Architect (System)",
+            "Unnamed: 3": "Rest",
+            "Unnamed: 4": "Rest & Review",
+            "Unnamed: 5": "Review Streaming Concepts",
+            "Unnamed: 6": "\u2014",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 12,
+            "Unnamed: 1": "Monday",
+            "Unnamed: 2": "3. Architect (System)",
+            "Unnamed: 3": "System Design",
+            "Unnamed: 4": "Back-of-Envelope Math",
+            "Unnamed: 5": "Memorize Bytes/Secs in Day / Requests per Sec",
+            "Unnamed: 6": "LC 155 \u2013 Min Stack",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 12,
+            "Unnamed: 1": "Tuesday",
+            "Unnamed: 2": "3. Architect (System)",
+            "Unnamed: 3": "System Design",
+            "Unnamed: 4": "Pattern: Batch ETL",
+            "Unnamed: 5": "Draw S3 -> Spark -> Warehouse Architecture",
+            "Unnamed: 6": "LC 232 \u2013 Implement Queue Using Stacks",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 12,
+            "Unnamed: 1": "Wednesday",
+            "Unnamed: 2": "3. Architect (System)",
+            "Unnamed: 3": "System Design",
+            "Unnamed: 4": "Pattern: Streaming",
+            "Unnamed: 5": "Draw Kafka -> Flink -> NoSQL Architecture",
+            "Unnamed: 6": "LC 84 \u2013 Largest Rectangle in Histogram",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 12,
+            "Unnamed: 1": "Thursday",
+            "Unnamed: 2": "3. Architect (System)",
+            "Unnamed: 3": "System Design",
+            "Unnamed: 4": "Pattern: CDC",
+            "Unnamed: 5": "Draw DB -> Debezium -> Kafka Architecture",
+            "Unnamed: 6": "LC 85 \u2013 Maximal Rectangle",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 12,
+            "Unnamed: 1": "Friday",
+            "Unnamed: 2": "3. Architect (System)",
+            "Unnamed: 3": "System Design",
+            "Unnamed: 4": "Trade-offs",
+            "Unnamed: 5": "Compare SQL vs NoSQL & Batch vs Stream",
+            "Unnamed: 6": "LC 42 \u2013 Trapping Rain Water",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 12,
+            "Unnamed: 1": "Saturday",
+            "Unnamed: 2": "3. Architect (System)",
+            "Unnamed: 3": "System Design",
+            "Unnamed: 4": "Full Mock Design + Mock #3",
+            "Unnamed: 5": "Mock Design Spotify Top 10 Songs + Full Mock Interview Loop #3",
+            "Unnamed: 6": "LC 76 \u2013 Minimum Window Substring",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": "NEW: Mock #3 added"
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 12,
+            "Unnamed: 1": "Sunday",
+            "Unnamed: 2": "3. Architect (System)",
+            "Unnamed: 3": "Rest",
+            "Unnamed: 4": "Rest & Review",
+            "Unnamed: 5": "Review System Design Cheat Sheet",
+            "Unnamed: 6": "\u2014",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 13,
+            "Unnamed: 1": "Monday",
+            "Unnamed: 2": "3. Architect (System)",
+            "Unnamed: 3": "Behavioral",
+            "Unnamed: 4": "Story Mining",
+            "Unnamed: 5": "Write down 5 stories from Virtusa/Projects",
+            "Unnamed: 6": "LC 1 \u2013 Two Sum (speed run)",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 13,
+            "Unnamed: 1": "Tuesday",
+            "Unnamed: 2": "3. Architect (System)",
+            "Unnamed: 3": "Behavioral",
+            "Unnamed: 4": "STAR Method",
+            "Unnamed: 5": "Format stories: Situation-Task-Action-Result",
+            "Unnamed: 6": "LC 121 \u2013 Best Time to Buy Stock (speed)",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 13,
+            "Unnamed: 1": "Wednesday",
+            "Unnamed: 2": "3. Architect (System)",
+            "Unnamed: 3": "Behavioral",
+            "Unnamed: 4": "Conflict & Failure",
+            "Unnamed: 5": "Prepare Tell me about a time you failed",
+            "Unnamed: 6": "LC 347 \u2013 Top K (speed run)",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 13,
+            "Unnamed: 1": "Thursday",
+            "Unnamed: 2": "3. Architect (System)",
+            "Unnamed: 3": "Behavioral",
+            "Unnamed: 4": "Resume Walkthrough",
+            "Unnamed: 5": "Perfect the Tell me about yourself pitch",
+            "Unnamed: 6": "LC 56 \u2013 Merge Intervals (speed run)",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 13,
+            "Unnamed: 1": "Friday",
+            "Unnamed: 2": "3. Architect (System)",
+            "Unnamed: 3": "Behavioral",
+            "Unnamed: 4": "Mock Interview",
+            "Unnamed: 5": "Full Loop (Coding + System + Behavioral)",
+            "Unnamed: 6": "LC 200 \u2013 Number of Islands (speed run)",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 13,
+            "Unnamed: 1": "Saturday",
+            "Unnamed: 2": "3. Architect (System)",
+            "Unnamed: 3": "Behavioral",
+            "Unnamed: 4": "Mental Prep",
+            "Unnamed: 5": "Review high-level concepts (No heavy code)",
+            "Unnamed: 6": "\u2014",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        },
+        {
+            "FAANG Data Engineering Interview Prep \u2014 13-Week Plan (v3)": 13,
+            "Unnamed: 1": "Sunday",
+            "Unnamed: 2": "3. Architect (System)",
+            "Unnamed: 3": "Execution",
+            "Unnamed: 4": "READY",
+            "Unnamed: 5": "Go get the offer",
+            "Unnamed: 6": "\u2014",
+            "Unnamed: 7": NaN,
+            "Unnamed: 8": NaN
+        }
+    ],
+    "Legend & Tips": [
+        {
+            "Legend & Study Tips": "COLOUR KEY",
+            "Unnamed: 1": "MEANING"
+        },
+        {
+            "Legend & Study Tips": "Grey row",
+            "Unnamed: 1": "Completed (Weeks 1-2 done)"
+        },
+        {
+            "Legend & Study Tips": "Blue row",
+            "Unnamed: 1": "Phase 1 - Filter / Coding"
+        },
+        {
+            "Legend & Study Tips": "Green row",
+            "Unnamed: 1": "Phase 2 - Build / Architecture"
+        },
+        {
+            "Legend & Study Tips": "Orange row",
+            "Unnamed: 1": "Phase 3 - Architect / System"
+        },
+        {
+            "Legend & Study Tips": "Yellow cell",
+            "Unnamed: 1": "LeetCode problem for the day"
+        },
+        {
+            "Legend & Study Tips": "Pink cell",
+            "Unnamed: 1": "New addition vs original plan"
+        },
+        {
+            "Legend & Study Tips": "WHAT'S NEW IN V3",
+            "Unnamed: 1": "DETAILS"
+        },
+        {
+            "Legend & Study Tips": "LeetCode daily",
+            "Unnamed: 1": "Added from Week 3 onwards, mapped to daily topic"
+        },
+        {
+            "Legend & Study Tips": "Delta Lake / Iceberg",
+            "Unnamed: 1": "Week 6 Sat - open table formats (Delta, Iceberg)"
+        },
+        {
+            "Legend & Study Tips": "Cloud DE services",
+            "Unnamed: 1": "Week 8 Sat - AWS Glue/EMR, GCP Dataflow overview"
+        },
+        {
+            "Legend & Study Tips": "dbt intro",
+            "Unnamed: 1": "Week 9 Sat - dbt-core install + first model"
+        },
+        {
+            "Legend & Study Tips": "Mock Interview #1",
+            "Unnamed: 1": "Week 5 Sat - after coding phase complete"
+        },
+        {
+            "Legend & Study Tips": "Mock Interview #2",
+            "Unnamed: 1": "Week 9 Sat - after platform internals phase"
+        },
+        {
+            "Legend & Study Tips": "Mock Interview #3",
+            "Unnamed: 1": "Week 12 Sat - final system design mock"
+        },
+        {
+            "Legend & Study Tips": "Resume/LinkedIn polish",
+            "Unnamed: 1": "Week 10 Sat - not last-minute in Week 13"
+        },
+        {
+            "Legend & Study Tips": "DAILY FLOW",
+            "Unnamed: 1": "Theory -> Notes -> Practicals (Lab) -> Boss Problem"
+        },
+        {
+            "Legend & Study Tips": "Warm-up",
+            "Unnamed: 1": "Start each day with the mapped LeetCode problem first"
+        },
+        {
+            "Legend & Study Tips": "GitHub",
+            "Unnamed: 1": "Push all lab code weekly to faang-de-prep repo"
+        }
+    ],
+    "Weekly Summary": [
+        {
+            "Weekly Focus Summary": "Week",
+            "Unnamed: 1": "Focus Area",
+            "Unnamed: 2": "Key Deliverable + New Additions"
+        },
+        {
+            "Weekly Focus Summary": 1,
+            "Unnamed: 1": "SQL Analytics",
+            "Unnamed: 2": "Window Functions, Gaps & Islands, Mock SQL"
+        },
+        {
+            "Weekly Focus Summary": 2,
+            "Unnamed: 1": "SQL Optimization",
+            "Unnamed: 2": "Execution Plans, Indexing, Joins, NULL Handling"
+        },
+        {
+            "Weekly Focus Summary": 3,
+            "Unnamed: 1": "Data Modeling Basics",
+            "Unnamed: 2": "Star/Snowflake, SCD Types, Normalization, NoSQL + LeetCode daily starts"
+        },
+        {
+            "Weekly Focus Summary": 4,
+            "Unnamed: 1": "Python Logic",
+            "Unnamed: 2": "Hash Maps, Heaps, Sliding Window, String Manipulation + LeetCode daily"
+        },
+        {
+            "Weekly Focus Summary": 5,
+            "Unnamed: 1": "Python Systems + Mock #1",
+            "Unnamed: 2": "Generators, File I/O, Decorators + First Full Mock Interview Loop"
+        },
+        {
+            "Weekly Focus Summary": 6,
+            "Unnamed: 1": "Storage Internals",
+            "Unnamed: 2": "Parquet, Compression, S3 + NEW: Delta Lake / Apache Iceberg"
+        },
+        {
+            "Weekly Focus Summary": 7,
+            "Unnamed: 1": "Spark Internals",
+            "Unnamed: 2": "Shuffle, Partitions, Broadcasting, OOM Debugging"
+        },
+        {
+            "Weekly Focus Summary": 8,
+            "Unnamed: 1": "Data Modeling Deep + Cloud DE",
+            "Unnamed: 2": "SCD2, Skew, Surrogate Keys + NEW: AWS Glue/EMR, GCP Dataflow"
+        },
+        {
+            "Weekly Focus Summary": 9,
+            "Unnamed: 1": "Quality, Contracts + dbt",
+            "Unnamed: 2": "Data Tests, Idempotency, Schema Evolution + NEW: dbt intro + Mock #2"
+        },
+        {
+            "Weekly Focus Summary": 10,
+            "Unnamed: 1": "Orchestration + Resume",
+            "Unnamed: 2": "Airflow DAGs, Backfill, Dynamic DAGs + NEW: Resume & LinkedIn polish"
+        },
+        {
+            "Weekly Focus Summary": 11,
+            "Unnamed: 1": "Streaming",
+            "Unnamed: 2": "Kafka Internals, Consumer Groups, Windowing, Semantics"
+        },
+        {
+            "Weekly Focus Summary": 12,
+            "Unnamed: 1": "System Design + Mock #3",
+            "Unnamed: 2": "Batch/Streaming/CDC Patterns, Trade-offs + NEW: Final Mock Loop"
+        },
+        {
+            "Weekly Focus Summary": 13,
+            "Unnamed: 1": "Behavioral & Final Prep",
+            "Unnamed: 2": "STAR Stories, Conflict/Failure, Full Mock Loop, Mental Prep"
+        }
+    ]
+}

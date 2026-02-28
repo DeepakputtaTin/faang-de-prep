@@ -1,0 +1,14 @@
+class Solution(object):
+    def groupAnagrams(self, strs):
+        """
+        :type strs: List[str]
+        :rtype: List[List[str]]
+        """
+        anag = defaultdict(list)
+        for i in strs:
+            print("initial i values " + i)
+            sorted_strs = ''.join(sorted(i))
+            print("sorted i values " + sorted_strs)
+            anag[sorted_strs].append(i)
+            print(anag.values())
+        return list(anag.values())

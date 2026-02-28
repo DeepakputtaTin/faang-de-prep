@@ -1,0 +1,1832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAANG DE Prep — 13 Week War Plan</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #12121a;
+    --surface2: #1a1a26;
+    --border: #2a2a3a;
+    --accent: #00ff88;
+    --accent2: #7c3aed;
+    --accent3: #f59e0b;
+    --text: #e8e8f0;
+    --muted: #6b6b8a;
+    --danger: #ff4757;
+    --info: #38bdf8;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--text); font-family: 'Syne', sans-serif; min-height: 100vh; overflow-x: hidden; }
+  body::before {
+    content: ''; position: fixed; inset: 0;
+    background-image: linear-gradient(rgba(0,255,136,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,136,0.03) 1px, transparent 1px);
+    background-size: 40px 40px; pointer-events: none; z-index: 0;
+  }
+  .hero { position: relative; z-index: 1; padding: 50px 40px 36px; text-align: center; border-bottom: 1px solid var(--border); }
+  .hero-tag { display: inline-block; font-family: 'Space Mono', monospace; font-size: 11px; color: var(--accent); border: 1px solid var(--accent); padding: 4px 12px; border-radius: 2px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 16px; }
+  .hero h1 { font-size: clamp(30px, 5vw, 64px); font-weight: 800; line-height: 1; letter-spacing: -2px; margin-bottom: 10px; }
+  .hero h1 span { color: var(--accent); }
+  .hero p { color: var(--muted); font-size: 14px; font-family: 'Space Mono', monospace; margin-bottom: 24px; }
+  .stats-row { display: flex; justify-content: center; gap: 36px; flex-wrap: wrap; }
+  .stat { text-align: center; }
+  .stat-num { font-size: 28px; font-weight: 800; color: var(--accent); display: block; }
+  .stat-label { font-size: 10px; color: var(--muted); font-family: 'Space Mono', monospace; letter-spacing: 2px; text-transform: uppercase; }
+  .phase-nav { position: relative; z-index: 1; display: flex; gap: 0; padding: 0 40px; border-bottom: 1px solid var(--border); overflow-x: auto; }
+  .phase-tab { padding: 14px 22px; cursor: pointer; font-size: 12px; font-weight: 600; color: var(--muted); border-bottom: 2px solid transparent; transition: all 0.2s; white-space: nowrap; letter-spacing: 1px; text-transform: uppercase; }
+  .phase-tab:hover { color: var(--text); }
+  .phase-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+  .progress-bar-container { position: relative; z-index: 1; margin: 0 40px; padding: 14px 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 16px; }
+  .progress-bar { flex: 1; height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, var(--accent2), var(--accent)); border-radius: 2px; transition: width 0.5s ease; }
+  .progress-text { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--muted); white-space: nowrap; }
+  .main { position: relative; z-index: 1; display: grid; grid-template-columns: 290px 1fr; min-height: calc(100vh - 260px); }
+  .sidebar { border-right: 1px solid var(--border); overflow-y: auto; max-height: calc(100vh - 260px); position: sticky; top: 0; }
+  .week-group { border-bottom: 1px solid var(--border); }
+  .week-header { padding: 12px 18px; font-size: 11px; font-family: 'Space Mono', monospace; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); background: var(--surface); cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; transition: background 0.2s; }
+  .week-header:hover { background: var(--surface2); }
+  .week-header .week-theme { font-size: 10px; color: var(--accent2); }
+  .week-days { display: none; }
+  .week-days.open { display: block; }
+  .day-btn { width: 100%; padding: 11px 18px 11px 30px; text-align: left; background: transparent; border: none; color: var(--muted); cursor: pointer; font-family: 'Syne', sans-serif; font-size: 12px; display: flex; align-items: center; gap: 10px; transition: all 0.15s; border-left: 2px solid transparent; }
+  .day-btn:hover { color: var(--text); background: var(--surface2); }
+  .day-btn.active { color: var(--accent); border-left-color: var(--accent); background: var(--surface2); }
+  .day-btn .day-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--border); flex-shrink: 0; transition: background 0.2s; }
+  .day-btn.active .day-dot { background: var(--accent); box-shadow: 0 0 8px var(--accent); }
+  .day-btn.done .day-dot { background: var(--accent2); }
+  .content { padding: 36px 40px; overflow-y: auto; max-height: calc(100vh - 260px); }
+  .welcome-state { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; min-height: 400px; color: var(--muted); text-align: center; gap: 16px; }
+  .welcome-state .big-text { font-size: 80px; opacity: 0.1; }
+  .welcome-state h2 { font-size: 22px; font-weight: 700; color: var(--text); }
+  .welcome-state p { font-size: 13px; font-family: 'Space Mono', monospace; max-width: 300px; line-height: 1.6; }
+  .day-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 28px; flex-wrap: wrap; gap: 16px; }
+  .day-meta { flex: 1; }
+  .day-breadcrumb { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; }
+  .day-title { font-size: 26px; font-weight: 800; letter-spacing: -1px; line-height: 1.1; margin-bottom: 8px; }
+  .day-badges { display: flex; gap: 8px; flex-wrap: wrap; }
+  .badge { font-family: 'Space Mono', monospace; font-size: 10px; padding: 3px 10px; border-radius: 2px; letter-spacing: 1px; text-transform: uppercase; font-weight: 700; }
+  .badge-phase { background: rgba(124,58,237,0.2); color: var(--accent2); border: 1px solid var(--accent2); }
+  .badge-theme { background: rgba(0,255,136,0.1); color: var(--accent); border: 1px solid rgba(0,255,136,0.3); }
+  .badge-lc { background: rgba(245,158,11,0.15); color: var(--accent3); border: 1px solid rgba(245,158,11,0.3); }
+  .sections { display: flex; flex-direction: column; gap: 20px; }
+  .section { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; animation: fadeIn 0.3s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+  .section-header { padding: 13px 18px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid var(--border); background: var(--surface2); }
+  .section-icon { width: 26px; height: 26px; border-radius: 5px; display: flex; align-items: center; justify-content: center; font-size: 13px; }
+  .icon-warmup { background: rgba(56,189,248,0.15); }
+  .icon-topic { background: rgba(0,255,136,0.1); }
+  .icon-analogy { background: rgba(245,158,11,0.1); }
+  .icon-mistakes { background: rgba(255,71,87,0.1); }
+  .icon-table { background: rgba(124,58,237,0.15); }
+  .icon-notes { background: rgba(245,158,11,0.1); }
+  .icon-practice { background: rgba(255,71,87,0.1); }
+  .icon-boss { background: rgba(255,71,87,0.2); }
+  .icon-lc { background: rgba(245,158,11,0.15); }
+  .section-title { font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text); }
+  .section-subtitle { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--muted); margin-left: auto; }
+  .section-body { padding: 18px 20px; }
+  .section-body p { font-size: 14px; line-height: 1.75; color: var(--text); margin-bottom: 10px; }
+  .section-body p:last-child { margin-bottom: 0; }
+  .problem-box { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 14px 16px; margin-bottom: 12px; }
+  .problem-title { font-family: 'Space Mono', monospace; font-size: 12px; font-weight: 700; color: var(--accent); margin-bottom: 8px; }
+  .problem-desc { font-size: 13px; color: var(--muted); line-height: 1.65; }
+  .code-block { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 16px; font-family: 'Space Mono', monospace; font-size: 12px; color: #a0f0c0; line-height: 1.65; overflow-x: auto; white-space: pre; margin-top: 10px; }
+  .notes-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .notes-list li { display: flex; gap: 12px; align-items: flex-start; font-size: 14px; line-height: 1.65; }
+  .notes-list li::before { content: '→'; color: var(--accent); font-family: 'Space Mono', monospace; flex-shrink: 0; margin-top: 1px; }
+  .boss-box { border: 1px solid rgba(255,71,87,0.4); background: rgba(255,71,87,0.05); border-radius: 6px; padding: 18px; }
+  .boss-title { font-size: 15px; font-weight: 800; color: var(--danger); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+  .boss-desc { font-size: 14px; line-height: 1.7; color: var(--text); }
+  .lc-link { display: inline-flex; align-items: center; gap: 8px; background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.3); color: var(--accent3); padding: 10px 18px; border-radius: 6px; font-family: 'Space Mono', monospace; font-size: 12px; text-decoration: none; font-weight: 700; transition: all 0.2s; cursor: pointer; }
+  .lc-link:hover { background: rgba(245,158,11,0.2); transform: translateY(-1px); }
+  .difficulty { font-size: 10px; padding: 2px 8px; border-radius: 2px; font-weight: 700; letter-spacing: 1px; }
+  .diff-easy { background: rgba(0,255,136,0.15); color: var(--accent); }
+  .diff-medium { background: rgba(245,158,11,0.15); color: var(--accent3); }
+  .diff-hard { background: rgba(255,71,87,0.15); color: var(--danger); }
+  /* Rich content elements */
+  .rich-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 13px; }
+  .rich-table th { background: var(--surface2); color: var(--accent); font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--border); }
+  .rich-table td { padding: 10px 14px; border-bottom: 1px solid rgba(42,42,58,0.5); line-height: 1.5; vertical-align: top; }
+  .rich-table tr:last-child td { border-bottom: none; }
+  .rich-table td:first-child { font-family: 'Space Mono', monospace; font-size: 12px; color: var(--accent3); font-weight: 700; }
+  .rich-table .bad { color: var(--danger); font-size: 11px; font-weight: 700; }
+  .rich-table .good { color: var(--accent); font-size: 11px; font-weight: 700; }
+  .callout { border-left: 3px solid var(--accent); background: rgba(0,255,136,0.05); padding: 12px 16px; margin: 12px 0; border-radius: 0 6px 6px 0; font-size: 14px; line-height: 1.7; }
+  .callout.warn { border-color: var(--accent3); background: rgba(245,158,11,0.05); }
+  .callout.danger { border-color: var(--danger); background: rgba(255,71,87,0.05); }
+  .callout strong { font-weight: 700; }
+  .step-list { list-style: none; display: flex; flex-direction: column; gap: 12px; margin: 12px 0; }
+  .step-list li { display: flex; gap: 14px; align-items: flex-start; }
+  .step-num { min-width: 24px; height: 24px; border-radius: 50%; background: var(--accent2); color: white; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; font-family: 'Space Mono', monospace; }
+  .step-content { font-size: 14px; line-height: 1.65; flex: 1; }
+  .step-content strong { color: var(--accent); }
+  .flat-table-viz { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 14px 16px; margin: 12px 0; font-family: 'Space Mono', monospace; font-size: 11px; color: #a0f0c0; overflow-x: auto; white-space: pre; line-height: 1.6; }
+  .interview-gold { background: linear-gradient(135deg, rgba(124,58,237,0.1), rgba(0,255,136,0.05)); border: 1px solid rgba(124,58,237,0.3); border-radius: 6px; padding: 14px 16px; margin: 12px 0; }
+  .interview-gold-title { font-size: 10px; font-family: 'Space Mono', monospace; color: var(--accent2); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+  .interview-gold p { font-size: 14px; line-height: 1.7; font-style: italic; color: var(--text); margin-bottom: 0; }
+  details summary { cursor: pointer; color: var(--accent); font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 1px; padding: 8px 0; list-style: none; }
+  details summary::-webkit-details-marker { display: none; }
+  details summary::before { content: '▶ '; }
+  details[open] summary::before { content: '▼ '; }
+  .rest-content { text-align: center; padding: 60px 20px; }
+  .rest-content .rest-icon { font-size: 60px; margin-bottom: 20px; }
+  .rest-content h2 { font-size: 24px; font-weight: 800; margin-bottom: 12px; }
+  .rest-content p { color: var(--muted); font-family: 'Space Mono', monospace; font-size: 13px; line-height: 1.7; max-width: 400px; margin: 0 auto 12px; }
+  /* ── v3 additions ── */
+  .streak-bar { position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; gap: 24px; padding: 10px 40px; background: rgba(0,255,136,0.04); border-bottom: 1px solid var(--border); flex-wrap: wrap; }
+  .streak-item { display: flex; align-items: center; gap: 8px; font-family: 'Space Mono', monospace; font-size: 11px; color: var(--muted); }
+  .streak-item .streak-val { color: var(--accent); font-weight: 700; font-size: 16px; }
+  .streak-item .streak-val.fire { color: #ff6b35; }
+  .streak-item .streak-val.today { color: var(--info); }
+  .mark-done-btn { display: inline-flex; align-items: center; gap: 8px; background: rgba(0,255,136,0.1); border: 1px solid rgba(0,255,136,0.4); color: var(--accent); padding: 10px 20px; border-radius: 6px; font-family: 'Space Mono', monospace; font-size: 12px; font-weight: 700; cursor: pointer; transition: all 0.2s; letter-spacing: 1px; }
+  .mark-done-btn:hover { background: rgba(0,255,136,0.2); transform: translateY(-1px); }
+  .mark-done-btn.completed { background: rgba(124,58,237,0.15); border-color: var(--accent2); color: var(--accent2); cursor: default; }
+  .mark-done-btn.completed:hover { transform: none; }
+  .today-indicator { display: inline-block; font-family: 'Space Mono', monospace; font-size: 9px; background: var(--info); color: #000; padding: 2px 6px; border-radius: 2px; letter-spacing: 1px; margin-left: 6px; vertical-align: middle; }
+  .day-btn.today-day { border-left-color: var(--info) !important; color: var(--info) !important; }
+  .day-btn.today-day .day-dot { background: var(--info) !important; box-shadow: 0 0 8px var(--info) !important; }
+  .day-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 28px; }
+  @media (max-width: 768px) {
+    .main { grid-template-columns: 1fr; }
+    .sidebar { max-height: 280px; position: static; border-right: none; border-bottom: 1px solid var(--border); }
+    .content { max-height: none; padding: 24px 20px; }
+    .hero { padding: 36px 20px 28px; }
+    .phase-nav, .progress-bar-container { padding: 0 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-tag">🎯 FAANG Data Engineering</div>
+  <h1>13-Week <span>War Plan</span></h1>
+  <p>// click any day → get your full session breakdown</p>
+  <div class="stats-row">
+    <div class="stat"><span class="stat-num">13</span><span class="stat-label">Weeks</span></div>
+    <div class="stat"><span class="stat-num">91</span><span class="stat-label">Days</span></div>
+    <div class="stat"><span class="stat-num">60+</span><span class="stat-label">LeetCode</span></div>
+    <div class="stat"><span class="stat-num">3</span><span class="stat-label">Mock Loops</span></div>
+  </div>
+</div>
+
+<div class="progress-bar-container">
+  <span class="progress-text">OVERALL PROGRESS</span>
+  <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+  <span class="progress-text" id="progressText">0 / 91 days</span>
+</div>
+
+<div class="streak-bar" id="streakBar">
+  <div class="streak-item">🔥 <span class="streak-val fire" id="streakCount">0</span> DAY STREAK</div>
+  <div class="streak-item">✅ <span class="streak-val" id="doneCount">0</span> COMPLETED</div>
+  <div class="streak-item">📅 <span class="streak-val today" id="todayLabel">—</span> TODAY</div>
+  <div class="streak-item">🎯 <span class="streak-val" id="remainCount">91</span> REMAINING</div>
+</div>
+<div class="phase-nav" id="phaseNav">
+  <div class="phase-tab active" data-phase="all">All Weeks</div>
+  <div class="phase-tab" data-phase="1">🧱 Phase 1: Filter</div>
+  <div class="phase-tab" data-phase="2">⚙️ Phase 2: Build</div>
+  <div class="phase-tab" data-phase="3">🏗️ Phase 3: Architect</div>
+</div>
+
+<div class="main">
+  <div class="sidebar" id="sidebar"></div>
+  <div class="content" id="content">
+    <div class="welcome-state">
+      <div class="big-text">⚡</div>
+      <h2>Pick Your Battlefield</h2>
+      <p>Select any day from the left to load the full session breakdown — theory, analogies, common mistakes, lab, boss problem, and LeetCode.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+const curriculum = [
+  { week:1, day:"Mon", phase:"Filter (Coding)", theme:"SQL Analytics", topic:"Window Function Basics", lc:"LC 178 – Rank Scores", lcNum:178, lcDiff:"medium", done:true },
+  { week:1, day:"Tue", phase:"Filter (Coding)", theme:"SQL Analytics", topic:"Rolling Windows", lc:"LC 1321 – Restaurant Growth", lcNum:1321, lcDiff:"medium", done:true },
+  { week:1, day:"Wed", phase:"Filter (Coding)", theme:"SQL Analytics", topic:"Lead/Lag Pattern", lc:"LC 180 – Consecutive Numbers", lcNum:180, lcDiff:"medium", done:true },
+  { week:1, day:"Thu", phase:"Filter (Coding)", theme:"SQL Analytics", topic:"Gaps & Islands (Logic)", lc:"LC 601 – Human Traffic (preview)", lcNum:601, lcDiff:"hard", done:true },
+  { week:1, day:"Fri", phase:"Filter (Coding)", theme:"SQL Analytics", topic:"Gaps & Islands (Complex)", lc:"LC 601 – Human Traffic of Stadium", lcNum:601, lcDiff:"hard", done:true },
+  { week:1, day:"Sat", phase:"Filter (Coding)", theme:"SQL Analytics", topic:"Mock Assessment", lc:"LC 1174 – Immediate Food Delivery II", lcNum:1174, lcDiff:"medium", done:true },
+  { week:1, day:"Sun", phase:"Rest", theme:"Rest", topic:"Rest & Review", lc:null, done:true },
+  { week:2, day:"Mon", phase:"Filter (Coding)", theme:"SQL Optimization", topic:"Recursive CTEs", lc:"LC 1270 – All People Report to Manager", lcNum:1270, lcDiff:"medium", done:true },
+  { week:2, day:"Tue", phase:"Filter (Coding)", theme:"SQL Optimization", topic:"Execution Plans", lc:"LC 570 – Managers with 5 Direct Reports", lcNum:570, lcDiff:"medium", done:true },
+  { week:2, day:"Wed", phase:"Filter (Coding)", theme:"SQL Optimization", topic:"Indexing Strategies", lc:"LC 184 – Dept Highest Salary", lcNum:184, lcDiff:"medium", done:true },
+  { week:2, day:"Thu", phase:"Filter (Coding)", theme:"SQL Optimization", topic:"Joins Deep Dive", lc:"LC 185 – Dept Top 3 Salaries", lcNum:185, lcDiff:"hard", done:true },
+  { week:2, day:"Fri", phase:"Filter (Coding)", theme:"SQL Optimization", topic:"NULL Handling", lc:"LC 183 – Customers Who Never Order", lcNum:183, lcDiff:"easy", done:true },
+  { week:2, day:"Sat", phase:"Filter (Coding)", theme:"SQL Optimization", topic:"Mock Assessment", lc:"LC 262 – Trips and Users", lcNum:262, lcDiff:"hard", done:true },
+  { week:2, day:"Sun", phase:"Rest", theme:"Rest", topic:"Rest & Review", lc:null, done:true },
+  { week:3, day:"Mon", phase:"Build (Architecture)", theme:"Data Modeling", topic:"Dimensional Modeling Basics", lc:"LC 1484 – Group Sold Products by Date", lcNum:1484, lcDiff:"easy", done:true },
+  { week:3, day:"Tue", phase:"Build (Architecture)", theme:"Data Modeling", topic:"SCD Types (1, 2, 3)", lc:"LC 1193 – Monthly Transactions 1", lcNum:1193, lcDiff:"medium", done:true },
+  { week:3, day:"Wed", phase:"Build (Architecture)", theme:"Data Modeling", topic:"Normalization", lc:"LC 242 – Valid Anagram", lcNum:242, lcDiff:"easy", done:true },
+  { week:3, day:"Thu", phase:"Build (Architecture)", theme:"Data Modeling", topic:"NoSQL Modeling", lc:"LC 49 – Group Anagrams", lcNum:49, lcDiff:"medium", done:false },
+  { week:3, day:"Fri", phase:"Build (Architecture)", theme:"Data Modeling", topic:"Case Study: Social Media", lc:"LC 128 – Longest Consecutive Sequence", lcNum:128, lcDiff:"medium", done:false },
+  { week:3, day:"Sat", phase:"Build (Architecture)", theme:"Data Modeling", topic:"Mock Design Round", lc:"LC 347 – Top K Frequent Elements", lcNum:347, lcDiff:"medium", done:false },
+  { week:3, day:"Sun", phase:"Rest", theme:"Rest", topic:"Rest & Review", lc:null, done:false },
+  { week:4, day:"Mon", phase:"Filter (Coding)", theme:"Python Logic", topic:"Hash Maps (Dicts)", lc:"LC 1 – Two Sum", lcNum:1, lcDiff:"easy", done:false },
+  { week:4, day:"Tue", phase:"Filter (Coding)", theme:"Python Logic", topic:"Sets & Deduplication", lc:"LC 349 – Intersection of Two Arrays", lcNum:349, lcDiff:"easy", done:false },
+  { week:4, day:"Wed", phase:"Filter (Coding)", theme:"Python Logic", topic:"Sliding Window", lc:"LC 3 – Longest Substring Without Repeat", lcNum:3, lcDiff:"medium", done:false },
+  { week:4, day:"Thu", phase:"Filter (Coding)", theme:"Python Logic", topic:"Heaps / Priority Queues", lc:"LC 215 – Kth Largest Element", lcNum:215, lcDiff:"medium", done:false },
+  { week:4, day:"Fri", phase:"Filter (Coding)", theme:"Python Logic", topic:"String Manipulation", lc:"LC 438 – Find All Anagrams in String", lcNum:438, lcDiff:"medium", done:false },
+  { week:4, day:"Sat", phase:"Filter (Coding)", theme:"Python Logic", topic:"Mock Assessment", lc:"LC 560 – Subarray Sum Equals K", lcNum:560, lcDiff:"medium", done:false },
+  { week:4, day:"Sun", phase:"Rest", theme:"Rest", topic:"Rest & Review", lc:null, done:false },
+  { week:5, day:"Mon", phase:"Filter (Coding)", theme:"Python Systems", topic:"Generators", lc:"LC 200 – Number of Islands", lcNum:200, lcDiff:"medium", done:false },
+  { week:5, day:"Tue", phase:"Filter (Coding)", theme:"Python Systems", topic:"Recursive Parsing", lc:"LC 236 – LCA of Binary Tree", lcNum:236, lcDiff:"medium", done:false },
+  { week:5, day:"Wed", phase:"Filter (Coding)", theme:"Python Systems", topic:"File I/O", lc:"LC 206 – Reverse Linked List", lcNum:206, lcDiff:"easy", done:false },
+  { week:5, day:"Thu", phase:"Filter (Coding)", theme:"Python Systems", topic:"Memory Management", lc:"LC 141 – Linked List Cycle", lcNum:141, lcDiff:"easy", done:false },
+  { week:5, day:"Fri", phase:"Filter (Coding)", theme:"Python Systems", topic:"Decorators", lc:"LC 53 – Maximum Subarray", lcNum:53, lcDiff:"medium", done:false },
+  { week:5, day:"Sat", phase:"Filter (Coding)", theme:"Python Systems", topic:"Mock Assessment + Mock #1", lc:"LC 56 – Merge Intervals", lcNum:56, lcDiff:"medium", done:false },
+  { week:5, day:"Sun", phase:"Rest", theme:"Rest", topic:"Rest & Review", lc:null, done:false },
+  { week:6, day:"Mon", phase:"Platform (Internals)", theme:"Storage Internals", topic:"Row vs Columnar", lc:"LC 238 – Product of Array Except Self", lcNum:238, lcDiff:"medium", done:false },
+  { week:6, day:"Tue", phase:"Platform (Internals)", theme:"Storage Internals", topic:"Compression", lc:"LC 271 – Encode & Decode Strings", lcNum:271, lcDiff:"medium", done:false },
+  { week:6, day:"Wed", phase:"Platform (Internals)", theme:"Storage Internals", topic:"S3 Partitioning", lc:"LC 146 – LRU Cache", lcNum:146, lcDiff:"medium", done:false },
+  { week:6, day:"Thu", phase:"Platform (Internals)", theme:"Storage Internals", topic:"Small File Problem", lc:"LC 295 – Find Median from Data Stream", lcNum:295, lcDiff:"hard", done:false },
+  { week:6, day:"Fri", phase:"Platform (Internals)", theme:"Storage Internals", topic:"Data Formats", lc:"LC 981 – Time Based Key-Value Store", lcNum:981, lcDiff:"medium", done:false },
+  { week:6, day:"Sat", phase:"Platform (Internals)", theme:"Storage Internals", topic:"Delta Lake / Iceberg", lc:"LC 380 – Insert Delete GetRandom O(1)", lcNum:380, lcDiff:"medium", done:false },
+  { week:6, day:"Sun", phase:"Rest", theme:"Rest", topic:"Rest & Review", lc:null, done:false },
+  { week:7, day:"Mon", phase:"Platform (Internals)", theme:"Spark Internals", topic:"Logical Plan", lc:"LC 322 – Coin Change", lcNum:322, lcDiff:"medium", done:false },
+  { week:7, day:"Tue", phase:"Platform (Internals)", theme:"Spark Internals", topic:"The Shuffle", lc:"LC 139 – Word Break", lcNum:139, lcDiff:"medium", done:false },
+  { week:7, day:"Wed", phase:"Platform (Internals)", theme:"Spark Internals", topic:"Partitions vs Tasks", lc:"LC 300 – Longest Increasing Subsequence", lcNum:300, lcDiff:"medium", done:false },
+  { week:7, day:"Thu", phase:"Platform (Internals)", theme:"Spark Internals", topic:"Broadcasting", lc:"LC 416 – Partition Equal Subset Sum", lcNum:416, lcDiff:"medium", done:false },
+  { week:7, day:"Fri", phase:"Platform (Internals)", theme:"Spark Internals", topic:"Memory Management", lc:"LC 91 – Decode Ways", lcNum:91, lcDiff:"medium", done:false },
+  { week:7, day:"Sat", phase:"Platform (Internals)", theme:"Spark Internals", topic:"Lab Day", lc:"LC 79 – Word Search", lcNum:79, lcDiff:"medium", done:false },
+  { week:7, day:"Sun", phase:"Rest", theme:"Rest", topic:"Rest & Review", lc:null, done:false },
+  { week:8, day:"Mon", phase:"Platform (Internals)", theme:"Data Modeling Deep Dive", topic:"SCD Type 2", lc:"LC 731 – My Calendar II", lcNum:731, lcDiff:"medium", done:false },
+  { week:8, day:"Tue", phase:"Platform (Internals)", theme:"Data Modeling Deep Dive", topic:"Fact Tables", lc:"LC 1094 – Car Pooling", lcNum:1094, lcDiff:"medium", done:false },
+  { week:8, day:"Wed", phase:"Platform (Internals)", theme:"Data Modeling Deep Dive", topic:"Dimension Tables", lc:"LC 252 – Meeting Rooms", lcNum:252, lcDiff:"easy", done:false },
+  { week:8, day:"Thu", phase:"Platform (Internals)", theme:"Data Modeling Deep Dive", topic:"Handling Skew", lc:"LC 253 – Meeting Rooms II", lcNum:253, lcDiff:"medium", done:false },
+  { week:8, day:"Fri", phase:"Platform (Internals)", theme:"Data Modeling Deep Dive", topic:"Surrogate Keys", lc:"LC 57 – Insert Interval", lcNum:57, lcDiff:"medium", done:false },
+  { week:8, day:"Sat", phase:"Platform (Internals)", theme:"Data Modeling Deep Dive", topic:"Mock Design + Cloud DE", lc:"LC 435 – Non-overlapping Intervals", lcNum:435, lcDiff:"medium", done:false },
+  { week:8, day:"Sun", phase:"Rest", theme:"Rest", topic:"Rest & Review", lc:null, done:false },
+  { week:9, day:"Mon", phase:"Platform (Internals)", theme:"Quality & Contracts", topic:"Data Quality", lc:"LC 1667 – Fix Names in a Table", lcNum:1667, lcDiff:"easy", done:false },
+  { week:9, day:"Tue", phase:"Platform (Internals)", theme:"Quality & Contracts", topic:"Idempotency", lc:"LC 1527 – Patients With Condition", lcNum:1527, lcDiff:"easy", done:false },
+  { week:9, day:"Wed", phase:"Platform (Internals)", theme:"Quality & Contracts", topic:"Schema Evolution", lc:"LC 1484 – Group Sold Products by Date", lcNum:1484, lcDiff:"easy", done:false },
+  { week:9, day:"Thu", phase:"Platform (Internals)", theme:"Quality & Contracts", topic:"Unit Testing", lc:"LC 1693 – Daily Leads and Partners", lcNum:1693, lcDiff:"easy", done:false },
+  { week:9, day:"Fri", phase:"Platform (Internals)", theme:"Quality & Contracts", topic:"Governance", lc:"LC 1303 – Find the Team Size", lcNum:1303, lcDiff:"easy", done:false },
+  { week:9, day:"Sat", phase:"Platform (Internals)", theme:"Quality & Contracts", topic:"dbt Intro + Mock #2", lc:"LC 1045 – Customers Who Bought All Products", lcNum:1045, lcDiff:"medium", done:false },
+  { week:9, day:"Sun", phase:"Rest", theme:"Rest", topic:"Rest & Review", lc:null, done:false },
+  { week:10, day:"Mon", phase:"Architect (System)", theme:"Orchestration", topic:"DAG Architecture", lc:"LC 207 – Course Schedule", lcNum:207, lcDiff:"medium", done:false },
+  { week:10, day:"Tue", phase:"Architect (System)", theme:"Orchestration", topic:"Operators & Sensors", lc:"LC 210 – Course Schedule II", lcNum:210, lcDiff:"medium", done:false },
+  { week:10, day:"Wed", phase:"Architect (System)", theme:"Orchestration", topic:"XComs", lc:"LC 269 – Alien Dictionary", lcNum:269, lcDiff:"hard", done:false },
+  { week:10, day:"Thu", phase:"Architect (System)", theme:"Orchestration", topic:"Backfilling", lc:"LC 310 – Minimum Height Trees", lcNum:310, lcDiff:"medium", done:false },
+  { week:10, day:"Fri", phase:"Architect (System)", theme:"Orchestration", topic:"Dynamic DAGs", lc:"LC 329 – Longest Increasing Path Matrix", lcNum:329, lcDiff:"hard", done:false },
+  { week:10, day:"Sat", phase:"Architect (System)", theme:"Orchestration", topic:"Lab + Resume Polish", lc:"LC 332 – Reconstruct Itinerary", lcNum:332, lcDiff:"hard", done:false },
+  { week:10, day:"Sun", phase:"Rest", theme:"Rest", topic:"Rest & Review", lc:null, done:false },
+  { week:11, day:"Mon", phase:"Architect (System)", theme:"Streaming", topic:"Pub/Sub Model", lc:"LC 703 – Kth Largest in Stream", lcNum:703, lcDiff:"easy", done:false },
+  { week:11, day:"Tue", phase:"Architect (System)", theme:"Streaming", topic:"Kafka Internals", lc:"LC 239 – Sliding Window Maximum", lcNum:239, lcDiff:"hard", done:false },
+  { week:11, day:"Wed", phase:"Architect (System)", theme:"Streaming", topic:"Consumer Groups", lc:"LC 480 – Sliding Window Median", lcNum:480, lcDiff:"hard", done:false },
+  { week:11, day:"Thu", phase:"Architect (System)", theme:"Streaming", topic:"Semantics", lc:"LC 23 – Merge K Sorted Lists", lcNum:23, lcDiff:"hard", done:false },
+  { week:11, day:"Fri", phase:"Architect (System)", theme:"Streaming", topic:"Windowing", lc:"LC 621 – Task Scheduler", lcNum:621, lcDiff:"medium", done:false },
+  { week:11, day:"Sat", phase:"Architect (System)", theme:"Streaming", topic:"Streaming Deep Dive", lc:"LC 895 – Maximum Frequency Stack", lcNum:895, lcDiff:"hard", done:false },
+  { week:11, day:"Sun", phase:"Rest", theme:"Rest", topic:"Rest & Review", lc:null, done:false },
+  { week:12, day:"Mon", phase:"Architect (System)", theme:"System Design", topic:"Back-of-Envelope Math", lc:"LC 155 – Min Stack", lcNum:155, lcDiff:"medium", done:false },
+  { week:12, day:"Tue", phase:"Architect (System)", theme:"System Design", topic:"Pattern: Batch ETL", lc:"LC 232 – Implement Queue Using Stacks", lcNum:232, lcDiff:"easy", done:false },
+  { week:12, day:"Wed", phase:"Architect (System)", theme:"System Design", topic:"Pattern: Streaming", lc:"LC 84 – Largest Rectangle in Histogram", lcNum:84, lcDiff:"hard", done:false },
+  { week:12, day:"Thu", phase:"Architect (System)", theme:"System Design", topic:"Pattern: CDC", lc:"LC 85 – Maximal Rectangle", lcNum:85, lcDiff:"hard", done:false },
+  { week:12, day:"Fri", phase:"Architect (System)", theme:"System Design", topic:"Trade-offs", lc:"LC 42 – Trapping Rain Water", lcNum:42, lcDiff:"hard", done:false },
+  { week:12, day:"Sat", phase:"Architect (System)", theme:"System Design", topic:"Full Mock Design + Mock #3", lc:"LC 76 – Minimum Window Substring", lcNum:76, lcDiff:"hard", done:false },
+  { week:12, day:"Sun", phase:"Rest", theme:"Rest", topic:"Rest & Review", lc:null, done:false },
+  { week:13, day:"Mon", phase:"Architect (System)", theme:"Behavioral", topic:"Story Mining", lc:"LC 1 – Two Sum (speed run)", lcNum:1, lcDiff:"easy", done:false },
+  { week:13, day:"Tue", phase:"Architect (System)", theme:"Behavioral", topic:"STAR Method", lc:"LC 121 – Best Time to Buy Stock (speed)", lcNum:121, lcDiff:"easy", done:false },
+  { week:13, day:"Wed", phase:"Architect (System)", theme:"Behavioral", topic:"Conflict & Failure", lc:"LC 347 – Top K (speed run)", lcNum:347, lcDiff:"medium", done:false },
+  { week:13, day:"Thu", phase:"Architect (System)", theme:"Behavioral", topic:"Resume Walkthrough", lc:"LC 56 – Merge Intervals (speed run)", lcNum:56, lcDiff:"medium", done:false },
+  { week:13, day:"Fri", phase:"Architect (System)", theme:"Behavioral", topic:"Mock Interview", lc:"LC 200 – Number of Islands (speed run)", lcNum:200, lcDiff:"medium", done:false },
+  { week:13, day:"Sat", phase:"Architect (System)", theme:"Behavioral", topic:"Mental Prep", lc:null, done:false },
+  { week:13, day:"Sun", phase:"Execution", theme:"Execution", topic:"READY — Go Get the Offer", lc:null, done:false },
+];
+
+// ============================================================
+// RICH TOPIC CONTENT — DETAILED AS REAL SESSIONS
+// ============================================================
+const topicContent = {
+
+"Window Function Basics": {
+  warmup: `<p>Before you touch today's material — write this from memory without looking anything up:</p>
+  <p><em>"Write a SQL query that assigns a rank to each employee within their department, ordered by salary descending. Ties should not skip rank numbers."</em></p>
+  <p>Give yourself 3 minutes. If you blanked on the syntax, pay extra attention to today.</p>`,
+  warmupHint: `SELECT name, dept, salary, DENSE_RANK() OVER (PARTITION BY dept ORDER BY salary DESC) AS dept_rank FROM employees;`,
+
+  theory: `<p>Window functions perform calculations across a set of table rows that are somehow related to the current row — but unlike GROUP BY, they do <strong>not collapse rows</strong>. Every row stays. The function just gains the ability to "look around" at neighboring rows.</p>
+  <p><strong>The core syntax:</strong></p>
+  <div class="flat-table-viz">FUNCTION_NAME() OVER (
+  PARTITION BY column    -- divides into groups (like GROUP BY but rows stay)
+  ORDER BY column        -- defines order within the window
+  ROWS/RANGE BETWEEN ... -- defines the frame (optional)
+)</div>
+
+  <p><strong>The 3 ranking functions you must know cold:</strong></p>
+  <table class="rich-table">
+    <tr><th>Function</th><th>Behavior on Ties</th><th>Example (scores: 100,100,90)</th></tr>
+    <tr><td>ROW_NUMBER()</td><td>Always unique — arbitrary tiebreak</td><td>1, 2, 3</td></tr>
+    <tr><td>RANK()</td><td>Ties get same rank, next rank skips</td><td>1, 1, 3</td></tr>
+    <tr><td>DENSE_RANK()</td><td>Ties get same rank, no gap after</td><td>1, 1, 2</td></tr>
+  </table>
+
+  <p><strong>The "window" analogy:</strong> Imagine you're sitting in a row of people, and each person can look at a specific subset of the row to compute their value. PARTITION BY draws a curtain between groups. ORDER BY sets who they can see. The frame (ROWS BETWEEN) controls how far left/right they look.</p>
+
+  <div class="callout"><strong>Critical rule:</strong> Window functions are evaluated AFTER WHERE and GROUP BY — but BEFORE ORDER BY and LIMIT. This means you CANNOT filter using a window function in a WHERE clause. You must wrap it in a subquery or CTE first.</div>`,
+
+  commonMistakes: `<table class="rich-table">
+    <tr><th>Mistake</th><th>Why It Breaks</th><th>Fix</th></tr>
+    <tr><td>WHERE rank = 1 on window fn</td><td>Window fns run after WHERE — it doesn't exist yet</td><td>Wrap in CTE, then filter</td></tr>
+    <tr><td>RANK() when you want no gaps</td><td>RANK gives 1,1,3 — skips ranks</td><td>Use DENSE_RANK()</td></tr>
+    <tr><td>No PARTITION BY</td><td>Entire table is one window — ranks go 1 to N globally</td><td>Add PARTITION BY dept or user_id</td></tr>
+    <tr><td>ORDER BY not unique in ROW_NUMBER</td><td>Non-deterministic — different rows could get rank 1</td><td>Add a tiebreak column (e.g., id)</td></tr>
+  </table>`,
+
+  notes: [
+    "DENSE_RANK is almost always what interviewers want — unless they explicitly say 'skip after ties'",
+    "Empty OVER() = whole table is the window. Useful for percentage of total: SUM(x) OVER() gives grand total",
+    "Window functions cannot appear in WHERE — put them in a CTE or subquery first",
+    "PARTITION BY is optional but nearly always needed in real analytics queries",
+    "Interview signal: explain WHY you chose DENSE_RANK over RANK without being asked. Shows depth."
+  ],
+
+  practiceTitle: "Top Earner Per Department",
+  practiceDesc: "Table: employees(emp_id, name, dept, salary). Write a query to return ONLY the top earner from each department. If two people tie for max salary in a dept, return BOTH of them.",
+  practiceCode: `-- Step 1: Rank within departments
+WITH ranked AS (
+  SELECT 
+    name, dept, salary,
+    DENSE_RANK() OVER (
+      PARTITION BY dept 
+      ORDER BY salary DESC
+    ) AS dr
+  FROM employees
+)
+-- Step 2: Filter to rank 1 (gets ties too)
+SELECT name, dept, salary
+FROM ranked
+WHERE dr = 1;
+
+-- Why DENSE_RANK not MAX()? 
+-- MAX() gives one value per dept — you'd need a self-join to get names.
+-- DENSE_RANK() keeps all rows, handles ties naturally. 
+-- This is the FAANG-preferred pattern.`,
+
+  bossTitle: "🔥 FAANG Boss: Running Balance with Overdraft Flag",
+  bossDesc: "Table: transactions(user_id, txn_date, amount, type). Type is 'credit' or 'debit'. Write a query showing: user_id, txn_date, amount, running_balance, and a flag 'OVERDRAFT' if balance ever goes below 0. Expected to solve in under 15 minutes. Hint: signed amount approach — credits positive, debits negative. Use SUM() OVER with ORDER BY txn_date."
+},
+
+"Rolling Windows": {
+  warmup: `<p>Quick check from yesterday — answer in your head before scrolling:</p>
+  <p>1. What's the difference between RANK() and DENSE_RANK()? Give a concrete example with numbers.</p>
+  <p>2. Why can't you use a window function in a WHERE clause?</p>
+  <p>3. Write the syntax for DENSE_RANK partitioned by city, ordered by revenue descending.</p>`,
+  warmupHint: `RANK: 1,1,3 (skips). DENSE_RANK: 1,1,2 (no skip). WHERE can't see window fns because they run after WHERE. Syntax: DENSE_RANK() OVER (PARTITION BY city ORDER BY revenue DESC)`,
+
+  theory: `<p>Rolling (or "moving") windows let you calculate aggregates over a sliding subset of rows — like a 7-day moving average, or a cumulative sum that resets. The magic is in the <strong>frame clause</strong>: ROWS BETWEEN.</p>
+
+  <p><strong>The two frame types:</strong></p>
+  <table class="rich-table">
+    <tr><th>Type</th><th>How it counts</th><th>Use when</th></tr>
+    <tr><td>ROWS BETWEEN</td><td>Physical row positions — exact N rows back/forward</td><td>Time series, moving averages (ALWAYS prefer this)</td></tr>
+    <tr><td>RANGE BETWEEN</td><td>Logical value ranges — includes all rows with same ORDER BY value</td><td>Almost never — can surprise you with duplicates</td></tr>
+  </table>
+
+  <p><strong>The frame anchor keywords:</strong></p>
+  <div class="flat-table-viz">UNBOUNDED PRECEDING  -- from the very first row in partition
+N PRECEDING          -- N rows before current
+CURRENT ROW          -- the current row itself
+N FOLLOWING          -- N rows after current
+UNBOUNDED FOLLOWING  -- to the very last row in partition</div>
+
+  <p><strong>Common patterns:</strong></p>
+  <div class="flat-table-viz">-- 7-day moving average (TODAY and 6 days before)
+AVG(amount) OVER (PARTITION BY user_id ORDER BY date ROWS BETWEEN 6 PRECEDING AND CURRENT ROW)
+
+-- Cumulative sum from start of partition
+SUM(amount) OVER (PARTITION BY user_id ORDER BY date ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)
+
+-- Total of entire partition (for % of total)
+SUM(amount) OVER (PARTITION BY user_id)</div>
+
+  <div class="callout warn"><strong>Watch out:</strong> When you add ORDER BY inside OVER() without a frame clause, the default frame becomes RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW — not what you'd expect if there are duplicate dates. Always be explicit with ROWS BETWEEN.</div>`,
+
+  commonMistakes: `<table class="rich-table">
+    <tr><th>Mistake</th><th>What goes wrong</th><th>Fix</th></tr>
+    <tr><td>Using RANGE instead of ROWS for time series</td><td>If 3 rows have same date, RANGE includes all 3 as "current" — inflates averages</td><td>Always use ROWS BETWEEN for moving averages</td></tr>
+    <tr><td>7-day avg: ROWS BETWEEN 7 PRECEDING</td><td>Gives 8 rows (0 to 7), not 7</td><td>ROWS BETWEEN 6 PRECEDING AND CURRENT ROW = 7 rows total</td></tr>
+    <tr><td>Missing PARTITION BY for per-user metrics</td><td>Rolling window crosses user boundaries — user A's data bleeds into user B</td><td>Always PARTITION BY user_id for user-level metrics</td></tr>
+  </table>`,
+
+  notes: [
+    "LC 1321 (Restaurant Growth) is the canonical 7-day rolling average — use ROWS BETWEEN 6 PRECEDING AND CURRENT ROW",
+    "The default frame with ORDER BY is RANGE UNBOUNDED PRECEDING — switch to ROWS for precise control",
+    "Cumulative sum: ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW — memorize this, it's everywhere",
+    "ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING = entire partition (same as no frame + no ORDER BY)",
+    "In dbt and analytics engineering, rolling windows are how metric layers compute '28-day active users' — this is real-world critical"
+  ],
+
+  practiceTitle: "7-Day Rolling Average with Minimum Data Requirement",
+  practiceDesc: "Table: daily_sales(date DATE, revenue DECIMAL). Write a query showing each date's revenue and the 7-day rolling average. BUT: only show the rolling avg if at least 7 days of data exist for that window (otherwise NULL). Order by date.",
+  practiceCode: `SELECT
+  date,
+  revenue,
+  CASE 
+    WHEN COUNT(*) OVER (ORDER BY date ROWS BETWEEN 6 PRECEDING AND CURRENT ROW) = 7
+    THEN ROUND(AVG(revenue) OVER (ORDER BY date ROWS BETWEEN 6 PRECEDING AND CURRENT ROW), 2)
+    ELSE NULL
+  END AS rolling_7d_avg
+FROM daily_sales
+ORDER BY date;
+
+-- Key insight: COUNT(*) with the same window tells you how many rows exist.
+-- If fewer than 7 rows back, the window is smaller — flag it as NULL.
+-- This is production-quality code — real pipelines need this guard.`,
+
+  bossTitle: "🔥 FAANG Boss: Month-over-Month Trend Detection",
+  bossDesc: "Table: monthly_revenue(month DATE, region VARCHAR, revenue DECIMAL). For each region, calculate: (1) current month revenue, (2) previous month revenue using LAG, (3) 3-month rolling average, (4) a label: 'GROWTH', 'DECLINE', or 'STABLE' based on whether current > prev, current < prev, or within 5% of prev. All in one query. 20 minutes."
+},
+
+"Normalization": {
+  warmup: `<p>Before we start — answer from memory (this connects to Monday and Tuesday's data modeling):</p>
+  <p>1. What is the difference between a Star Schema and a Snowflake Schema?</p>
+  <p>2. In SCD Type 2, what 3 columns do you add to track history?</p>
+  <p>Give yourself 2 minutes. Then let's go deep on why normalized data is the foundation of both.</p>`,
+  warmupHint: `Star Schema: flat dims, denormalized, fast reads. Snowflake: normalized dims, more joins, less redundancy. SCD Type 2 adds: effective_start_date, effective_end_date (or NULL), is_current (boolean).`,
+
+  theory: `<p>Normalization is the process of restructuring a flat table to eliminate <strong>data anomalies</strong>. Every FAANG data engineering interview will test whether you can spot problems in a schema and fix them. Here's the full picture.</p>
+
+  <p><strong>The Problem — The Messy Flat Table</strong></p>
+  <div class="flat-table-viz">emp_id | emp_name | dept_name   | dept_loc | salary | mgr_id | mgr_name
+1      | Alice    | Engineering | NYC      | 95000  | 10     | Bob
+2      | Carol    | Marketing   | LA       | 75000  | 11     | Dave
+3      | Eve      | Engineering | NYC      | 88000  | 10     | Bob
+4      | Frank    | Marketing   | LA       | 72000  | 11     | Dave</div>
+
+  <p><strong>The 3 Anomalies — Why This Table Is Dangerous:</strong></p>
+  <table class="rich-table">
+    <tr><th>Anomaly</th><th>What Happens</th><th>Real Example Above</th></tr>
+    <tr><td>Update</td><td>One fact stored in many rows. Update one → miss others → inconsistency forever</td><td>Bob gets renamed to Robert. Must update rows 1 AND 3. Miss row 3 → database is now lying</td></tr>
+    <tr><td>Insert</td><td>Can't add data without attaching it to unrelated data</td><td>Want to add Finance dept in Boston? Impossible — no employee to attach it to yet</td></tr>
+    <tr><td>Delete</td><td>Deleting one thing accidentally destroys unrelated information</td><td>Frank quits (row 4). Delete it → you've now lost the fact that Marketing is in LA. Gone forever.</td></tr>
+  </table>
+
+  <p><strong>The 3 Normal Forms — In Plain English:</strong></p>
+  <ul class="step-list">
+    <li><span class="step-num">1</span><div class="step-content"><strong>1NF — "One value per cell"</strong><br>No lists. No comma-separated values. No repeating column groups (skills1, skills2, skills3). Every cell holds exactly one atomic value. Simple test: can you put this in a spreadsheet with one value per cell?</div></li>
+    <li><span class="step-num">2</span><div class="step-content"><strong>2NF — "No partial dependencies"</strong><br>Only applies when you have a <strong>composite primary key</strong> (two columns together). Every non-key column must depend on the WHOLE key — not just part of it. If student_name depends only on student_id (and not subject_id), but your key is (student_id, subject_id) — that's a 2NF violation. Split it out. The Pizza Analogy 🍕: Alice orders pizza with 2 dipping sauces (composite key). The sauce combo identifies the order. But the pizza box color only depends on one sauce — that's a partial dependency.</div></li>
+    <li><span class="step-num">3</span><div class="step-content"><strong>3NF — "No transitive dependencies"</strong><br>No non-key column should depend on ANOTHER non-key column. The chain: emp_id → dept_id → dept_location. dept_location is determined by dept_id, not directly by emp_id. That's a transitive dependency — break the chain. The Pizza Analogy 🍕: Bob's order (primary key) → Ranch (non-key A) → Mayo (non-key B). Mayo depends on Ranch, not on Bob's order directly. Transitive = violation.</div></li>
+  </ul>
+
+  <p><strong>The Fix — Normalized to 3NF:</strong></p>
+  <div class="flat-table-viz">-- Before (flat, dangerous)
+employee_flat: emp_id | emp_name | dept_name | dept_loc | salary | mgr_id | mgr_name
+
+-- After (3NF, clean)
+employees:    emp_id | emp_name | dept_id (FK) | mgr_id (FK) | salary
+departments:  dept_id | dept_name | dept_loc
+managers:     mgr_id | mgr_name</div>
+
+  <div class="interview-gold">
+    <div class="interview-gold-title">⭐ Interview Gold Line</div>
+    <p>"Snowflake Schema and 3NF solve the same problem in different contexts. 3NF is for transactional systems where write integrity matters. Snowflake Schema applies the same normalization principles to analytical dimension tables. Star Schema then deliberately denormalizes for query performance — trading storage for speed."</p>
+  </div>`,
+
+  commonMistakes: `<table class="rich-table">
+    <tr><th>Mistake</th><th>What it means</th><th>The fix</th></tr>
+    <tr><td>Confusing 2NF and 3NF</td><td>2NF = partial dependency (composite key). 3NF = transitive dependency (chain through non-key)</td><td>2NF: "half the key". 3NF: "another non-key column"</td></tr>
+    <tr><td>Forgetting 2NF only applies to composite keys</td><td>If primary key is a single column, you're automatically in 2NF</td><td>Check: is the PK one column or two? If one → skip to 3NF</td></tr>
+    <tr><td>ROW_NUMBER() before DISTINCT in subquery</td><td>ROW_NUMBER assigns before deduplication — creates fake extra IDs</td><td>DISTINCT inside subquery first, THEN apply ROW_NUMBER() outside</td></tr>
+    <tr><td>TRUNCATE fails with FK constraints</td><td>Can't truncate parent table while child references it</td><td>Truncate children first, then parents. Or TRUNCATE ... CASCADE (careful!)</td></tr>
+  </table>`,
+
+  notes: [
+    "'Every non-key column must depend on the key, the whole key, and nothing but the key' — memorize this word for word",
+    "2NF: partial dependency — column depends on HALF a composite key. Keyword: 'partial'",
+    "3NF: transitive dependency — column depends on another non-key column. Keyword: 'transitive'",
+    "Snowflake Schema = 3NF applied to dimensional tables in a warehouse — same concept, different context",
+    "Foreign Keys enforce referential integrity — always mention them in design interviews. They prevent orphan records.",
+    "In migration: ROW_NUMBER() OVER (ORDER BY dept_name) inside a subquery after DISTINCT — not outside"
+  ],
+
+  practiceTitle: "Full Normalization Lab — Uber Trips",
+  practiceDesc: "You're given a flat trips table. Normalize it to 3NF. Create the tables, migrate the data, then prove it worked by reconstructing the original with JOINs.",
+  practiceCode: `-- FLAT TABLE (your starting point)
+CREATE TABLE trips_flat (
+  trip_id INT, driver_name VARCHAR(50), driver_phone VARCHAR(20),
+  car_model VARCHAR(30), car_year INT, passenger_name VARCHAR(50),
+  passenger_email VARCHAR(50), city_name VARCHAR(30), city_country VARCHAR(30),
+  fare DECIMAL(8,2), trip_date DATE
+);
+
+-- STEP 1: Identify violations
+-- driver_phone → driver_name (transitive — 3NF violation)
+-- car_model → car_year (transitive — 3NF violation)
+-- passenger_email → passenger_name (transitive — 3NF violation)
+-- city_name → city_country (transitive — 3NF violation)
+
+-- STEP 2: Normalized schema
+CREATE TABLE drivers (driver_id SERIAL PRIMARY KEY, driver_name VARCHAR(50), driver_phone VARCHAR(20));
+CREATE TABLE cars (car_id SERIAL PRIMARY KEY, car_model VARCHAR(30), car_year INT, driver_id INT REFERENCES drivers(driver_id));
+CREATE TABLE passengers (passenger_id SERIAL PRIMARY KEY, passenger_name VARCHAR(50), passenger_email VARCHAR(50));
+CREATE TABLE cities (city_id SERIAL PRIMARY KEY, city_name VARCHAR(30), city_country VARCHAR(30));
+CREATE TABLE trips (
+  trip_id INT PRIMARY KEY, driver_id INT REFERENCES drivers(driver_id),
+  passenger_id INT REFERENCES passengers(passenger_id),
+  city_id INT REFERENCES cities(city_id),
+  fare DECIMAL(8,2), trip_date DATE
+);
+
+-- STEP 3: Migrate using SELECT DISTINCT + subquery for generated IDs
+INSERT INTO cities (city_id, city_name, city_country)
+SELECT ROW_NUMBER() OVER (ORDER BY city_name) AS city_id, city_name, city_country
+FROM (SELECT DISTINCT city_name, city_country FROM trips_flat) AS d;
+
+-- STEP 4: Reconstruct original (prove normalization worked)
+SELECT t.trip_id, d.driver_name, d.driver_phone, c2.car_model,
+       p.passenger_name, ci.city_name, t.fare, t.trip_date
+FROM trips t
+JOIN drivers d ON d.driver_id = t.driver_id
+JOIN passengers p ON p.passenger_id = t.passenger_id
+JOIN cities ci ON ci.city_id = t.city_id
+JOIN cars c2 ON c2.driver_id = d.driver_id;`,
+
+  bossTitle: "🔥 FAANG Boss: Uber Schema Design",
+  bossDesc: "You're a DE at Uber. A flat table arrives with 50M rows: trip_id, driver_name, driver_phone, car_model, car_year, passenger_name, passenger_email, city_name, city_country, surge_multiplier, fare, trip_date. Answer: (1) All 3NF violations, (2) Full normalized schema with table names and columns, (3) What anomaly happens if driver changes their phone number without normalization? (4) What anomaly if you delete the last trip in a city? Explain all 4 answers like you're in a whiteboard round."
+},
+
+"NoSQL Modeling": {
+  warmup: `<p>Recall from yesterday's Normalization session — answer these in your head:</p>
+  <p>1. What are the 3 data anomalies and which normalization level fixes each?</p>
+  <p>2. What does 'transitive dependency' mean? Give an example from the employee flat table.</p>
+  <p>3. Why is Snowflake Schema called the '3NF of data warehouses'?</p>`,
+  warmupHint: `Anomalies: Update (3NF), Insert (3NF), Delete (3NF) — all fixed by normalization. Transitive: emp_id→dept_id→dept_loc. Snowflake = 3NF applied to dims because it normalizes dimension tables into sub-dimensions.`,
+
+  theory: `<p>NoSQL isn't one thing — it's a category of databases designed for when relational tables don't fit. There are 4 types, each solving a different problem.</p>
+
+  <table class="rich-table">
+    <tr><th>Type</th><th>Model</th><th>Best For</th><th>Examples</th></tr>
+    <tr><td>Document</td><td>JSON/BSON objects</td><td>Flexible schemas, nested data, APIs</td><td>MongoDB, Firestore, CouchDB</td></tr>
+    <tr><td>Wide-Column</td><td>Rows + dynamic columns</td><td>Time-series, high write throughput, sparse data</td><td>Cassandra, HBase, BigTable</td></tr>
+    <tr><td>Key-Value</td><td>Hash map at scale</td><td>Caching, sessions, simple lookups</td><td>Redis, DynamoDB, ElastiCache</td></tr>
+    <tr><td>Graph</td><td>Nodes + edges</td><td>Relationships, social networks, fraud detection</td><td>Neo4j, Amazon Neptune</td></tr>
+  </table>
+
+  <p><strong>The Fundamental Shift — Design for Queries, Not Entities</strong></p>
+  <p>In SQL you normalize first, then JOIN to read. In NoSQL the rule is opposite: <strong>design your data model around how you will READ it</strong>. What queries will run most often? Structure your documents/rows to answer those queries without joins — because NoSQL has no joins.</p>
+
+  <p><strong>Document Modeling — Embed vs Reference:</strong></p>
+  <div class="flat-table-viz">// EMBED when: data is always accessed together, child has no independent identity
+// Example: order + its line items
+{
+  "order_id": "ORD-001",
+  "customer": "Alice",
+  "items": [           // embedded — always read with the order
+    {"product": "Shoes", "qty": 2, "price": 89.99},
+    {"product": "Socks", "qty": 3, "price": 9.99}
+  ]
+}
+
+// REFERENCE when: data is shared, accessed independently, or grows unbounded
+// Example: user + their posts (posts could be millions)
+{
+  "user_id": "USR-101",
+  "name": "Alice",
+  "post_ids": ["POST-1", "POST-2"]  // reference — posts have own collection
+}</div>
+
+  <p><strong>Wide-Column (Cassandra) Modeling — The Partition Key is Everything:</strong></p>
+  <p>In Cassandra, the partition key determines which node stores the data. A bad partition key = one node gets all traffic (hot partition = death). Design rule: your most common query's WHERE clause should match your partition key.</p>
+  <div class="flat-table-viz">-- Query: "give me all events for user X in time range"
+-- Correct model:
+CREATE TABLE user_events (
+  user_id UUID,       -- partition key: all user's data on same node
+  event_time TIMESTAMP,-- clustering key: sorted within partition
+  event_type TEXT,
+  payload TEXT,
+  PRIMARY KEY (user_id, event_time)
+) WITH CLUSTERING ORDER BY (event_time DESC);</div>
+
+  <div class="interview-gold">
+    <div class="interview-gold-title">⭐ Interview Gold: When to Use NoSQL vs SQL</div>
+    <p>"SQL when: you need ACID transactions, data is relational, schema is stable, queries are ad-hoc. NoSQL when: you need horizontal scale, schema is flexible/sparse, access patterns are predictable, write throughput is extreme. In practice: most FAANG systems use BOTH — SQL for OLTP integrity, NoSQL for high-volume time-series or caching."</p>
+  </div>`,
+
+  commonMistakes: `<table class="rich-table">
+    <tr><th>Mistake</th><th>Consequence</th><th>Fix</th></tr>
+    <tr><td>Using user_id as partition key in Cassandra for a social app</td><td>Celebrity users (millions of follows) create hot partitions — that node crashes</td><td>Composite partition: (user_id, bucket) where bucket = month or shard number</td></tr>
+    <tr><td>Embedding unbounded arrays in MongoDB</td><td>Document size limit is 16MB. User with 10M comments exceeds it</td><td>Reference pattern — comments get their own collection</td></tr>
+    <tr><td>Treating DynamoDB like a relational DB</td><td>No joins, no complex queries — full table scans are expensive</td><td>Define access patterns first, then model. Each access pattern = one index</td></tr>
+    <tr><td>Forgetting TTL for time-series in Cassandra</td><td>Old data never expires — disk fills up</td><td>Set TTL per row: INSERT ... USING TTL 2592000 (30 days)</td></tr>
+  </table>`,
+
+  notes: [
+    "NoSQL = design for reads. Denormalize intentionally. Duplication is acceptable — inconsistency is not.",
+    "Cassandra partition key rule: your most common WHERE clause = your partition key",
+    "MongoDB: embed for 'always together', reference for 'independent entity or unbounded growth'",
+    "DynamoDB: always define your access patterns BEFORE choosing partition + sort key",
+    "Wide-column vs relational interview line: 'Cassandra trades JOIN support for horizontal write scale — right tool for IoT/time-series, wrong tool for financial reconciliation'"
+  ],
+
+  practiceTitle: "Model Instagram Likes in Cassandra",
+  practiceDesc: "Design a Cassandra table to answer: 'Get all likes for a post, sorted by time'. Then design a second table to answer: 'Get all posts liked by a user'. Remember: in Cassandra, each query gets its own table.",
+  practiceCode: `-- Access Pattern 1: "Get all likes for post X, sorted by time"
+CREATE TABLE likes_by_post (
+  post_id UUID,
+  liked_at TIMESTAMP,
+  user_id UUID,
+  user_name TEXT,
+  PRIMARY KEY (post_id, liked_at)
+) WITH CLUSTERING ORDER BY (liked_at DESC);
+
+-- Access Pattern 2: "Get all posts liked by user X"
+CREATE TABLE likes_by_user (
+  user_id UUID,
+  liked_at TIMESTAMP,
+  post_id UUID,
+  post_title TEXT,
+  PRIMARY KEY (user_id, liked_at)
+) WITH CLUSTERING ORDER BY (liked_at DESC);
+
+-- In Cassandra, you maintain BOTH tables.
+-- When Alice likes a post: write to BOTH tables simultaneously.
+-- This is the "query-first" design philosophy — duplication is intentional.
+-- Consistency is handled at application level or with Cassandra's LWT.`,
+
+  bossTitle: "🔥 FAANG Boss: Design Twitter's Timeline",
+  bossDesc: "Twitter's home timeline: you follow 300 people, each tweets ~5 times/day. Design the NoSQL data model to answer 'show me the 20 most recent tweets from people I follow' with <100ms latency at 100M users. Options to consider: fan-out on write (pre-compute timelines) vs fan-out on read (query at runtime). What's the tradeoff? Which would you choose and why? Draw the data model."
+},
+
+"Generators": {
+  warmup: `<p>Random topic recall — SQL from Week 1:</p>
+  <p>Write a SQL query from memory to find the top 3 earners per department. Use a window function approach (no LIMIT, no subquery with MAX). You have 3 minutes.</p>`,
+  warmupHint: `WITH ranked AS (SELECT *, DENSE_RANK() OVER (PARTITION BY dept ORDER BY salary DESC) AS dr FROM employees) SELECT * FROM ranked WHERE dr <= 3;`,
+
+  theory: `<p>A generator is a Python function that uses <code>yield</code> instead of <code>return</code>. Instead of computing all values at once and returning a list, it produces values <strong>one at a time, on demand</strong>. This makes it O(1) memory regardless of input size.</p>
+
+  <p><strong>The Core Difference:</strong></p>
+  <div class="flat-table-viz">## List — loads EVERYTHING into memory
+def get_all_rows(filepath):
+    rows = []
+    with open(filepath) as f:
+        for line in f:
+            rows.append(line.strip())  # 10GB file = 10GB RAM used
+    return rows
+
+## Generator — produces ONE row at a time
+def read_rows(filepath):
+    with open(filepath) as f:
+        for line in f:
+            yield line.strip()  # 10GB file = ~100 bytes RAM used</div>
+
+  <p><strong>How generators work internally:</strong></p>
+  <ul class="step-list">
+    <li><span class="step-num">1</span><div class="step-content">You call the function — it doesn't run yet. It returns a generator object.</div></li>
+    <li><span class="step-num">2</span><div class="step-content">You call <code>next(gen)</code> or iterate with a for loop — it runs until it hits a <code>yield</code>, pauses, and hands you the value.</div></li>
+    <li><span class="step-num">3</span><div class="step-content">Next call? It resumes from where it paused. Rinse and repeat until StopIteration.</div></li>
+  </ul>
+
+  <p><strong>Generator Pipelines — The ETL Pattern:</strong></p>
+  <div class="flat-table-viz">## Chain generators for memory-efficient ETL
+def read_file(path):
+    with open(path) as f:
+        for line in f: yield line.strip()
+
+def parse_json(lines):
+    import json
+    for line in lines:
+        yield json.loads(line)
+
+def filter_errors(records):
+    for r in records:
+        if r.get('status') == 'ERROR': yield r
+
+def transform(records):
+    for r in records:
+        yield {'user_id': r['uid'], 'ts': r['timestamp'], 'msg': r['message']}
+
+# Full pipeline — at any point, only ONE record is in memory
+pipeline = transform(filter_errors(parse_json(read_file('events.jsonl'))))
+for record in pipeline:
+    write_to_db(record)</div>
+
+  <div class="callout"><strong>Why this matters for DE:</strong> You will process files that are 100GB+. Loading them into a list is impossible. Generators are the standard pattern for streaming ETL, Kafka consumer loops, database cursor wrappers, and any large-file pipeline.</div>`,
+
+  commonMistakes: `<table class="rich-table">
+    <tr><th>Mistake</th><th>What happens</th><th>Fix</th></tr>
+    <tr><td>Iterating a generator twice</td><td>Second loop gets nothing — generators are exhausted after one pass</td><td>Create a new generator instance, or convert to list if you need multiple passes (only if it fits in memory)</td></tr>
+    <tr><td>Using return inside a generator</td><td>return with a value raises StopIteration — function ends</td><td>Use yield. Use bare return or let the function end to stop.</td></tr>
+    <tr><td>list() on a massive generator</td><td>Defeats the entire purpose — loads everything into memory</td><td>Stream the generator — process one item at a time</td></tr>
+    <tr><td>Forgetting to close file handles</td><td>File stays open if generator is abandoned mid-iteration</td><td>Use contextlib.closing() or with statement inside the generator</td></tr>
+  </table>`,
+
+  notes: [
+    "Generator = lazy evaluation. List = eager evaluation. For files/streams: always lazy.",
+    "sys.getsizeof() a list vs generator: list grows with data, generator stays ~200 bytes",
+    "Generator expressions: (x*2 for x in range(10)) — parens not brackets. Like list comprehension but lazy.",
+    "Database cursors ARE generators — fetchone() vs fetchall() is the same lazy vs eager tradeoff",
+    "Interview line: 'I'd use a generator here to process this file in constant memory — loading the whole thing would require 50GB of RAM'"
+  ],
+
+  practiceTitle: "Streaming ETL with Chunked Batching",
+  practiceDesc: "Write a generator read_in_chunks(filepath, chunk_size=1000) that reads a large CSV and yields lists of rows (chunks), never loading the full file. Then write a pipeline to count total rows and count error rows without holding more than one chunk in memory.",
+  practiceCode: `import csv
+
+def read_in_chunks(filepath, chunk_size=1000):
+    """Generator: yields lists of rows from large CSV"""
+    with open(filepath, newline='') as f:
+        reader = csv.DictReader(f)
+        chunk = []
+        for row in reader:
+            chunk.append(row)
+            if len(chunk) == chunk_size:
+                yield chunk
+                chunk = []  # release old chunk from memory
+        if chunk:  # yield leftover rows
+            yield chunk
+
+# Pipeline — only one chunk (1000 rows) in memory at a time
+total_rows = 0
+error_rows = 0
+
+for chunk in read_in_chunks('massive_log.csv', chunk_size=1000):
+    total_rows += len(chunk)
+    error_rows += sum(1 for r in chunk if r.get('status') == 'ERROR')
+
+print(f"Total: {total_rows:,} | Errors: {error_rows:,}")
+
+# For 10GB file: peak memory = ~few MB for one chunk
+# vs list approach: 10GB+ RAM required`,
+
+  bossTitle: "🔥 FAANG Boss: Streaming JSON Lines ETL",
+  bossDesc: "Write a complete generator pipeline that: (1) reads a 10GB JSON Lines file line by line, (2) filters records where 'level' = 'ERROR', (3) extracts only user_id, timestamp, and message fields, (4) writes output to a new file in batches of 5000 using a write_batch(records) function. Measure: what is the peak memory usage of your solution? Walk through the code and explain why each generator boundary exists."
+},
+
+"Hash Maps (Dicts)": {
+  warmup: `<p>Random topic from data modeling — answer before peeking:</p>
+  <p>You have a flat table with columns: order_id, product_id, product_name, quantity. The primary key is (order_id, product_id). Which Normal Form is violated and why? How do you fix it?</p>`,
+  warmupHint: `2NF violation: product_name depends only on product_id (half the composite key), not on the full (order_id, product_id) key. Fix: create a separate products table with product_id as PK and move product_name there.`,
+
+  theory: `<p>A HashMap (Python dict) gives O(1) average-case lookup, insert, and delete. It's the single most useful data structure for coding interviews because it trades memory for speed — you pre-process data once, then answer questions in constant time.</p>
+
+  <p><strong>How it works internally:</strong></p>
+  <ul class="step-list">
+    <li><span class="step-num">1</span><div class="step-content"><strong>Hash function:</strong> the key (e.g., "Alice") is run through a hash function → produces an integer index</div></li>
+    <li><span class="step-num">2</span><div class="step-content"><strong>Bucket lookup:</strong> that index points to a slot in an underlying array → O(1) to find the value</div></li>
+    <li><span class="step-num">3</span><div class="step-content"><strong>Collision:</strong> two keys hash to same index → handled by chaining (linked list at that slot) or open addressing</div></li>
+  </ul>
+
+  <table class="rich-table">
+    <tr><th>Operation</th><th>Dict (avg)</th><th>List (avg)</th><th>Why</th></tr>
+    <tr><td>lookup by key</td><td>O(1)</td><td>O(n)</td><td>Dict hashes key → direct index. List must scan.</td></tr>
+    <tr><td>insert</td><td>O(1)</td><td>O(1) append / O(n) insert at index</td><td>Dict hashes. List shifts elements.</td></tr>
+    <tr><td>delete</td><td>O(1)</td><td>O(n)</td><td>Dict unlinks. List shifts.</td></tr>
+    <tr><td>check membership</td><td>O(1)</td><td>O(n)</td><td>'key in dict' = hash + lookup. 'x in list' = full scan.</td></tr>
+  </table>
+
+  <p><strong>The 3 Core Patterns in DE interviews:</strong></p>
+  <div class="flat-table-viz">## Pattern 1: Frequency Count
+from collections import Counter
+freq = Counter(['a','b','a','c','a'])  # {'a':3, 'b':1, 'c':1}
+
+## Pattern 2: Two-Pass Lookup (classic Two Sum)
+def two_sum(nums, target):
+    seen = {}  # {value: index}
+    for i, n in enumerate(nums):
+        complement = target - n
+        if complement in seen:
+            return [seen[complement], i]
+        seen[n] = i
+
+## Pattern 3: Grouping (like GROUP BY)
+from collections import defaultdict
+groups = defaultdict(list)
+for item in data:
+    groups[item['dept']].append(item['name'])
+# groups = {'Engineering': ['Alice', 'Eve'], 'Marketing': ['Carol', 'Frank']}</div>`,
+
+  commonMistakes: `<table class="rich-table">
+    <tr><th>Mistake</th><th>What happens</th><th>Fix</th></tr>
+    <tr><td>KeyError on missing key</td><td>dict['missing'] raises KeyError and crashes</td><td>Use dict.get('key', default) or defaultdict</td></tr>
+    <tr><td>Modifying dict while iterating</td><td>RuntimeError: dictionary changed size during iteration</td><td>Iterate over list(dict.keys()) or dict.items() copy</td></tr>
+    <tr><td>Using mutable as dict key</td><td>Lists, dicts can't be keys — unhashable type error</td><td>Convert to tuple: dict[(1,2)] = value. Tuples are hashable.</td></tr>
+    <tr><td>O(n²) solution when O(n) exists</td><td>Nested loop for "find pair that sums to X" = TLE on 10M inputs</td><td>One-pass hashmap: for each element, check if complement is already in seen</td></tr>
+  </table>`,
+
+  notes: [
+    "dict.get(key, default) is safer than dict[key] — never KeyErrors in production code",
+    "defaultdict(list) and defaultdict(int) save you from initializing empty containers manually",
+    "Counter is a dict subclass — Counter.most_common(k) gives top-k in O(n log k)",
+    "Two Sum pattern: pre-load or one-pass hashmap. This pattern solves 30% of array problems.",
+    "Interview tell: when you see 'find two elements that...', think hashmap before nested loops"
+  ],
+
+  practiceTitle: "Group Anagrams",
+  practiceDesc: "Given a list of strings, group all anagrams together. Return a list of groups. ['eat','tea','tan','ate','nat','bat'] → [['eat','tea','ate'],['tan','nat'],['bat']]. Must be O(n * k) where k is max string length — no nested loops.",
+  practiceCode: `from collections import defaultdict
+
+def group_anagrams(strs):
+    """
+    Key insight: anagrams have the same sorted characters.
+    sorted('eat') == sorted('tea') == sorted('ate') == 'aet'
+    Use sorted string as hashmap key to group anagrams.
+    O(n * k log k) where k = max string length
+    """
+    groups = defaultdict(list)
+    
+    for s in strs:
+        key = tuple(sorted(s))  # 'eat' → ('a','e','t')
+        groups[key].append(s)
+    
+    return list(groups.values())
+
+# Test
+print(group_anagrams(["eat","tea","tan","ate","nat","bat"]))
+# [['eat','tea','ate'], ['tan','nat'], ['bat']]
+
+# DE context: this is exactly what you do when deduplicating records
+# by a normalized key — hash the canonical form, group by it.`,
+
+  bossTitle: "🔥 FAANG Boss: Real-Time Deduplication",
+  bossDesc: "You're ingesting 1M events/second into a streaming pipeline. Events can duplicate within a 5-minute window. Design a Python solution using dicts/sets to deduplicate events within the window without storing more than 5 minutes of data. What's your data structure? How do you expire old entries? What's your memory footprint per million events? Walk through the design and write the core deduplication function."
+},
+
+"The Shuffle": {
+  warmup: `<p>Spark Internals warm-up — answer from memory:</p>
+  <p>1. What are the 5 stages of Spark's logical plan (from DataFrame to execution)?</p>
+  <p>2. What is a transformation vs an action in Spark? Give 2 examples of each.</p>
+  <p>3. What does 'lazy evaluation' mean in Spark and why is it useful?</p>`,
+  warmupHint: `Logical plan: DataFrame → Unresolved Logical Plan → Analyzed → Optimized → Physical Plans → Selected Physical Plan. Transformation (lazy): map, filter, groupBy, join. Action (triggers execution): count(), show(), collect(), write(). Lazy = Spark builds a plan and only executes when an action is called — allows query optimization.`,
+
+  theory: `<p>The Shuffle is the most expensive operation in Spark. Understanding it is the difference between a pipeline that runs in 10 minutes and one that runs in 10 hours.</p>
+
+  <p><strong>What is the Shuffle?</strong></p>
+  <p>A shuffle is when Spark needs to redistribute data across partitions — typically because an operation requires rows with the same key to be on the same node. Data moves across the network. This is slow.</p>
+
+  <div class="flat-table-viz">Operations that trigger a shuffle:
+  groupByKey()    reduceByKey()    join()
+  distinct()      repartition()    sortBy()
+  aggregateByKey() cogroup()        subtract()</div>
+
+  <p><strong>The Two Join Implementations — What Spark Actually Does:</strong></p>
+  <table class="rich-table">
+    <tr><th>Join Type</th><th>How It Works</th><th>When Spark Uses It</th><th>Cost</th></tr>
+    <tr><td>Shuffle Hash Join</td><td>Hash both tables on join key, shuffle matching partitions to same node</td><td>Both tables too large for broadcast</td><td>High — full shuffle of both tables</td></tr>
+    <tr><td>Sort-Merge Join</td><td>Sort both tables on join key, merge-sort across partitions</td><td>Default for large-large joins</td><td>High — sort + shuffle</td></tr>
+    <tr><td>Broadcast Join</td><td>Small table broadcast to ALL executors — no shuffle needed</td><td>One table < spark.sql.autoBroadcastJoinThreshold (default 10MB)</td><td>Low — one broadcast, zero shuffle</td></tr>
+  </table>
+
+  <p><strong>groupByKey vs reduceByKey — The Classic Performance Trap:</strong></p>
+  <div class="flat-table-viz">## BAD: groupByKey — shuffles ALL values to reducer
+rdd.groupByKey()
+# Step 1: all values for key "Engineering" → shuffle to node 3
+# Step 2: now aggregate on node 3
+# Network cost: size of ALL values (can be gigabytes)
+
+## GOOD: reduceByKey — pre-aggregates BEFORE shuffle
+rdd.reduceByKey(lambda a, b: a + b)
+# Step 1: aggregate per partition locally first (combiner)
+# Step 2: shuffle only PARTIAL results (much smaller)
+# Network cost: size of partial aggregates (much smaller)
+
+## Equivalent in DataFrame API (Catalyst does this automatically):
+df.groupBy("dept").agg(F.sum("salary"))  # Catalyst uses reduce pattern internally</div>
+
+  <div class="callout warn"><strong>Good news:</strong> When you use DataFrame API (not RDD API), Spark's Catalyst optimizer often applies the combiner optimization automatically. Knowing WHY it matters is what interviewers test — not whether you'd write groupByKey manually.</div>`,
+
+  commonMistakes: `<table class="rich-table">
+    <tr><th>Mistake</th><th>Impact</th><th>Fix</th></tr>
+    <tr><td>Using groupByKey in RDD API</td><td>All values for a key shuffle across network before aggregation</td><td>Use reduceByKey or aggregateByKey — pre-aggregate first</td></tr>
+    <tr><td>200 partitions for 10MB of data</td><td>Task scheduling overhead > actual computation time</td><td>Coalesce to fewer partitions: df.coalesce(10)</td></tr>
+    <tr><td>Not broadcasting small tables</td><td>Unnecessary sort-merge join when broadcast would be free</td><td>from pyspark.sql.functions import broadcast; df1.join(broadcast(df2), ...)</td></tr>
+    <tr><td>Skewed keys causing one slow task</td><td>One partition has 90% of data, 1 task takes hours while others finish in minutes</td><td>Salting: add random suffix to key, double-reduce</td></tr>
+  </table>`,
+
+  notes: [
+    "Shuffle = data moves across the network = expensive. Every shuffle optimization is worth knowing cold.",
+    "reduceByKey applies a combiner (pre-aggregation) before shuffle — groupByKey does not. This is THE classic Spark question.",
+    "Broadcast join threshold: spark.sql.autoBroadcastJoinThreshold = 10MB by default. Increase carefully.",
+    "EXPLAIN on a DataFrame (df.explain(True)) shows you the physical plan — which join type Spark chose",
+    "Interview line: 'I'd check the Spark UI Stages tab — if one task is 100x slower than others, that's a data skew issue. I'd salt the join key.'"
+  ],
+
+  practiceTitle: "Debug a Slow Spark Job",
+  practiceDesc: "You have a PySpark job joining orders (10B rows) with products (5000 rows). It runs in 45 minutes. The Spark UI shows a Sort-Merge Join. Write the optimized version and explain why it's faster.",
+  practiceCode: `from pyspark.sql import SparkSession
+from pyspark.sql.functions import broadcast
+
+spark = SparkSession.builder.appName("OptimizedJoin").getOrCreate()
+
+# SLOW VERSION — Spark chooses Sort-Merge Join (45 minutes)
+result_slow = orders_df.join(products_df, on="product_id", how="left")
+
+# FAST VERSION — Force Broadcast Join (2 minutes)
+# products has 5000 rows — fits easily in memory on each executor
+result_fast = orders_df.join(
+    broadcast(products_df),  # broadcast hint forces broadcast join
+    on="product_id",
+    how="left"
+)
+
+# Why it's faster:
+# Sort-Merge Join: shuffle 10B order rows + 5000 product rows → sort → merge
+# Broadcast Join: send 5000 products to EVERY executor (~1MB), zero shuffle of orders
+# Speedup: ~20x — all the savings come from eliminating the shuffle of 10B rows
+
+# Verify in plan:
+result_fast.explain()  # should show BroadcastHashJoin, not SortMergeJoin`,
+
+  bossTitle: "🔥 FAANG Boss: Fix a Skewed Shuffle",
+  bossDesc: "Your Spark job processes 1B events. 60% of events have user_id = 'anonymous' (guest users). When you groupBy('user_id'), one task runs for 4 hours while 199 others finish in 2 minutes. Diagnose the problem using the Spark UI, then fix it using salting. Write the complete salting code: add salt, aggregate with salt, remove salt, final aggregate. Explain the memory implications at each step."
+},
+
+"Kafka Internals": {
+  warmup: `<p>Streaming warm-up — recall from Monday's Pub/Sub session:</p>
+  <p>1. What's the difference between a message queue (SQS) and a message log (Kafka)?</p>
+  <p>2. Name 3 real-world use cases where you'd choose Kafka over a REST API.</p>
+  <p>3. In Kafka, what is a topic? What is a partition? How do they relate?</p>`,
+  warmupHint: `Queue: message deleted after consumption (one consumer). Log: message persists, multiple consumers can replay. Kafka use cases: real-time analytics, event sourcing, CDC. Topic = named stream. Partition = ordered, immutable log within a topic. Topic has 1+ partitions for parallelism.`,
+
+  theory: `<p>Kafka is the backbone of real-time data engineering at FAANG scale. You need to understand it from the inside — not just "it's a message queue" (it's not a queue).</p>
+
+  <p><strong>The Kafka Architecture:</strong></p>
+  <div class="flat-table-viz">Producer → [Topic: user-events]
+              Partition 0: [msg1, msg2, msg5, msg8]  → Broker 1
+              Partition 1: [msg3, msg6, msg9]         → Broker 2  
+              Partition 2: [msg4, msg7, msg10]         → Broker 3
+              ↓↓↓
+Consumer Group A (analytics): reads all partitions, each consumer gets subset
+Consumer Group B (fraud):     reads all partitions independently — same data, different offset</div>
+
+  <p><strong>The 5 Critical Kafka Concepts:</strong></p>
+  <table class="rich-table">
+    <tr><th>Concept</th><th>What it is</th><th>Why it matters</th></tr>
+    <tr><td>Partition</td><td>Ordered, immutable append-only log. Unit of parallelism.</td><td>More partitions = more parallel consumers. But: max parallel consumers = number of partitions.</td></tr>
+    <tr><td>Offset</td><td>Integer position of a message within a partition</td><td>Consumers track their offset — tells Kafka "I've read up to here". Reset offset = replay data.</td></tr>
+    <tr><td>Consumer Group</td><td>Set of consumers that collectively read a topic</td><td>Each partition assigned to exactly ONE consumer in a group. Scale = add partitions + consumers.</td></tr>
+    <tr><td>Replication Factor</td><td>How many broker copies each partition has</td><td>RF=3 means 3 brokers have the data. 2 can die and you still serve reads/writes.</td></tr>
+    <tr><td>Leader/Follower</td><td>One broker is leader per partition, others are followers</td><td>Producers write to leader. Followers replicate. Leader fails → follower promoted automatically.</td></tr>
+  </table>
+
+  <p><strong>How Producers Decide Which Partition to Write To:</strong></p>
+  <div class="flat-table-viz">## With key (e.g., user_id):
+partition = hash(key) % num_partitions
+# Same user_id ALWAYS goes to same partition → ordering guaranteed per user
+
+## Without key:
+# Round-robin across partitions → max throughput, no ordering guarantee
+# Use when: you don't care about per-key ordering (e.g., logs)</div>
+
+  <div class="interview-gold">
+    <div class="interview-gold-title">⭐ The Key Kafka Interview Answer</div>
+    <p>"Kafka guarantees ordering within a partition — not across partitions. If you need all events for user X to be ordered, partition by user_id. If you use a consumer group, one consumer reads one partition, so per-user ordering is preserved end-to-end. Adding more consumers than partitions means idle consumers — scale by increasing partition count first."</p>
+  </div>`,
+
+  commonMistakes: `<table class="rich-table">
+    <tr><th>Mistake</th><th>Consequence</th><th>Fix</th></tr>
+    <tr><td>More consumers than partitions in a group</td><td>Extra consumers sit idle — wasted resources</td><td>Increase partition count to match or exceed consumer count</td></tr>
+    <tr><td>Partitioning by high-cardinality key (timestamp)</td><td>Hot partitions — all traffic goes to one broker</td><td>Use user_id or a bucketed key for even distribution</td></tr>
+    <tr><td>At-least-once delivery without idempotency</td><td>Duplicate messages processed → double-counting, incorrect totals</td><td>Use idempotent consumers: check dedup key before processing</td></tr>
+    <tr><td>Not setting retention policy</td><td>Disk fills up on Kafka brokers</td><td>Set log.retention.hours or log.retention.bytes per topic</td></tr>
+  </table>`,
+
+  notes: [
+    "Partition count drives parallelism — you can increase partitions but NOT decrease them (data redistribution breaks ordering)",
+    "Consumer group offset management: auto-commit vs manual commit. Manual = safer, at-least-once if consumer dies after processing",
+    "Replication factor 3 = standard production setting. RF=1 = data loss if broker dies.",
+    "Log compaction: Kafka can keep only the LATEST message per key — used for changelog topics (CDC, config updates)",
+    "ISR (In-Sync Replicas): only ISR members can become leader. acks=all means all ISRs confirmed write."
+  ],
+
+  practiceTitle: "Design Kafka Topics for an E-Commerce System",
+  practiceDesc: "Design the Kafka topic architecture for an e-commerce system. Events: order_placed, payment_processed, item_shipped, item_delivered, order_cancelled. Requirements: payments must be processed in order per user. Analytics team needs all events. Fraud detection needs payment events immediately. Define: topic names, partition strategy, consumer groups, and retention.",
+  practiceCode: `# Kafka Topic Design for E-Commerce
+
+TOPICS = {
+    "orders": {
+        "partitions": 50,
+        "partition_key": "user_id",       # ensures per-user ordering
+        "replication_factor": 3,
+        "retention": "7 days",
+        "events": ["order_placed", "order_cancelled"]
+    },
+    "payments": {
+        "partitions": 100,                 # high volume, high priority
+        "partition_key": "user_id",        # per-user payment ordering critical
+        "replication_factor": 3,
+        "retention": "30 days",            # longer — financial audit trail
+        "events": ["payment_processed"]
+    },
+    "fulfillment": {
+        "partitions": 30,
+        "partition_key": "order_id",
+        "replication_factor": 3,
+        "retention": "14 days",
+        "events": ["item_shipped", "item_delivered"]
+    }
+}
+
+CONSUMER_GROUPS = {
+    "analytics-pipeline": {
+        "topics": ["orders", "payments", "fulfillment"],
+        "consumers": 50,    # matches max partitions
+        "offset_commit": "manual",
+        "processing": "batch every 5 min → write to data lake"
+    },
+    "fraud-detection": {
+        "topics": ["payments"],
+        "consumers": 100,
+        "offset_commit": "manual",
+        "processing": "real-time, <1s latency"
+    },
+    "notification-service": {
+        "topics": ["orders", "fulfillment"],
+        "consumers": 30,
+        "processing": "send emails/SMS per event"
+    }
+}
+# Key decisions:
+# 1. Partition by user_id for payments → ordering per user guaranteed
+# 2. Each consumer group reads independently → fraud + analytics don't interfere
+# 3. Fraud gets its own group on payments topic → zero lag from analytics processing`,
+
+  bossTitle: "🔥 FAANG Boss: Kafka at LinkedIn Scale",
+  bossDesc: "LinkedIn processes 7 trillion messages/day on Kafka. Design the Kafka architecture for their feed pipeline: 900M users, each user generates 50 events/day (views, clicks, likes). Calculate: total events/second, number of partitions needed, storage per day (assume 1KB/event, 7-day retention). Then: a partition suddenly gets 100x traffic (viral post). How do you detect this in real-time and what do you do? 25 minutes."
+},
+
+"Idempotency": {
+  warmup: `<p>Quality & Contracts warm-up — recall from Monday's Data Quality session:</p>
+  <p>1. Name 3 types of data quality checks you'd write for a production pipeline.</p>
+  <p>2. What's the difference between a NULL check and a completeness check?</p>
+  <p>3. If your pipeline writes duplicate rows to the output table, which quality dimension is violated?</p>`,
+  warmupHint: `Quality checks: NULL counts, row volume vs expected, distribution checks (no negative ages), referential integrity, freshness. NULL check = any nulls in non-nullable column. Completeness = what % of expected records arrived. Duplicate rows = uniqueness/integrity violation.`,
+
+  theory: `<p>Idempotency means: running the same pipeline operation N times produces the <strong>exact same result</strong> as running it once. This is non-negotiable in production data engineering.</p>
+
+  <p><strong>Why it matters so much:</strong></p>
+  <p>Pipelines fail. Airflow retries. Someone reruns a backfill. If your pipeline is not idempotent, each retry adds more rows → your table grows with duplicates → every downstream report is wrong. This has caused real FAANG incidents.</p>
+
+  <table class="rich-table">
+    <tr><th>Pattern</th><th>Idempotent?</th><th>Why / Why Not</th></tr>
+    <tr><td>INSERT without dedup</td><td class="bad">❌ NO</td><td>Each run adds more rows. 3 retries = 3x the data.</td></tr>
+    <tr><td>INSERT … ON CONFLICT DO NOTHING</td><td class="good">✅ YES</td><td>Duplicate key = skip. Same result every run.</td></tr>
+    <tr><td>TRUNCATE + INSERT</td><td class="good">✅ YES</td><td>Wipe first, reload. Run 10 times = same final state.</td></tr>
+    <tr><td>DELETE WHERE partition_date = X + INSERT</td><td class="good">✅ YES</td><td>Atomic swap per partition. Safe to retry.</td></tr>
+    <tr><td>MERGE (UPSERT)</td><td class="good">✅ YES</td><td>Insert if new, update if exists. Same result always.</td></tr>
+    <tr><td>UPDATE without WHERE</td><td class="bad">❌ DANGER</td><td>Might change rows that shouldn't be touched on retry.</td></tr>
+  </table>
+
+  <p><strong>The Partition-Based Pattern (Most Common in DE):</strong></p>
+  <div class="flat-table-viz">-- Pattern: DELETE partition + INSERT new data
+-- Safe because: deleting the partition removes ALL old data before writing
+-- Result is always exactly what this run's data says
+
+DELETE FROM sales_daily WHERE partition_date = '{{ ds }}';
+INSERT INTO sales_daily
+SELECT ..., DATE '{{ ds }}' AS partition_date
+FROM raw_sales
+WHERE sale_date = '{{ ds }}';</div>
+
+  <p><strong>Kafka Consumer Idempotency:</strong></p>
+  <div class="flat-table-viz">## Non-idempotent (dangerous)
+for event in consumer:
+    process_event(event)
+    consumer.commit()    # if crash between process + commit → duplicate on retry
+
+## Idempotent approach: check before processing
+for event in consumer:
+    if not already_processed(event.id):   # check dedup table
+        process_event(event)
+        mark_processed(event.id)          # atomic with processing
+    consumer.commit()</div>`,
+
+  commonMistakes: `<table class="rich-table">
+    <tr><th>Mistake</th><th>Impact</th><th>Fix</th></tr>
+    <tr><td>INSERT without conflict handling in Airflow pipeline</td><td>Airflow retries 3x → 3x duplicate rows in table</td><td>Use UPSERT or DELETE+INSERT pattern</td></tr>
+    <tr><td>Not partitioning output tables by date</td><td>Can't safely delete just "today's" data for reruns — must drop everything</td><td>Always partition production tables by date/event_date</td></tr>
+    <tr><td>Using auto-increment IDs as dedup keys</td><td>Each insert gets a new ID — two inserts of same data get different IDs</td><td>Use business key (order_id, user_id+date) as dedup key, not generated IDs</td></tr>
+    <tr><td>Committing Kafka offset before processing</td><td>Crash after commit → message lost (at-most-once, not at-least-once)</td><td>Process THEN commit. Accept at-least-once, handle duplicates downstream.</td></tr>
+  </table>`,
+
+  notes: [
+    "The golden rule: every production pipeline must be safe to re-run. Ask yourself: 'what happens if this runs twice?' before shipping.",
+    "DELETE WHERE date = '{{ ds }}' + INSERT = simplest idempotent pattern. Use it everywhere.",
+    "INSERT ... ON CONFLICT DO UPDATE (Postgres UPSERT) is cleaner for row-level dedup",
+    "Airflow tip: use execution_date not current_date in queries — otherwise reruns process wrong partition",
+    "Exactly-once in Kafka requires: idempotent producers (enable.idempotence=true) + transactional API + idempotent consumers. Expensive. Use at-least-once + idempotent consumers instead."
+  ],
+
+  practiceTitle: "Make This Pipeline Idempotent",
+  practiceDesc: "The following pipeline inserts daily sales into a summary table. It runs on retry due to a network failure. Now the table has doubled rows for yesterday. Rewrite it to be idempotent.",
+  practiceCode: `-- BROKEN (not idempotent)
+INSERT INTO daily_summary (date, product_id, total_revenue, total_units)
+SELECT 
+    sale_date AS date,
+    product_id,
+    SUM(amount) AS total_revenue,
+    COUNT(*) AS total_units
+FROM raw_sales
+WHERE sale_date = '{{ execution_date }}'
+GROUP BY sale_date, product_id;
+-- Problem: retry inserts duplicates. 2 retries = 3x the rows.
+
+-- FIXED OPTION 1: DELETE + INSERT (simplest)
+BEGIN;
+DELETE FROM daily_summary WHERE date = '{{ execution_date }}';
+INSERT INTO daily_summary (date, product_id, total_revenue, total_units)
+SELECT sale_date, product_id, SUM(amount), COUNT(*)
+FROM raw_sales
+WHERE sale_date = '{{ execution_date }}'
+GROUP BY sale_date, product_id;
+COMMIT;
+
+-- FIXED OPTION 2: UPSERT (PostgreSQL)
+INSERT INTO daily_summary (date, product_id, total_revenue, total_units)
+SELECT sale_date, product_id, SUM(amount), COUNT(*)
+FROM raw_sales
+WHERE sale_date = '{{ execution_date }}'
+GROUP BY sale_date, product_id
+ON CONFLICT (date, product_id)  -- requires unique constraint
+DO UPDATE SET
+    total_revenue = EXCLUDED.total_revenue,
+    total_units = EXCLUDED.total_units;`,
+
+  bossTitle: "🔥 FAANG Boss: Idempotent SCD Type 2",
+  bossDesc: "You have a pipeline that runs SCD Type 2 MERGE logic to track employee department changes. The Airflow task fails at step 3 of 4 and retries. Write the MERGE statement that is safe to re-run: it must not create duplicate history rows if it already ran partially. Hint: use effective_end_date + is_current flag. The trickiest part is the UPDATE step — how do you make it idempotent? Walk through your reasoning before writing code."
+},
+
+"DAG Architecture": {
+  warmup: `<p>Random topic review — Python Generators from Week 5:</p>
+  <p>1. What's the difference between yield and return in Python?</p>
+  <p>2. Write a one-line generator expression that produces squares of even numbers from 0-20.</p>
+  <p>3. Why would you use a generator instead of a list when reading a 10GB log file?</p>`,
+  warmupHint: `yield produces a value and pauses (lazy). return gives value and terminates function. Generator expression: (x**2 for x in range(21) if x % 2 == 0). Generator reads one line at a time — O(1) memory vs O(n) for list.`,
+
+  theory: `<p>Apache Airflow is the standard orchestration platform at most FAANG and FAANG-adjacent companies. A DAG (Directed Acyclic Graph) defines your pipeline: what runs, in what order, on what schedule.</p>
+
+  <p><strong>The Airflow Architecture — What's Actually Running:</strong></p>
+  <table class="rich-table">
+    <tr><th>Component</th><th>What it does</th><th>Where it runs</th></tr>
+    <tr><td>Scheduler</td><td>Reads DAG files, decides which tasks to trigger based on schedule + dependencies</td><td>Always-on process</td></tr>
+    <tr><td>Executor</td><td>Actually runs the tasks (LocalExecutor, CeleryExecutor, KubernetesExecutor)</td><td>Depends on executor type</td></tr>
+    <tr><td>Webserver</td><td>The UI — view DAG runs, logs, trigger manually, clear tasks</td><td>Always-on web app</td></tr>
+    <tr><td>Metadata DB</td><td>Postgres/MySQL — stores DAG run state, task instances, connections, variables</td><td>Persistent database</td></tr>
+    <tr><td>Workers</td><td>Celery/K8s workers that actually execute tasks in distributed mode</td><td>Scalable fleet</td></tr>
+  </table>
+
+  <p><strong>Anatomy of an Airflow DAG:</strong></p>
+  <div class="flat-table-viz">from airflow import DAG
+from airflow.operators.python import PythonOperator
+from datetime import datetime, timedelta
+
+default_args = {
+    'owner': 'data-eng',
+    'retries': 3,                         # retry up to 3 times on failure
+    'retry_delay': timedelta(minutes=5),  # wait 5 min between retries
+    'email_on_failure': True,
+    'email': ['data-eng@company.com'],
+}
+
+with DAG(
+    dag_id='user_activity_etl',     # MUST be unique globally
+    default_args=default_args,
+    schedule_interval='0 6 * * *',  # 6 AM UTC daily
+    start_date=datetime(2024, 1, 1),
+    catchup=False,                  # don't backfill historical runs
+    max_active_runs=1,              # only 1 DAG run at a time
+    tags=['etl', 'user-data'],
+) as dag:
+    extract   = PythonOperator(task_id='extract_s3', python_callable=extract_fn)
+    transform = PythonOperator(task_id='transform', python_callable=transform_fn)
+    load      = PythonOperator(task_id='load_warehouse', python_callable=load_fn)
+    
+    extract >> transform >> load  # simple linear dependency</div>
+
+  <p><strong>The execution_date Confusion — Critical for Interviews:</strong></p>
+  <div class="callout warn"><strong>execution_date ≠ the date the task runs.</strong> execution_date is the START of the data interval. A daily DAG with schedule '0 6 * * *' running on Jan 2nd has execution_date = Jan 1st. This is intentional — Airflow processes "yesterday's complete data". When writing queries in tasks, always use <code>context['ds']</code> (the execution_date as YYYY-MM-DD string), not <code>datetime.today()</code>.</div>`,
+
+  commonMistakes: `<table class="rich-table">
+    <tr><th>Mistake</th><th>Impact</th><th>Fix</th></tr>
+    <tr><td>Using datetime.today() inside a task</td><td>Reruns and backfills process wrong date — not idempotent</td><td>Use context['ds'] or {{ ds }} in SQL — always the execution date</td></tr>
+    <tr><td>catchup=True with start_date in 2020</td><td>Airflow tries to run 1000+ historical DAG runs immediately — floods your system</td><td>Set catchup=False for new DAGs. Backfill manually with CLI if needed.</td></tr>
+    <tr><td>max_active_runs not set</td><td>Multiple concurrent DAG runs can race each other and corrupt data</td><td>Set max_active_runs=1 for pipelines that write to shared tables</td></tr>
+    <tr><td>Storing secrets in DAG code</td><td>Secrets visible in Git, Airflow UI, logs</td><td>Use Airflow Connections/Variables or a secrets backend (AWS Secrets Manager)</td></tr>
+  </table>`,
+
+  notes: [
+    "DAG id must be globally unique. File name doesn't matter — only dag_id in the DAG definition.",
+    "execution_date = start of data interval, NOT when the task runs. Logs show scheduled_time (when it ran).",
+    "catchup=False: safe default. catchup=True: use for historical backfills with max_active_runs to control concurrency.",
+    "Retries + retry_delay in default_args apply to ALL tasks — override per-task if needed.",
+    "Interview: 'I always set max_active_runs=1 for ETL pipelines that write to a table — prevents concurrent writes from corrupting state.'"
+  ],
+
+  practiceTitle: "Design a 3-Stage ETL DAG with Error Handling",
+  practiceDesc: "Design an Airflow DAG that: extracts from S3 (can fail due to network), transforms in Spark (can OOM), loads to Redshift (can fail on duplicate key). Add retries, alerting, and a final 'cleanup' task that runs whether or not previous tasks succeed.",
+  practiceCode: `from airflow import DAG
+from airflow.operators.python import PythonOperator
+from airflow.utils.trigger_rule import TriggerRule
+from datetime import datetime, timedelta
+
+default_args = {
+    'owner': 'data-eng',
+    'retries': 3,
+    'retry_delay': timedelta(minutes=10),
+    'email_on_failure': True,
+    'email': ['oncall@company.com'],
+}
+
+with DAG(
+    dag_id='s3_spark_redshift_etl',
+    default_args=default_args,
+    schedule_interval='0 4 * * *',
+    start_date=datetime(2024, 1, 1),
+    catchup=False,
+    max_active_runs=1,
+) as dag:
+
+    extract = PythonOperator(
+        task_id='extract_from_s3',
+        python_callable=extract_s3,
+        retries=5,                    # S3 is flaky — more retries
+        retry_delay=timedelta(minutes=2),
+    )
+
+    transform = PythonOperator(
+        task_id='spark_transform',
+        python_callable=run_spark_job,
+        execution_timeout=timedelta(hours=2),  # kill if running too long
+    )
+
+    load = PythonOperator(
+        task_id='load_to_redshift',
+        python_callable=load_redshift,
+    )
+
+    cleanup = PythonOperator(
+        task_id='cleanup_temp_files',
+        python_callable=cleanup_s3_temp,
+        trigger_rule=TriggerRule.ALL_DONE,  # runs even if upstream fails!
+    )
+
+    extract >> transform >> load >> cleanup`,
+
+  bossTitle: "🔥 FAANG Boss: Parallel DAG with Fan-Out",
+  bossDesc: "Design an Airflow DAG that processes 24 hourly partitions in parallel (max 4 concurrent), then runs a final aggregation after ALL 24 succeed. Add: failure alerting, idempotent task design, a sensor that checks if upstream S3 data landed before starting. Write the full DAG structure in Python — show the dynamic task generation and the final join task. 25 minutes."
+},
+
+"Back-of-Envelope Math": {
+  warmup: `<p>Recall a streaming concept from last week:</p>
+  <p>1. A Kafka topic has 12 partitions. Consumer Group A has 8 consumers, Group B has 15. How many consumers are actively reading in each group?</p>
+  <p>2. What happens to the 'extra' consumers? How do you fix the issue?</p>`,
+  warmupHint: `Group A: all 8 active (8 consumers < 12 partitions). Group B: only 12 active, 3 sit idle (consumers > partitions). Fix: increase partition count to 15+, or reduce consumer group size.`,
+
+  theory: `<p>Back-of-envelope calculations are how senior engineers validate system design before writing a single line of code. In FAANG interviews, interviewers expect you to do this math in the first 5 minutes of a design round — before touching architecture.</p>
+
+  <p><strong>The Numbers Every DE Must Memorize:</strong></p>
+  <table class="rich-table">
+    <tr><th>Unit</th><th>Value</th><th>Use when</th></tr>
+    <tr><td>1 day</td><td>86,400 seconds (≈ 100K)</td><td>Converting daily metrics to per-second rate</td></tr>
+    <tr><td>1 month</td><td>~2.5M seconds</td><td>Monthly storage estimates</td></tr>
+    <tr><td>1 year</td><td>~31.5M seconds (≈ 30M)</td><td>Annual estimates, quick multiplication</td></tr>
+    <tr><td>1 KB</td><td>1,024 bytes</td><td>Message size estimates (use 1000 for mental math)</td></tr>
+    <tr><td>1 GB</td><td>1,024 MB = 1B bytes</td><td>Dataset sizing</td></tr>
+    <tr><td>1 TB</td><td>1,024 GB = 1T bytes</td><td>Data lake sizing</td></tr>
+    <tr><td>SSD read</td><td>~500 MB/s sequential</td><td>Local storage throughput</td></tr>
+    <tr><td>Network (1Gbps)</td><td>125 MB/s</td><td>Kafka, Spark shuffle throughput</td></tr>
+    <tr><td>Memory bandwidth</td><td>10-50 GB/s</td><td>In-memory Spark computation</td></tr>
+  </table>
+
+  <p><strong>The 5-Step Framework for Any Scale Calculation:</strong></p>
+  <ul class="step-list">
+    <li><span class="step-num">1</span><div class="step-content"><strong>Users × behavior = raw events/day</strong><br>Example: 100M DAU × 50 events = 5B events/day</div></li>
+    <li><span class="step-num">2</span><div class="step-content"><strong>Events/day ÷ 86400 = events/second (peak = 3-10x average)</strong><br>5B ÷ 86400 ≈ 58K eps average, 580K eps at peak</div></li>
+    <li><span class="step-num">3</span><div class="step-content"><strong>Events × message size = data/day → extrapolate to year</strong><br>5B × 500 bytes = 2.5TB/day × 365 = 912TB/year ≈ 1PB/year</div></li>
+    <li><span class="step-num">4</span><div class="step-content"><strong>Data rate ÷ throughput = nodes/partitions needed</strong><br>2.5TB/day = ~29MB/s sustained → 1 Kafka partition handles 100MB/s → 1 partition sufficient, use 10 for headroom</div></li>
+    <li><span class="step-num">5</span><div class="step-content"><strong>State the assumptions and round aggressively</strong><br>"I'm assuming 500 bytes/event, 3x peak factor, 7-day Kafka retention" — interviewers love this</div></li>
+  </ul>`,
+
+  commonMistakes: `<table class="rich-table">
+    <tr><th>Mistake</th><th>Impact in Interview</th><th>Fix</th></tr>
+    <tr><td>Using exact numbers instead of round estimates</td><td>Wastes time, misses the point — interviewers want rough order-of-magnitude</td><td>Round aggressively: 86400 ≈ 100K, 1M users × 10 = 10M. State assumptions.</td></tr>
+    <tr><td>Forgetting peak traffic multiplier</td><td>System designed for average load will fail during Black Friday / viral moment</td><td>Always apply 3-10x peak multiplier. For social media, 10x+ during breaking news.</td></tr>
+    <tr><td>Ignoring replication overhead</td><td>Kafka RF=3 means 3x the storage. Design for this.</td><td>Multiply storage by replication factor. 1TB raw → 3TB with RF=3.</td></tr>
+    <tr><td>Not converting units consistently</td><td>Off-by-1000 errors make your design wrong by orders of magnitude</td><td>Always label units: MB/s not just MB. per day not per second. Be explicit.</td></tr>
+  </table>`,
+
+  notes: [
+    "1 day ≈ 100K seconds — the most useful approximation in system design",
+    "Peak traffic = 3-10x average. Always design for peak, not average.",
+    "1PB = 1000TB = 1M GB. Beyond 10TB/day, you need distributed storage + columnar formats.",
+    "Kafka: 1 partition handles up to 100MB/s write. Use 10-50 partitions for production topics.",
+    "Interview opener: 'Before I design anything, let me do a quick capacity estimate to validate the approach.' This is a senior engineer move."
+  ],
+
+  practiceTitle: "Calculate the Full Stack for Uber Eats",
+  practiceDesc: "Uber Eats: 50M orders/day, each order generates 20 events (placed, accepted, preparing, picked_up, delivered + updates), each event is 2KB. Calculate: events/second, data/day, data/year, Kafka partitions needed, number of Redshift nodes for 2-year retention with 3x compression.",
+  practiceCode: `# Uber Eats Back-of-Envelope
+
+ORDERS_PER_DAY = 50_000_000
+EVENTS_PER_ORDER = 20
+EVENT_SIZE_KB = 2
+SECONDS_PER_DAY = 86_400
+PEAK_MULTIPLIER = 5      # lunch + dinner rush
+RETENTION_YEARS = 2
+COMPRESSION_RATIO = 3    # Parquet columnar compression
+REDSHIFT_NODE_TB = 2     # ra3.4xlarge managed storage ~2TB usable
+
+# Step 1: Events
+total_events_per_day = ORDERS_PER_DAY * EVENTS_PER_ORDER  # 1 Billion
+avg_events_per_sec = total_events_per_day / SECONDS_PER_DAY  # ~11,574 eps
+peak_events_per_sec = avg_events_per_sec * PEAK_MULTIPLIER   # ~57,870 eps
+
+# Step 2: Data volume
+data_per_day_gb = (total_events_per_day * EVENT_SIZE_KB * 1024) / (1024**3)  # ~1.86 GB/day
+data_per_year_tb = data_per_day_gb * 365 / 1024  # ~0.66 TB/year
+data_2yr_raw_tb = data_per_year_tb * RETENTION_YEARS  # ~1.3 TB raw
+
+# Step 3: After Parquet compression
+data_2yr_compressed_tb = data_2yr_raw_tb / COMPRESSION_RATIO  # ~0.44 TB
+
+# Step 4: Kafka partitions (100MB/s per partition capacity)
+data_per_sec_mb = (data_per_day_gb * 1024) / SECONDS_PER_DAY  # ~22 MB/s avg
+partitions_needed = max(20, int(data_per_sec_mb * PEAK_MULTIPLIER / 50) + 1)  # ~3 needed, use 20
+
+# Step 5: Redshift nodes
+redshift_nodes = max(2, int(data_2yr_compressed_tb / REDSHIFT_NODE_TB) + 1)
+
+print(f"Events/day: {total_events_per_day/1e9:.1f}B")
+print(f"Avg eps: {avg_events_per_sec:,.0f} | Peak eps: {peak_events_per_sec:,.0f}")
+print(f"Data/day: {data_per_day_gb:.1f} GB | /year: {data_per_year_tb:.2f} TB")
+print(f"2yr compressed: {data_2yr_compressed_tb:.2f} TB")
+print(f"Kafka partitions: {partitions_needed}")
+print(f"Redshift nodes: {redshift_nodes}")`,
+
+  bossTitle: "🔥 FAANG Boss: Spotify Listening History at Scale",
+  bossDesc: "Spotify: 600M users, 30% are daily active. Each DAU streams 2 hours of music, generating 1 event per song (~3.5 min/song). Calculate: songs/day, events/second (avg and peak), storage/day (1.2KB/event), 5-year storage with Parquet compression (5:1 ratio), Kafka partitions for ingestion, and number of Spark executors for daily batch processing (assume each executor handles 50MB/s). State ALL assumptions. 15 minutes."
+}
+
+}; // end topicContent
+
+// ============================================================
+// DEFAULT CONTENT GENERATOR (for topics without specific content)
+// ============================================================
+const themeDefaults = {
+  "SQL Analytics": {
+    warmup: "Write DENSE_RANK from memory: partition by department, order by salary descending. No looking.",
+    warmupHint: "DENSE_RANK() OVER (PARTITION BY dept ORDER BY salary DESC) AS dept_rank",
+    techIntro: "SQL window functions are tested in virtually every FAANG data engineering loop. Master them cold — syntax, edge cases, and when to use each variant.",
+    notes: ["Always check: should I use DENSE_RANK or RANK? Ask yourself if ties should cause gaps.", "WHERE clause cannot filter on window functions — use CTE wrapper.", "PARTITION BY divides groups. ORDER BY defines frame. ROWS BETWEEN defines frame boundaries."],
+    practicePrefix: "Write a SQL query using window functions to solve",
+    bossPrefix: "FAANG SQL Challenge"
+  },
+  "SQL Optimization": {
+    warmup: "Recall: what does EXPLAIN ANALYZE show that EXPLAIN alone doesn't? What's the key metric to look at?",
+    warmupHint: "EXPLAIN ANALYZE actually executes the query and shows real vs estimated row counts. Look for: actual rows vs estimated rows (large gap = stale stats) and actual time.",
+    techIntro: "Query optimization is the skill that separates junior from senior DEs. Understanding execution plans means you can fix any slow query systematically.",
+    notes: ["Seq Scan on large table = missing index or query returns too many rows", "Index Scan + Filter means index used but post-filter applied — consider covering index", "Hash Join: large + large tables. Nested Loop: small inner table. Broadcast: tiny inner table in Spark."],
+    practicePrefix: "Optimize the following query",
+    bossPrefix: "Production Query Rescue"
+  },
+  "Data Modeling": {
+    warmup: "Draw the difference between a Star Schema and Snowflake Schema from memory. Which has more joins? Which has less storage?",
+    warmupHint: "Star: denormalized dims, fewer joins, more storage. Snowflake: normalized dims (sub-dimensions), more joins, less storage. Star = faster queries. Snowflake = more normalized.",
+    techIntro: "Data modeling is the architecture layer of data engineering. Bad models cause years of downstream pain. Good models make analytics effortless.",
+    notes: ["Star Schema: fact table + denormalized dimension tables. Optimized for OLAP queries.", "Snowflake Schema = Star with normalized dimensions. Same as applying 3NF to dimension tables.", "Grain: the finest level of detail in a fact table. Always define grain FIRST before adding measures.", "Surrogate keys over natural keys: stable, no business meaning bleed, handles SCD easily."],
+    practicePrefix: "Design a data model for",
+    bossPrefix: "FAANG Schema Design"
+  },
+  "Python Logic": {
+    warmup: "Two Sum — solve it in O(n) time with O(n) space. No nested loops allowed. Go.",
+    warmupHint: "seen = {}. For each num, check if (target - num) in seen. If yes, return indices. If no, add num to seen.",
+    techIntro: "Python logic problems at FAANG are pattern recognition. Recognize the pattern → apply the right data structure → write clean O(n) solution.",
+    notes: ["HashMap gives O(1) lookup — converts most O(n²) brute force to O(n) one-pass", "Two pointers for sorted arrays. Sliding window for contiguous subarrays. Heap for top-k.", "Counter, defaultdict, deque — know all three cold before your interview."],
+    practicePrefix: "Solve this in O(n) using a hashmap or appropriate data structure",
+    bossPrefix: "FAANG Coding Challenge"
+  },
+  "Python Systems": {
+    warmup: "What's the difference between a generator and an iterator in Python? Are all generators iterators? Are all iterators generators?",
+    warmupHint: "All generators are iterators (they implement __iter__ and __next__). Not all iterators are generators (a class with __iter__/__next__ is an iterator but not a generator). Generator = created with yield or generator expression.",
+    techIntro: "Python systems knowledge tests whether you can write production-quality code that handles real-world constraints: large files, flaky networks, memory limits.",
+    notes: ["Generators are O(1) memory. Always use for files, streams, database cursors.", "sys.getsizeof() measures object memory — use to compare list vs generator.", "Decorators wrap functions — great for retry logic, logging, authentication.", "contextlib.contextmanager lets you write context managers with yield."],
+    practicePrefix: "Write a production-quality Python solution for",
+    bossPrefix: "Systems Python Challenge"
+  },
+  "Storage Internals": {
+    warmup: "Name the difference between Parquet and Avro. When would you use each in a data pipeline?",
+    warmupHint: "Parquet: columnar, great for analytics (Spark reads), Redshift/Snowflake native. Avro: row-based, great for Kafka streaming, schema evolution (schema registry). Parquet for lake/warehouse. Avro for Kafka events.",
+    techIntro: "Understanding storage formats is what separates a data engineer who can operate a pipeline from one who can design it from scratch. File format choice affects query speed, storage cost, and operability.",
+    notes: ["Columnar (Parquet/ORC): read only needed columns. Compress similar values together. Great for OLAP.", "Row (Avro/CSV): read whole record. Great for streaming, inserts, and when you need all columns.", "Parquet footer contains statistics: min/max per column per row group. Enables predicate pushdown.", "Splittable formats (Parquet, ORC, uncompressed text): Spark can split across tasks. GZIP CSV: not splittable."],
+    practicePrefix: "Choose the right storage format and explain why for",
+    bossPrefix: "Storage Architecture Challenge"
+  },
+  "Spark Internals": {
+    warmup: "What is a Spark Stage? What causes a stage boundary? What's the relationship between stages, tasks, and partitions?",
+    warmupHint: "Stage = set of tasks that can run without a shuffle. Stage boundary = shuffle operation (groupBy, join, repartition). Each partition becomes one task within a stage. 200 partitions = 200 tasks in a stage.",
+    techIntro: "Spark internals knowledge is what lets you look at a 10-hour job and find the 30-minute fix. You must know what's happening under the hood — not just the API surface.",
+    notes: ["Catalyst optimizer: converts your DataFrame operations to an optimized physical plan automatically.", "Tungsten engine: off-heap memory management + code generation for performance.", "Lazy evaluation: Spark builds a DAG of transformations, executes only on action.", "Number of partitions: 2x number of cores is a good starting rule. Adjust based on data size."],
+    practicePrefix: "Debug and optimize this Spark operation",
+    bossPrefix: "Spark Performance Rescue"
+  },
+  "Data Modeling Deep Dive": {
+    warmup: "Explain SCD Type 2 in one sentence. Draw the MERGE logic for handling a department change for employee Alice.",
+    warmupHint: "SCD Type 2: when a dimension attribute changes, expire the old row (set end_date) and insert a new row with the new value. MERGE: WHEN MATCHED AND changed → UPDATE end_date, is_current=false; INSERT new row.",
+    techIntro: "Deep-dive data modeling is about handling the messy reality of production data: history tracking, changing attributes, skewed distributions, and the tension between normalization and performance.",
+    notes: ["Fact table grain: most critical modeling decision. Define it first — never change it later.", "Degenerate dimension: fact attribute with no dimension table (order_number on fact_orders).", "Junk dimension: low-cardinality flags/indicators combined into one small dimension.", "Data skew in Spark: one key dominates → one partition gets all data → one task takes hours."],
+    practicePrefix: "Design the data model for",
+    bossPrefix: "Data Warehouse Design Challenge"
+  },
+  "Quality & Contracts": {
+    warmup: "What's the difference between data quality monitoring and data contracts? Which is preventative and which is detective?",
+    warmupHint: "Data contracts = preventative. Agreed schema + SLAs between producer and consumer. Fails fast at the source. Data quality monitoring = detective. Checks data AFTER it lands. Alerts when something is already wrong. Both are needed.",
+    techIntro: "Data quality and contracts are what make data engineering a trusted function. Without them, every dashboard is suspect. With them, you have a paper trail and automated safeguards.",
+    notes: ["Data contract components: schema, SLA (freshness/volume), nullability constraints, value ranges, owner.", "Great Expectations: the standard Python library for writing data quality tests as code.", "Volume checks: row count vs expected range. Catch truncated loads or failed extracts early.", "Distribution checks: avg/stddev of key metrics. Catches data drift before it breaks downstream models."],
+    practicePrefix: "Write data quality checks for",
+    bossPrefix: "Production Data Quality Audit"
+  },
+  "Orchestration": {
+    warmup: "Draw the Airflow component diagram from memory: Scheduler, Webserver, Worker, Metadata DB. What does each component do? What breaks if each one goes down?",
+    warmupHint: "Scheduler down: no new tasks triggered. Webserver down: no UI, but pipeline still runs. Worker down: tasks queue up, not executed. Metadata DB down: everything stops — Airflow can't read state.",
+    techIntro: "Airflow orchestration is the coordination layer. Getting it wrong means pipelines silently fail, backfills corrupt data, and on-call engineers wake up at 3am.",
+    notes: ["Operators: define WHAT runs (PythonOperator, BashOperator, SparkSubmitOperator, BigQueryOperator).", "Sensors: wait for a condition (S3KeySensor, ExternalTaskSensor, TimeSensor).", "XComs: small data passing between tasks — NOT for large datasets. Use S3/database for large payloads.", "trigger_rule: ALL_SUCCESS (default), ALL_DONE (runs even if upstream fails), ONE_FAILED (for alerting)."],
+    practicePrefix: "Design an Airflow DAG for",
+    bossPrefix: "Production Orchestration Design"
+  },
+  "Streaming": {
+    warmup: "What's the difference between Tumbling Window and Sliding Window in stream processing? Give a concrete example of when you'd use each.",
+    warmupHint: "Tumbling: fixed, non-overlapping windows (e.g., count events every 5 minutes — windows don't overlap). Sliding: fixed size, moves by smaller increment (e.g., 5-min window every 1 min — last 5 min, updated every minute). Use tumbling for periodic reports, sliding for rolling metrics.",
+    techIntro: "Streaming is the hardest and highest-paying specialization in data engineering. The concepts of time, windows, and delivery semantics are subtle and critical.",
+    notes: ["Event time vs processing time: always prefer event time for analytics. Processing time is when data arrived at Kafka/Flink — can be delayed.", "Watermarks: tell Flink/Spark Streaming how much event-time lateness to tolerate before closing a window.", "At-least-once vs exactly-once: exactly-once requires idempotent sinks + distributed transactions. Expensive but necessary for financial data.", "Backpressure: when consumers can't keep up with producers — downstream slows upstream automatically in reactive systems."],
+    practicePrefix: "Design a streaming solution for",
+    bossPrefix: "Real-Time Streaming Architecture"
+  },
+  "System Design": {
+    warmup: "Draw the Lambda Architecture from memory: batch layer, speed layer, serving layer. What problem does each solve? What's the main criticism of Lambda Architecture?",
+    warmupHint: "Batch layer: recomputes correct results over all historical data. Speed layer: real-time view of recent data (eventually superseded by batch). Serving layer: merges batch + speed views. Criticism: maintaining two codebases (batch + streaming) with same logic is expensive and error-prone. Kappa architecture solves this with stream-only.",
+    techIntro: "System design rounds test your ability to make architectural decisions under constraints. The answer is never 'use X technology' — it's always 'given these constraints, here's the trade-off I'm making and why'.",
+    notes: ["Always start with: requirements clarification, scale estimates, then architecture.", "Data freshness vs consistency: real-time usually means weaker consistency guarantees.", "Cost is a constraint: Spark on Kubernetes is flexible but expensive. Redshift is expensive but fast SQL.", "The best system design answer: 'I'd start simple (batch ETL + SQL warehouse), instrument it, then add streaming only when latency requirements demand it.'"],
+    practicePrefix: "Design the data architecture for",
+    bossPrefix: "System Design Round"
+  },
+  "Behavioral": {
+    warmup: "Warm-up: Say 'Tell me about yourself' out loud right now. Time it. Was it under 90 seconds? Did it cover: current role → biggest win → why you want this → what you bring?",
+    warmupHint: "Formula: 'I'm a data engineer with X years, currently at Y where I [biggest achievement with metric]. I'm looking for this role because [specific reason]. I bring [2 key skills] which I've demonstrated by [brief example].' Under 90 seconds, end on excitement.",
+    techIntro: "Behavioral interviews at FAANG are structured and repeatable. Every question maps to a leadership principle. Prepare 5 strong STAR stories that each cover 3+ principles. Reuse stories — vary the emphasis.",
+    notes: ["STAR: Situation (brief, 1-2 sentences), Task (your role), Action (what YOU specifically did), Result (metric + learning).", "Quantify everything: '30% faster' > 'much faster'. '$2M saved' > 'cost savings'. '0 incidents in 6 months' > 'no issues'.", "The failure story is critical: they want to see you own it, learn from it, and change behavior. Not defensiveness.", "Amazon LPs: Customer Obsession, Bias for Action, Invent & Simplify, Dive Deep, Deliver Results — know all 16.", "Two-minute rule: any STAR story longer than 2 minutes loses the interviewer. Tighten mercilessly."],
+    practicePrefix: "Prepare a STAR story for",
+    bossPrefix: "Behavioral Interview Simulation"
+  }
+};
+
+function getDefaultContent(entry) {
+  const def = themeDefaults[entry.theme] || {
+    warmup: "Recall a key concept from a previous week. Write it from memory before starting today.",
+    warmupHint: "Spaced repetition builds deep retention. Trust the process.",
+    techIntro: `Today's focus: ${entry.topic}. Core concepts and patterns from this topic appear regularly in FAANG data engineering interviews.`,
+    notes: ["Take notes in your own words", "Identify 3 real-world use cases", "Connect this to a past project", "Add to your interview talking points list"],
+    practicePrefix: "Practice implementing",
+    bossPrefix: "FAANG Challenge"
+  };
+
+  return {
+    warmup: `<p>${def.warmup}</p>`,
+    warmupHint: def.warmupHint,
+    theory: `<p>${def.techIntro}</p>
+    <p>Today's specific topic: <strong>${entry.topic}</strong> — a core skill in the ${entry.theme} section of your FAANG prep. Work through the theory deliberately, then apply it in the practice problem.</p>
+    <div class="callout"><strong>Study rhythm:</strong> 30 min theory → 20 min practice → 10 min review. Set a timer.</div>`,
+    commonMistakes: `<table class="rich-table"><tr><th>Trap</th><th>Consequence</th><th>How to avoid it</th></tr>
+    <tr><td>Rushing past theory</td><td>Can code but can't explain — fails verbal interview</td><td>Explain concepts out loud as if teaching someone else</td></tr>
+    <tr><td>Skipping edge cases</td><td>Correct for happy path, wrong for nulls/empty/ties</td><td>Ask yourself: what if input is empty? What if there are ties? What if all values are NULL?</td></tr>
+    <tr><td>Not timing yourself</td><td>Solution works but takes 40 min — interview gives you 20</td><td>Set 15-20 min timer per problem. Stop and review even if not done.</td></tr></table>`,
+    notes: def.notes,
+    practiceTitle: `${def.practicePrefix}: ${entry.topic}`,
+    practiceDesc: `Apply the ${entry.topic} concepts from today's theory section. Attempt the implementation before looking at the solution. Explain your approach out loud first — this is the FAANG interview style.`,
+    practiceCode: `# Today: ${entry.topic}
+# Theme: ${entry.theme}
+# Week ${entry.week}, ${entry.day}
+#
+# Your task:
+# 1. Write pseudocode / SQL outline FIRST
+# 2. Implement the solution
+# 3. Test with the provided examples
+# 4. Analyze time + space complexity
+# 5. Identify 2 edge cases you'd test in production
+#
+# Remember: interviewers at FAANG grade you on PROCESS (communication,
+# edge cases, clarity) as much as the final answer.
+print(f"Studying: ${entry.topic} | Week ${entry.week} | Phase: ${entry.phase}")`,
+    bossTitle: `🔥 ${def.bossPrefix}: ${entry.topic} Under Pressure`,
+    bossDesc: `Design a production-grade solution involving ${entry.topic}. Consider scale (millions of users), reliability (idempotent? what if it fails?), and observability (how do you know it works?). Walk through your design out loud for 5 minutes before writing anything — that's the whiteboard interview format.`
+  };
+}
+
+// ============================================================
+// v3 — localStorage persistence + streak + today indicator
+// ============================================================
+
+const STORAGE_KEY = 'faang_de_prep_v3_progress';
+
+function loadProgress() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) : {};
+  } catch(e) { return {}; }
+}
+
+function saveProgress(progress) {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(progress)); } catch(e) {}
+}
+
+function isDone(idx) {
+  const progress = loadProgress();
+  // Respect hardcoded done:true AND localStorage
+  return curriculum[idx].done || !!progress[idx];
+}
+
+function markDone(idx) {
+  const progress = loadProgress();
+  progress[idx] = true;
+  saveProgress(progress);
+  curriculum[idx].done = true;
+}
+
+function getTodayIdx() {
+  // Start date: Jan 6, 2026 (Week 1 Mon — adjust if needed)
+  const START = new Date('2026-01-06');
+  const today = new Date();
+  const diffDays = Math.floor((today - START) / (1000 * 60 * 60 * 24));
+  return Math.max(0, Math.min(diffDays, curriculum.length - 1));
+}
+
+function calcStreak() {
+  let streak = 0;
+  const todayIdx = getTodayIdx();
+  for (let i = todayIdx; i >= 0; i--) {
+    if (curriculum[i].phase === 'Rest' || curriculum[i].phase === 'Execution') { streak++; continue; }
+    if (isDone(i)) streak++;
+    else break;
+  }
+  return streak;
+}
+
+function updateProgress() {
+  // Sync localStorage into curriculum
+  const progress = loadProgress();
+  Object.keys(progress).forEach(k => { if (curriculum[k]) curriculum[k].done = true; });
+
+  const done = curriculum.filter((e, i) => isDone(i)).length;
+  const pct = Math.round(done / curriculum.length * 100);
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressText').textContent = `${done} / ${curriculum.length} days`;
+
+  // Streak bar
+  document.getElementById('doneCount').textContent = done;
+  document.getElementById('remainCount').textContent = curriculum.length - done;
+  document.getElementById('streakCount').textContent = calcStreak();
+
+  const todayIdx = getTodayIdx();
+  const todayEntry = curriculum[todayIdx];
+  document.getElementById('todayLabel').textContent = todayEntry ? `W${todayEntry.week} ${todayEntry.day}` : '—';
+}
+
+function buildSidebar(filterPhase = 'all') {
+  updateProgress();
+  const sidebar = document.getElementById('sidebar');
+  sidebar.innerHTML = '';
+  const todayIdx = getTodayIdx();
+  const weeks = [...new Set(curriculum.map(e => e.week))];
+
+  weeks.forEach(weekNum => {
+    const weekDays = curriculum.filter(e => e.week === weekNum);
+    const phaseKey = weekDays[0].phase.includes('Filter') ? '1' : weekDays[0].phase.includes('Build') || weekDays[0].phase.includes('Platform') ? '2' : '3';
+    if (filterPhase !== 'all' && phaseKey !== filterPhase) return;
+
+    const doneCount = weekDays.filter((e, li) => isDone(curriculum.indexOf(e))).length;
+    const group = document.createElement('div');
+    group.className = 'week-group';
+
+    const header = document.createElement('div');
+    header.className = 'week-header';
+    header.innerHTML = `<span>WEEK ${weekNum} <span style="color:var(--text)">${doneCount}/${weekDays.length}</span></span><span class="week-theme">${weekDays[0].theme}</span>`;
+
+    const days = document.createElement('div');
+    const isCurrentWeek = weekDays.some((e, li) => curriculum.indexOf(e) === todayIdx);
+    days.className = 'week-days' + (weekNum <= 3 || isCurrentWeek ? ' open' : '');
+
+    weekDays.forEach(entry => {
+      const idx = curriculum.indexOf(entry);
+      const btn = document.createElement('button');
+      const done = isDone(idx);
+      const isToday = idx === todayIdx;
+      btn.className = 'day-btn' + (done ? ' done' : '') + (isToday ? ' today-day' : '') + (entry.phase === 'Rest' || entry.phase === 'Execution' ? ' rest' : '');
+      btn.dataset.idx = idx;
+      const label = entry.phase === 'Rest' ? '😴 Rest & Review' : entry.phase === 'Execution' ? '🏆 READY' : `${entry.day} — ${entry.topic}`;
+      const todayBadge = isToday ? `<span class="today-indicator">TODAY</span>` : '';
+      btn.innerHTML = `<span class="day-dot"></span>${label}${todayBadge}`;
+      btn.onclick = () => loadDay(idx, btn);
+      days.appendChild(btn);
+    });
+
+    header.onclick = () => days.classList.toggle('open');
+    group.appendChild(header);
+    group.appendChild(days);
+    sidebar.appendChild(group);
+  });
+}
+
+// Patch loadDay to add Mark as Done button
+const _origLoadDay = loadDay;
+function loadDay(idx, btn) {
+  document.querySelectorAll('.day-btn').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+
+  const entry = curriculum[idx];
+  const content = document.getElementById('content');
+
+  if (entry.phase === 'Rest' || entry.phase === 'Execution') {
+    const isExec = entry.phase === 'Execution';
+    content.innerHTML = `<div class="rest-content">
+      <div class="rest-icon">${isExec ? '🏆' : '🌿'}</div>
+      <h2>${isExec ? 'GO GET THE OFFER' : 'Rest & Review Day'}</h2>
+      <p>${isExec ? "You've completed the 13-week war plan. Your SQL is sharp. Your system design is solid. Your stories are ready. Walk in, own the room, and collect your FAANG offer. You've done the work." : 'No new concepts today. Review notes from this week. Re-read sections that felt unclear. Sleep well.'}</p>
+      ${!isExec ? '<p>📝 Organize notes → push code to GitHub → review this week\'s LeetCode solutions → rest.</p>' : '<p>🎯 Review your STAR stories one final time. Sleep 8 hours. Eat well. You\'re ready.</p>'}
+      ${renderMarkDoneBtn(idx)}
+    </div>`;
+    attachMarkDone(idx);
+    return;
+  }
+
+  const tc = topicContent[entry.topic] || getDefaultContent(entry);
+  const hasRichContent = !!topicContent[entry.topic];
+  const diffClass = entry.lcDiff === 'easy' ? 'diff-easy' : entry.lcDiff === 'hard' ? 'diff-hard' : 'diff-medium';
+  const todayIdx = getTodayIdx();
+  const isToday = idx === todayIdx;
+
+  content.innerHTML = `
+  <div class="day-header">
+    <div class="day-meta">
+      <div class="day-breadcrumb">Week ${entry.week} · ${entry.day} · ${entry.theme}${isToday ? ' · <span style="color:var(--info)">TODAY</span>' : ''}</div>
+      <div class="day-title">${entry.topic}</div>
+      <div class="day-badges">
+        <span class="badge badge-phase">${entry.phase}</span>
+        <span class="badge badge-theme">${entry.theme}</span>
+        ${entry.lc ? `<span class="badge badge-lc">${entry.lcDiff?.toUpperCase()}</span>` : ''}
+      </div>
+    </div>
+  </div>
+
+  <div class="day-actions">
+    ${renderMarkDoneBtn(idx)}
+    <span style="font-family:'Space Mono',monospace;font-size:11px;color:var(--muted)">Complete the full session before marking done</span>
+  </div>
+
+  <div class="sections">
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-warmup">🌅</div>
+        <span class="section-title">Start of Day — Warm-Up</span>
+        <span class="section-subtitle">5-10 min · spaced recall from past learning</span>
+      </div>
+      <div class="section-body">
+        ${tc.warmup}
+        <details style="margin-top:12px">
+          <summary>REVEAL HINT</summary>
+          <div class="code-block">${tc.warmupHint}</div>
+        </details>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-topic">📚</div>
+        <span class="section-title">Today's Topic — Technical Knowledge</span>
+        <span class="section-subtitle">${entry.topic}</span>
+      </div>
+      <div class="section-body">${tc.theory}</div>
+    </div>
+
+    ${tc.commonMistakes ? `
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-mistakes">⚠️</div>
+        <span class="section-title">Common Mistakes & Traps</span>
+        <span class="section-subtitle">Learn from others' failures</span>
+      </div>
+      <div class="section-body">${tc.commonMistakes}</div>
+    </div>` : ''}
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-notes">📝</div>
+        <span class="section-title">Key Notes — Write These Down</span>
+        <span class="section-subtitle">In your own words. Then push to GitHub.</span>
+      </div>
+      <div class="section-body">
+        <ul class="notes-list">
+          ${tc.notes.map(n => `<li>${n}</li>`).join('')}
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-practice">⚡</div>
+        <span class="section-title">Practice Problem</span>
+        <span class="section-subtitle">Attempt before revealing solution — set a 15-min timer</span>
+      </div>
+      <div class="section-body">
+        <div class="problem-box">
+          <div class="problem-title">${tc.practiceTitle || 'Practice: ' + entry.topic}</div>
+          <div class="problem-desc">${tc.practiceDesc || "Apply today's concepts."}</div>
+        </div>
+        <details>
+          <summary>REVEAL SOLUTION + EXPLANATION</summary>
+          <div class="code-block">${tc.practiceCode || '# Write your solution here'}</div>
+        </details>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-boss">🔥</div>
+        <span class="section-title">Boss Problem</span>
+        <span class="section-subtitle">FAANG-level · 20-25 minutes · communicate before coding</span>
+      </div>
+      <div class="section-body">
+        <div class="boss-box">
+          <div class="boss-title">${tc.bossTitle || '🔥 FAANG Boss: ' + entry.topic}</div>
+          <div class="boss-desc">${tc.bossDesc || 'Design a production solution.'}</div>
+        </div>
+      </div>
+    </div>
+
+    ${entry.lc ? `
+    <div class="section">
+      <div class="section-header">
+        <div class="section-icon icon-lc">🎯</div>
+        <span class="section-title">LeetCode Problem of the Day</span>
+        <span class="section-subtitle">After boss problem · timed · then commit to GitHub</span>
+      </div>
+      <div class="section-body">
+        <div class="problem-box">
+          <div class="problem-title">${entry.lc}</div>
+          <div class="problem-desc">Set a timer: Easy = 10 min, Medium = 20 min, Hard = 30 min. Commit your solution to GitHub after solving.</div>
+        </div>
+        <div style="margin-top:14px; display:flex; align-items:center; gap:12px; flex-wrap:wrap">
+          <a class="lc-link" href="https://leetcode.com/problems/" target="_blank">🔗 Open LeetCode</a>
+          <span class="difficulty ${diffClass}">${entry.lcDiff?.toUpperCase()}</span>
+        </div>
+      </div>
+    </div>` : ''}
+
+  </div>`;
+
+  attachMarkDone(idx);
+}
+
+function renderMarkDoneBtn(idx) {
+  const done = isDone(idx);
+  if (done) return `<button class="mark-done-btn completed" disabled>✅ DAY COMPLETED</button>`;
+  return `<button class="mark-done-btn" id="markDoneBtn_${idx}" onclick="handleMarkDone(${idx})">✔ MARK DAY COMPLETE</button>`;
+}
+
+function attachMarkDone(idx) {
+  // Already handled via onclick in innerHTML
+}
+
+function handleMarkDone(idx) {
+  markDone(idx);
+  updateProgress();
+  buildSidebar(document.querySelector('.phase-tab.active')?.dataset.phase || 'all');
+  // Re-render the button
+  const btn = document.getElementById(`markDoneBtn_${idx}`);
+  if (btn) {
+    btn.textContent = '✅ DAY COMPLETED';
+    btn.classList.add('completed');
+    btn.disabled = true;
+    btn.onclick = null;
+  }
+  // Re-highlight sidebar
+  document.querySelectorAll('.day-btn').forEach(b => {
+    if (parseInt(b.dataset.idx) === idx) {
+      b.classList.add('done');
+      b.classList.remove('active');
+    }
+  });
+}
+
+document.getElementById('phaseNav').addEventListener('click', e => {
+  const tab = e.target.closest('.phase-tab');
+  if (!tab) return;
+  document.querySelectorAll('.phase-tab').forEach(t => t.classList.remove('active'));
+  tab.classList.add('active');
+  buildSidebar(tab.dataset.phase);
+});
+
+// Init
+buildSidebar();
+updateProgress();
+
+// Auto-open today's day on first load
+const _todayIdx = getTodayIdx();
+const _todayBtn = document.querySelector(`.day-btn[data-idx="${_todayIdx}"]`);
+if (_todayBtn) {
+  setTimeout(() => { _todayBtn.click(); }, 100);
+}
+</script>
+</body>
+</html>

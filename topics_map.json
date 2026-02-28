@@ -1,0 +1,639 @@
+[
+  {
+    "w": 1,
+    "day": "Monday",
+    "topic": "Window Function Basics",
+    "theme": "SQL Analytics",
+    "action": "Solve LeetCode 178 (Rank Scores) using DENSE_RANK"
+  },
+  {
+    "w": 1,
+    "day": "Tuesday",
+    "topic": "Rolling Windows",
+    "theme": "SQL Analytics",
+    "action": "Solve LeetCode 1321 (Restaurant Growth) using ROWS BETWEEN"
+  },
+  {
+    "w": 1,
+    "day": "Wednesday",
+    "topic": "Lead/Lag Pattern",
+    "theme": "SQL Analytics",
+    "action": "Solve LeetCode 180 (Consecutive Numbers)"
+  },
+  {
+    "w": 1,
+    "day": "Thursday",
+    "topic": "Gaps & Islands (Logic)",
+    "theme": "SQL Analytics",
+    "action": "Write query to find users with 3+ consecutive login days"
+  },
+  {
+    "w": 1,
+    "day": "Friday",
+    "topic": "Gaps & Islands (Complex)",
+    "theme": "SQL Analytics",
+    "action": "Solve LeetCode 601 (Human Traffic of Stadium)"
+  },
+  {
+    "w": 1,
+    "day": "Saturday",
+    "topic": "Mock Assessment",
+    "theme": "SQL Analytics",
+    "action": "Pick 3 Medium SQL problems (45 mins timer)"
+  },
+  {
+    "w": 1,
+    "day": "Sunday",
+    "topic": "Rest & Review",
+    "theme": "Rest",
+    "action": "Review notes on Window Functions"
+  },
+  {
+    "w": 2,
+    "day": "Monday",
+    "topic": "Recursive CTEs",
+    "theme": "SQL Optimization",
+    "action": "Solve LeetCode 1270 (All People Report to Manager)"
+  },
+  {
+    "w": 2,
+    "day": "Tuesday",
+    "topic": "Execution Plans",
+    "theme": "SQL Optimization",
+    "action": "Watch Postgres Explain Visualized & read EXPLAIN output"
+  },
+  {
+    "w": 2,
+    "day": "Wednesday",
+    "topic": "Indexing Strategies",
+    "theme": "SQL Optimization",
+    "action": "Explain B-Tree vs Hash Index on paper"
+  },
+  {
+    "w": 2,
+    "day": "Thursday",
+    "topic": "Joins Deep Dive",
+    "theme": "SQL Optimization",
+    "action": "Draw diagram of Broadcast vs Shuffle Hash Join"
+  },
+  {
+    "w": 2,
+    "day": "Friday",
+    "topic": "NULL Handling",
+    "theme": "SQL Optimization",
+    "action": "Fix a query where NULL=NULL causes errors (IS DISTINCT FROM)"
+  },
+  {
+    "w": 2,
+    "day": "Saturday",
+    "topic": "Mock Assessment",
+    "theme": "SQL Optimization",
+    "action": "2 Hard SQL Problems (60 mins timer)"
+  },
+  {
+    "w": 2,
+    "day": "Sunday",
+    "topic": "Rest & Review",
+    "theme": "Rest",
+    "action": "Review Recursive CTE syntax"
+  },
+  {
+    "w": 3,
+    "day": "Monday",
+    "topic": "Dimensional Modeling Basics",
+    "theme": "Data Modeling",
+    "action": "Draw Star Schema vs Snowflake Schema for Retail"
+  },
+  {
+    "w": 3,
+    "day": "Tuesday",
+    "topic": "SCD Types (1, 2, 3)",
+    "theme": "Data Modeling",
+    "action": "Implement SCD Type 2 Merge logic in SQL"
+  },
+  {
+    "w": 3,
+    "day": "Wednesday",
+    "topic": "Normalization",
+    "theme": "Data Modeling",
+    "action": "Normalize a messy Excel sheet to 3NF"
+  },
+  {
+    "w": 3,
+    "day": "Thursday",
+    "topic": "NoSQL Modeling",
+    "theme": "Data Modeling",
+    "action": "Compare Wide-Column (Cassandra) vs Relational"
+  },
+  {
+    "w": 3,
+    "day": "Friday",
+    "topic": "Case Study: Social Media",
+    "theme": "Data Modeling",
+    "action": "Design Schema for Instagram Likes & Comments"
+  },
+  {
+    "w": 3,
+    "day": "Saturday",
+    "topic": "Mock Design Round",
+    "theme": "Data Modeling",
+    "action": "Whiteboard Session: Design Uber Eats Schema"
+  },
+  {
+    "w": 3,
+    "day": "Sunday",
+    "topic": "Rest & Review",
+    "theme": "Rest",
+    "action": "Review Data Modeling concepts + push labs to GitHub"
+  },
+  {
+    "w": 4,
+    "day": "Monday",
+    "topic": "Hash Maps (Dicts)",
+    "theme": "Python Logic",
+    "action": "Solve LeetCode 1 (Two Sum) in O(N) time"
+  },
+  {
+    "w": 4,
+    "day": "Tuesday",
+    "topic": "Sets & Deduplication",
+    "theme": "Python Logic",
+    "action": "Solve LeetCode 217 (Contains Duplicate)"
+  },
+  {
+    "w": 4,
+    "day": "Wednesday",
+    "topic": "Sliding Window",
+    "theme": "Python Logic",
+    "action": "Solve LeetCode 121 (Best Time to Buy Stock)"
+  },
+  {
+    "w": 4,
+    "day": "Thursday",
+    "topic": "Heaps / Priority Queues",
+    "theme": "Python Logic",
+    "action": "Solve LeetCode 347 (Top K Frequent Elements)"
+  },
+  {
+    "w": 4,
+    "day": "Friday",
+    "topic": "String Manipulation",
+    "theme": "Python Logic",
+    "action": "Solve LeetCode 49 (Group Anagrams) without Regex"
+  },
+  {
+    "w": 4,
+    "day": "Saturday",
+    "topic": "Mock Assessment",
+    "theme": "Python Logic",
+    "action": "3 Python Mediums (45 mins timer)"
+  },
+  {
+    "w": 4,
+    "day": "Sunday",
+    "topic": "Rest & Review",
+    "theme": "Rest",
+    "action": "Review Big-O Notation for Dicts vs Lists"
+  },
+  {
+    "w": 5,
+    "day": "Monday",
+    "topic": "Generators",
+    "theme": "Python Systems",
+    "action": "Write read_massive_file(filename) using yield"
+  },
+  {
+    "w": 5,
+    "day": "Tuesday",
+    "topic": "Recursive Parsing",
+    "theme": "Python Systems",
+    "action": "Write script to flatten 5-level deep JSON object"
+  },
+  {
+    "w": 5,
+    "day": "Wednesday",
+    "topic": "File I/O",
+    "theme": "Python Systems",
+    "action": "Convert 100k row CSV to JSON Lines without Pandas"
+  },
+  {
+    "w": 5,
+    "day": "Thursday",
+    "topic": "Memory Management",
+    "theme": "Python Systems",
+    "action": "Use sys.getsizeof() to compare List vs Generator"
+  },
+  {
+    "w": 5,
+    "day": "Friday",
+    "topic": "Decorators",
+    "theme": "Python Systems",
+    "action": "Write a @retry decorator for flaky API calls"
+  },
+  {
+    "w": 5,
+    "day": "Saturday",
+    "topic": "Mock Assessment + Mock #1",
+    "theme": "Python Systems",
+    "action": "1 System Scripting Task + Full Mock Interview Loop #1"
+  },
+  {
+    "w": 5,
+    "day": "Sunday",
+    "topic": "Rest & Review",
+    "theme": "Rest",
+    "action": "Review Python memory management"
+  },
+  {
+    "w": 6,
+    "day": "Monday",
+    "topic": "Row vs Columnar",
+    "theme": "Storage Internals",
+    "action": "Draw layout of Parquet (Header-RowGroups-Footer)"
+  },
+  {
+    "w": 6,
+    "day": "Tuesday",
+    "topic": "Compression",
+    "theme": "Storage Internals",
+    "action": "Research Splittability of GZIP vs Snappy"
+  },
+  {
+    "w": 6,
+    "day": "Wednesday",
+    "topic": "S3 Partitioning",
+    "theme": "Storage Internals",
+    "action": "Calculate file count for 10 years of hourly data"
+  },
+  {
+    "w": 6,
+    "day": "Thursday",
+    "topic": "Small File Problem",
+    "theme": "Storage Internals",
+    "action": "Write logic to compact small files in Spark"
+  },
+  {
+    "w": 6,
+    "day": "Friday",
+    "topic": "Data Formats",
+    "theme": "Storage Internals",
+    "action": "Explain Avro (Kafka) vs Parquet (Lake) use cases"
+  },
+  {
+    "w": 6,
+    "day": "Saturday",
+    "topic": "Delta Lake / Iceberg",
+    "theme": "Storage Internals",
+    "action": "Read Delta Lake vs Iceberg internals; draw architecture"
+  },
+  {
+    "w": 6,
+    "day": "Sunday",
+    "topic": "Rest & Review",
+    "theme": "Rest",
+    "action": "Review Storage Classes in S3"
+  },
+  {
+    "w": 7,
+    "day": "Monday",
+    "topic": "Logical Plan",
+    "theme": "Spark Internals",
+    "action": "Explain Predicate Pushdown with example"
+  },
+  {
+    "w": 7,
+    "day": "Tuesday",
+    "topic": "The Shuffle",
+    "theme": "Spark Internals",
+    "action": "Draw what happens during groupByKey"
+  },
+  {
+    "w": 7,
+    "day": "Wednesday",
+    "topic": "Partitions vs Tasks",
+    "theme": "Spark Internals",
+    "action": "Debug Why 200 partitions for 10MB data?"
+  },
+  {
+    "w": 7,
+    "day": "Thursday",
+    "topic": "Broadcasting",
+    "theme": "Spark Internals",
+    "action": "Explain Broadcast Hash Join & when it fails"
+  },
+  {
+    "w": 7,
+    "day": "Friday",
+    "topic": "Memory Management",
+    "theme": "Spark Internals",
+    "action": "Explain OOM: Java Heap Space vs Overhead"
+  },
+  {
+    "w": 7,
+    "day": "Saturday",
+    "topic": "Lab Day",
+    "theme": "Spark Internals",
+    "action": "Crash a Databricks notebook on purpose to see logs"
+  },
+  {
+    "w": 7,
+    "day": "Sunday",
+    "topic": "Rest & Review",
+    "theme": "Rest",
+    "action": "Review Spark UI tabs (Stages/Tasks)"
+  },
+  {
+    "w": 8,
+    "day": "Monday",
+    "topic": "SCD Type 2",
+    "theme": "Data Modeling",
+    "action": "Write MERGE logic for History Tracking on whiteboard"
+  },
+  {
+    "w": 8,
+    "day": "Tuesday",
+    "topic": "Fact Tables",
+    "theme": "Data Modeling",
+    "action": "Design Fact table for User Clicks (Granularity check)"
+  },
+  {
+    "w": 8,
+    "day": "Wednesday",
+    "topic": "Dimension Tables",
+    "theme": "Data Modeling",
+    "action": "Normalize table to 3NF then Denormalize to Star"
+  },
+  {
+    "w": 8,
+    "day": "Thursday",
+    "topic": "Handling Skew",
+    "theme": "Data Modeling",
+    "action": "Explain Salting technique for hot keys"
+  },
+  {
+    "w": 8,
+    "day": "Friday",
+    "topic": "Surrogate Keys",
+    "theme": "Data Modeling",
+    "action": "List Pros/Cons of UUID vs Integer Sequence"
+  },
+  {
+    "w": 8,
+    "day": "Saturday",
+    "topic": "Mock Design + Cloud DE",
+    "theme": "Data Modeling + Cloud",
+    "action": "Design Amazon Order History Schema + study AWS Glue/EMR & GCP Dataflow"
+  },
+  {
+    "w": 8,
+    "day": "Sunday",
+    "topic": "Rest & Review",
+    "theme": "Rest",
+    "action": "Review Kimball Dimensional Modeling"
+  },
+  {
+    "w": 9,
+    "day": "Monday",
+    "topic": "Data Quality",
+    "theme": "Quality & Contracts",
+    "action": "Write 3 SQL tests (Nulls/Volume/Distribution)"
+  },
+  {
+    "w": 9,
+    "day": "Tuesday",
+    "topic": "Idempotency",
+    "theme": "Quality & Contracts",
+    "action": "Explain how to make a pipeline safe to re-run"
+  },
+  {
+    "w": 9,
+    "day": "Wednesday",
+    "topic": "Schema Evolution",
+    "theme": "Quality & Contracts",
+    "action": "Explain Backward Compatibility in Avro"
+  },
+  {
+    "w": 9,
+    "day": "Thursday",
+    "topic": "Unit Testing",
+    "theme": "Quality & Contracts",
+    "action": "Write a pytest unit test for PySpark function"
+  },
+  {
+    "w": 9,
+    "day": "Friday",
+    "topic": "Governance",
+    "theme": "Quality & Contracts",
+    "action": "Design strategy to hash/mask PII (Email/SSN)"
+  },
+  {
+    "w": 9,
+    "day": "Saturday",
+    "topic": "dbt Intro + Mock #2",
+    "theme": "Quality & Contracts + dbt",
+    "action": "Install dbt-core, run first model + Full Mock Interview Loop #2"
+  },
+  {
+    "w": 9,
+    "day": "Sunday",
+    "topic": "Rest & Review",
+    "theme": "Rest",
+    "action": "Re-read notes from Weeks 5-7"
+  },
+  {
+    "w": 10,
+    "day": "Monday",
+    "topic": "DAG Architecture",
+    "theme": "Orchestration",
+    "action": "Explain Scheduler vs Executor vs Webserver"
+  },
+  {
+    "w": 10,
+    "day": "Tuesday",
+    "topic": "Operators & Sensors",
+    "theme": "Orchestration",
+    "action": "Explain use case for S3Sensor"
+  },
+  {
+    "w": 10,
+    "day": "Wednesday",
+    "topic": "XComs",
+    "theme": "Orchestration",
+    "action": "Explain limits of XComs (Data Size)"
+  },
+  {
+    "w": 10,
+    "day": "Thursday",
+    "topic": "Backfilling",
+    "theme": "Orchestration",
+    "action": "Explain execution_date vs current_date"
+  },
+  {
+    "w": 10,
+    "day": "Friday",
+    "topic": "Dynamic DAGs",
+    "theme": "Orchestration",
+    "action": "Generate DAG structure from a Config file"
+  },
+  {
+    "w": 10,
+    "day": "Saturday",
+    "topic": "Lab + Resume Polish",
+    "theme": "Orchestration + Resume",
+    "action": "Install Airflow (Docker), run Hello World + Polish Resume & LinkedIn"
+  },
+  {
+    "w": 10,
+    "day": "Sunday",
+    "topic": "Rest & Review",
+    "theme": "Rest",
+    "action": "Review Airflow Best Practices"
+  },
+  {
+    "w": 11,
+    "day": "Monday",
+    "topic": "Pub/Sub Model",
+    "theme": "Streaming",
+    "action": "Explain Topics/Producers/Consumers"
+  },
+  {
+    "w": 11,
+    "day": "Tuesday",
+    "topic": "Kafka Internals",
+    "theme": "Streaming",
+    "action": "Explain Offsets and Commit Log"
+  },
+  {
+    "w": 11,
+    "day": "Wednesday",
+    "topic": "Consumer Groups",
+    "theme": "Streaming",
+    "action": "Explain how Consumer Groups scale reads"
+  },
+  {
+    "w": 11,
+    "day": "Thursday",
+    "topic": "Semantics",
+    "theme": "Streaming",
+    "action": "Explain At-least-once vs Exactly-once"
+  },
+  {
+    "w": 11,
+    "day": "Friday",
+    "topic": "Windowing",
+    "theme": "Streaming",
+    "action": "Draw Tumbling vs Sliding Window"
+  },
+  {
+    "w": 11,
+    "day": "Saturday",
+    "topic": "Deep Dive",
+    "theme": "Streaming",
+    "action": "Watch Kafka at LinkedIn Tech Talk"
+  },
+  {
+    "w": 11,
+    "day": "Sunday",
+    "topic": "Rest & Review",
+    "theme": "Rest",
+    "action": "Review Streaming Concepts"
+  },
+  {
+    "w": 12,
+    "day": "Monday",
+    "topic": "Back-of-Envelope Math",
+    "theme": "System Design",
+    "action": "Memorize Bytes/Secs in Day / Requests per Sec"
+  },
+  {
+    "w": 12,
+    "day": "Tuesday",
+    "topic": "Pattern: Batch ETL",
+    "theme": "System Design",
+    "action": "Draw S3 -> Spark -> Warehouse Architecture"
+  },
+  {
+    "w": 12,
+    "day": "Wednesday",
+    "topic": "Pattern: Streaming",
+    "theme": "System Design",
+    "action": "Draw Kafka -> Flink -> NoSQL Architecture"
+  },
+  {
+    "w": 12,
+    "day": "Thursday",
+    "topic": "Pattern: CDC",
+    "theme": "System Design",
+    "action": "Draw DB -> Debezium -> Kafka Architecture"
+  },
+  {
+    "w": 12,
+    "day": "Friday",
+    "topic": "Trade-offs",
+    "theme": "System Design",
+    "action": "Compare SQL vs NoSQL & Batch vs Stream"
+  },
+  {
+    "w": 12,
+    "day": "Saturday",
+    "topic": "Full Mock Design + Mock #3",
+    "theme": "System Design",
+    "action": "Mock Design Spotify Top 10 Songs + Full Mock Interview Loop #3"
+  },
+  {
+    "w": 12,
+    "day": "Sunday",
+    "topic": "Rest & Review",
+    "theme": "Rest",
+    "action": "Review System Design Cheat Sheet"
+  },
+  {
+    "w": 13,
+    "day": "Monday",
+    "topic": "Story Mining",
+    "theme": "Behavioral",
+    "action": "Write down 5 stories from Virtusa/Projects"
+  },
+  {
+    "w": 13,
+    "day": "Tuesday",
+    "topic": "STAR Method",
+    "theme": "Behavioral",
+    "action": "Format stories: Situation-Task-Action-Result"
+  },
+  {
+    "w": 13,
+    "day": "Wednesday",
+    "topic": "Conflict & Failure",
+    "theme": "Behavioral",
+    "action": "Prepare Tell me about a time you failed"
+  },
+  {
+    "w": 13,
+    "day": "Thursday",
+    "topic": "Resume Walkthrough",
+    "theme": "Behavioral",
+    "action": "Perfect the Tell me about yourself pitch"
+  },
+  {
+    "w": 13,
+    "day": "Friday",
+    "topic": "Mock Interview",
+    "theme": "Behavioral",
+    "action": "Full Loop (Coding + System + Behavioral)"
+  },
+  {
+    "w": 13,
+    "day": "Saturday",
+    "topic": "Mental Prep",
+    "theme": "Behavioral",
+    "action": "Review high-level concepts (No heavy code)"
+  },
+  {
+    "w": 13,
+    "day": "Sunday",
+    "topic": "READY",
+    "theme": "Execution",
+    "action": "Go get the offer"
+  }
+]
