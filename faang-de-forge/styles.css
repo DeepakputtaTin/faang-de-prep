@@ -1718,3 +1718,266 @@ a {
     opacity: 0.3;
     border-radius: 2px;
 }
+/* ============================================================
+   v15 Additions: LC links · GitHub/LI btns · Countdown ·
+   Week badge toasts · Mobile sidebar
+   ============================================================ */
+
+/* -- LeetCode direct links ----------------------------------- */
+.lc-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+    padding: 8px 14px;
+    border-radius: 8px;
+    background: rgba(255, 161, 22, 0.08);
+    border: 1px solid rgba(255, 161, 22, 0.2);
+    font-size: 13px;
+    color: var(--amber);
+    flex-wrap: wrap;
+}
+
+.lc-link {
+    color: #fbbf24;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 2px 8px;
+    border-radius: 6px;
+    background: rgba(251, 191, 36, 0.12);
+    border: 1px solid rgba(251, 191, 36, 0.25);
+    transition: all .15s;
+}
+
+.lc-link:hover {
+    background: rgba(251, 191, 36, 0.25);
+    border-color: rgba(251, 191, 36, 0.5);
+    transform: translateY(-1px);
+}
+
+.lc-label {
+    color: var(--txt-3);
+    font-size: 11px;
+}
+
+/* -- GitHub / LinkedIn topbar buttons ----------------------- */
+.topbar-icon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,.08);
+    background: rgba(255,255,255,.04);
+    color: var(--txt-2);
+    font-size: 16px;
+    text-decoration: none;
+    transition: all .18s;
+    flex-shrink: 0;
+}
+
+.topbar-icon-btn:hover {
+    background: rgba(124,111,252,.15);
+    border-color: rgba(124,111,252,.35);
+    color: var(--txt-1);
+    transform: translateY(-1px);
+}
+
+.topbar-icon-btn.li-btn:hover {
+    background: rgba(10, 102, 194, 0.2);
+    border-color: rgba(10, 102, 194, 0.4);
+    color: #0a66c2;
+}
+
+[data-theme="light"] .topbar-icon-btn {
+    border-color: rgba(0,0,0,.1);
+    background: rgba(0,0,0,.03);
+    color: #5c5c7e;
+}
+
+/* -- Interview Countdown Pod --------------------------------- */
+.interview-countdown-pod {
+    margin: 8px 0 0;
+    padding: 12px 14px;
+    border-radius: 12px;
+    background: rgba(124,111,252,.06);
+    border: 1px solid rgba(124,111,252,.15);
+}
+
+.cd-header {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--txt-3);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    margin-bottom: 8px;
+}
+
+.cd-display {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+}
+
+.cd-days {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--violet);
+    line-height: 1;
+}
+
+.cd-days.urgent { color: #f97316; }
+.cd-days.done   { font-size: 22px; color: var(--emerald); }
+
+.cd-unit {
+    font-size: 12px;
+    color: var(--txt-3);
+}
+
+.cd-date-label {
+    font-size: 11px;
+    color: var(--txt-3);
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.cd-not-set {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.cd-date-input {
+    flex: 1;
+    padding: 6px 8px;
+    border-radius: 8px;
+    border: 1px solid rgba(124,111,252,.3);
+    background: rgba(124,111,252,.08);
+    color: var(--txt-1);
+    font-size: 12px;
+    font-family: inherit;
+}
+
+.cd-save-btn {
+    padding: 6px 12px;
+    border-radius: 8px;
+    background: var(--violet);
+    color: white;
+    border: none;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity .15s;
+}
+
+.cd-save-btn:hover { opacity: .85; }
+
+.cd-reset-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 0;
+    line-height: 1;
+}
+
+[data-theme="light"] .cd-date-input {
+    background: rgba(0,0,0,.04);
+    border-color: rgba(124,111,252,.3);
+    color: #0f0f2e;
+}
+
+/* -- Week Completion Badge Toast ----------------------------- */
+.week-badge-toast {
+    position: fixed;
+    bottom: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    background: linear-gradient(135deg, #1a1a35, #251f5e);
+    border: 1px solid rgba(124,111,252,.4);
+    border-radius: 16px;
+    padding: 20px 28px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0,0,0,.6), 0 0 0 1px rgba(124,111,252,.2);
+    animation: toastIn .4s cubic-bezier(.34,1.56,.64,1);
+    min-width: 260px;
+}
+
+@keyframes toastIn {
+    from { opacity: 0; transform: translateX(-50%) translateY(20px) scale(.95); }
+    to   { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); }
+}
+
+.badge-trophy { font-size: 36px; margin-bottom: 6px; }
+
+.badge-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #f0f0ff;
+    margin-bottom: 4px;
+}
+
+.badge-sub {
+    font-size: 13px;
+    color: #7c6ffc;
+    font-weight: 500;
+}
+
+.badge-close {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: var(--txt-3);
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1;
+    padding: 4px;
+}
+
+.badge-close:hover { color: var(--txt-1); }
+
+/* -- Week overview card — completed state -------------------- */
+.woc-complete { border-color: rgba(16,185,129,.3) !important; }
+.woc-complete .woc-fill { background: linear-gradient(90deg, #10b981, #06d6db) !important; }
+.woc-complete .woc-week { color: var(--emerald); }
+
+/* -- Mobile sidebar ------------------------------------------ */
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed !important;
+        left: -280px;
+        top: 0;
+        height: 100vh;
+        z-index: 200;
+        transition: left .25s cubic-bezier(.4,0,.2,1);
+        box-shadow: none;
+    }
+
+    .sidebar.mobile-open {
+        left: 0 !important;
+        box-shadow: 4px 0 32px rgba(0,0,0,.6);
+    }
+
+    /* Dim overlay behind sidebar on mobile */
+    .sidebar.mobile-open::after {
+        content: '';
+        position: fixed;
+        inset: 0;
+        left: 280px;
+        background: rgba(0,0,0,.5);
+        z-index: -1;
+    }
+
+    .app-shell {
+        grid-template-columns: 1fr !important;
+    }
+
+    .topbar-icon-btn { width: 30px; height: 30px; font-size: 14px; }
+    .streak-pill span { display: none; }
+}
