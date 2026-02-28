@@ -375,7 +375,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ghBtn.innerHTML = '<i class="fa-brands fa-github"></i>';
 
         const liBtn = document.createElement('a');
-        liBtn.href = 'https://www.linkedin.com/in/deepakputta/';
+        liBtn.href = 'https://www.linkedin.com/in/deepak-sai-putta/';
         liBtn.target = '_blank';
         liBtn.rel = 'noreferrer';
         liBtn.className = 'topbar-icon-btn li-btn';
