@@ -8,7 +8,6 @@ class RobotMonitor:
         self.latest = {}
 
     # initialize
-
     def add_reading(self, robot_id: str, temperature: float):
         self.latest[robot_id] = temperature
         #print(self.latest)
@@ -16,7 +15,6 @@ class RobotMonitor:
         if len(self.heap) > self.k:
             heapq.heappop(self.heap)
         #print(self.heap)
-
     # add new reading, maintain top K
 
     def get_top_k(self) -> list:
