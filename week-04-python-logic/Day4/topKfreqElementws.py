@@ -18,5 +18,3 @@ def topKFrequent(nums, k):
 nums = [1,1,1,2,2,3,3,3,4,5]
 k = 2 #find the top 2 most repeated element from nums
 print(topKFrequent(nums, k))
-
-heapq.

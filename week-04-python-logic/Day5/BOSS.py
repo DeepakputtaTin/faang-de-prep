@@ -2,14 +2,10 @@ import heapq
 from collections import defaultdict
 
 def analyze_logs(logs):
-    # Step 1: parse + group into hashmap
-    # Step 2: heap Top-3
-    # Step 3: return sorted by frequency
     log = defaultdict(int)
     heap =[]
 
     for i in logs:
-
         a = i.split()
         #print(a)
         b = a[2].split('=')[1]
