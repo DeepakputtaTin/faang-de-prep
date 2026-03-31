@@ -1,0 +1,3 @@
+{"booking_id": "B001", "user_id": "U123", "property_id": "P456", "amount_usd": 250.0}
+{"booking_id": "B003", "user_id": "U125", "property_id": "P456", "amount_usd": 300.0}
+{"booking_id": "B005", "user_id": "U123", "property_id": "P459", "amount_usd": 200.0}

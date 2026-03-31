@@ -1,0 +1,6 @@
+booking_id,user_id,property_id,amount,currency,status
+B001,U123,P456,250.00,USD,confirmed
+B002,U124,P457,180.00,EUR,cancelled
+B003,U125,P456,300.00,USD,confirmed
+B004,U126,P458,150.00,GBP,pending
+B005,U123,P459,200.00,USD,confirmed
